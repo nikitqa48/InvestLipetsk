@@ -3,5 +3,13 @@ from .models import Profile, Organisation, Statement
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['profile', 'email', 'phone', 'id']
+    list_display = ['user', 'email', 'phone', 'id']
+
+@admin.register(Organisation)
+class OrganisationAdmin(admin.ModelAdmin):
+    list_display = ['contacts', 'organisation_name', 'industry']
+
+@admin.register(Statement)
+class Statement(admin.ModelAdmin):
+    list_display = ['statement_user', 'project_name', 'description', 'industry', 'cost', 'square', 'work', 'company']
 
