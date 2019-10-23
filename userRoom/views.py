@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Statement, Organisation
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm
 from django.http import HttpResponseRedirect, HttpResponse
+from django.views.generic import TemplateView
 
 
 def statement_state(request):
@@ -11,7 +12,7 @@ def statement_state(request):
 
 def organisation_post(request):
     organisations = Organisation.objects.order_by('industry')
-    return render(request, "/", {'organsiation': organisations})
+    return render(request, "/", {'organsiations': organisations})
 
 
 def edit_profile(request, pk):
@@ -23,8 +24,17 @@ def edit_profile(request, pk):
             profile.email = form.cleaned_data['email']
             profile.phone = form.cleaned_data['phone']
             profile.save()
-            return redirect('profile_view')
+            return redirect('private',pk=request.user.id)
 
+def head_page(request):
+    return render(request,'userRoom/head_page.html') 
+
+def private_area(request, pk):
+    profile = Profile.objects.get(user_id=pk)
+    context = {
+        'profile':profile
+    }
+    return render (request, "userRoom/private_area.html", context)
 
 def new_profile(request):
     form = Profile_form
@@ -35,34 +45,43 @@ def new_profile(request):
     }
     return render(request, 'userRoom/profile.html', context)
 
-
 def new_organisation(request):
     form = Organisation_form
+    organisation = Organisation.objects.all()
     context = {
         'form': form,
+        'organisation': organisation
     }
-    return render(request,'userRoom/organisation.html', context)
-
+    return render(request,'userRoom/organisation.html', context)   
 
 def edit_organisation(request, pk):
     organisation = Organisation.objects.get(id=pk)
     if request.method == "POST":
-        form = Organisation_form(request.POST)
+        form = Organisation_form(request.POST, organisation = organisation)
         if form.is_valid():
-            organisation.contacts = request.contacts
-            organisation_name = request.name
-            organisation.industry = request.industry
+            organisation.email = form.cleaned_data['email']
+            organisation.contacts = form.cleaned_data['contacts']
+            organisation_name = form.cleaned_data['organisation_name']
+            organisation.industry = form.cleaned_data['organisation_industry']
             organisation.save()
-            
+            return redirect('organisation_view')
+        else:
+            return redirect('organisation_view')
+
+
+
+
+
             #organisation_f = OrganisationForm.save(commit=False)
             #organisation_f.author = request.user
-
-            return redirect('organisation_view')
+            
+    
     #else:
+        #OrganisationForm = Organisation_form()
         #context = {
-            #'form': form
+            #'OrganisationForm': OrganisationForm
         #}
-    #return render(request, 'userRoom/organisation.html', context)
+   # return render(request, 'userRoom/organisation.html', context)
 
 
 def new_statement(request):

@@ -7,7 +7,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Organisation)
 class OrganisationAdmin(admin.ModelAdmin):
-    list_display = ['contacts', 'organisation_name', 'industry']
+    list_display = ['contacts', 'organisation_name', 'industry', "id"]
 
 @admin.register(Statement)
 class Statement(admin.ModelAdmin):

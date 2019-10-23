@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+<div class="random"  action="{% url 'private' pk=user.id%}">
+    <div class="container">
+        <div class = "profile">
+            <h2>Профиль</h2>
+            <div class="information"></div>
+
+            <h3>{{ profile.id }}</h3>{{ profile.email }}<h3>{{ profile.phone }}</h3>
+            </div>
+            <a href = "{% url 'profile_view' %}"><button> редактировать профиль </button></a> 
+            <button> Выйти</button>
+        </div>
+        <div class="organisation">
+            <button> Добавить организацию </button>
+            <button> Редактировать организацию</button>
+        </div>
+        <div class="statement">
+            <button>Добавить заявку</button>
+            <div class="status">
+                <h3>Статус заявки</h3>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+{% endblock %}
