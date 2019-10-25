@@ -32,10 +32,9 @@ def head_page(request):
 def private_area(request, pk):
     profile = Profile.objects.get(user_id=pk)
     context = {
-        'profile':profile
+        'profile':profile,
     }
     return render (request, "userRoom/private_area.html", context)
-
 
 
 def new_profile(request):
@@ -62,23 +61,14 @@ def edit_organisation(request, pk):
     if request.method == "POST":
         form = Organisation_form(request.POST)
         if form.is_valid():
-            form.save()
-            organisation = Organisation.objects.create(contacts = form.contacts,name = form.organisation_name,industry = form.industry)
+            organisation = Organisation.objects.create(profile_organisation_id=pk,
+                                                       contacts=form.cleaned_data['contacts'],
+                                                       industry=form.cleaned_data['industry'],
+                                                       organisation_name=form.cleaned_data['organisation_name']
+                                                       )
             organisation.save()
-            return redirect('organisation_view')
-        else:
-            return redirect('organisation_view')
+            return redirect('private',pk=request.user.id )
 
-            #organisation_f = OrganisationForm.save(commit=False)
-            #organisation_f.author = request.user
-            
-    
-    #else:
-        #OrganisationForm = Organisation_form()
-        #context = {
-            #'OrganisationForm': OrganisationForm
-        #}
-   # return render(request, 'userRoom/organisation.html', context)
 
 
 def new_statement(request):

@@ -2,13 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head> 
-        <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">      
-    <title>{% block title %}{% endblock %}</title>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">         
 </head>
 <body>
-<div id="header">
-</div>
+    {% include "userRoom/header.html" %}
 <div class="content">
     {% block content %}
     {% endblock %}

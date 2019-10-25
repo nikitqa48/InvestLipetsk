@@ -1,7 +1,13 @@
 {% extends "base.html" %}
-
-{% block title %}Log-in{% endblock %}
 {% block content %}
-        <a href = "{% url 'private' pk=user.id%}"><button class="login">Личный кабинет</button> </a>
-        <a href = ""><button class="login">Регистрация</button> </a>
+{% if user.is_authenticated %}
+    <div class="container_wrap">
+        <a href="{% url 'private' pk=user.id %}">
+            <button class="login">Личный кабинет</button>
+        </a></div>
+    {% else %}
+        <a href="">
+            <button class="login">Регистрация</button>
+        </a>
+{% endif %}
 {% endblock %}

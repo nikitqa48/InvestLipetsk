@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h3>Редактировать профиль</h3>
+    <h3>редактировать профиль</h3>
     <p>Пожалуйста, заполните поля:</p>
     <form method="POST" action="{% url 'profile' pk=profile.id %}"  class="form-horizontal" >
         {{ form }}
