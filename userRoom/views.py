@@ -60,11 +60,10 @@ def new_organisation(request):
 
 def edit_organisation(request, pk):
     if request.method == "POST":
-        organisation = Organisation.objects.filter(profile_organisation_id = pk)
         form = Organisation_form(request.POST)
         if form.is_valid():
-            organisation.create('contacts'== form.contacts, 'name' == form.organisation_name, 'industry' == form.industry)
             form.save()
+            organisation = Organisation.objects.create(contacts = form.contacts,name = form.organisation_name,industry = form.industry)
             organisation.save()
             return redirect('organisation_view')
         else:
