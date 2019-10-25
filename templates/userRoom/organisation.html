@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h1>Логин</h1>
     <p>Пожалуйста, заполните поля:</p>
-    <form method="POST" action="{% url 'edit_organisation' pk=organisation.id %}"  class="form-horizontal" >
+    <form method="POST" action="{% url 'edit_organisation' pk=profile.id%}"  class="form-horizontal" >
         {{ form }}
         {% csrf_token %}
         <input type="submit" value="Создать" />

@@ -19,14 +19,15 @@ class Profile(models.Model):
 
 
 class Organisation(models.Model):
-    profile_organisation = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    contacts = models.CharField("Контакты организации", max_length=40, blank=True)
-    organisation_name = models.CharField("Имя организации", max_length=20, blank=True)
-    industry = models.CharField("Вид деятельности", max_length=30, blank=True)
+    profile_organisation = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
+    organisation_name = models.CharField("Имя организации", max_length=20, blank=True,null= True)
+    contacts = models.CharField("Контакты организации", max_length=40, blank=True, null = True)
+    industry = models.CharField("Вид деятельности", max_length=30, blank=True, null=True)
 
     class Meta:
         verbose_name = "Организация"
         verbose_name_plural = "Организации"
+
 
     def __str__(self):
         return self.organisation_name

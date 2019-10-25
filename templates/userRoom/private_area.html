@@ -10,10 +10,10 @@
             <h3>{{ profile.id }}</h3>{{ profile.email }}<h3>{{ profile.phone }}</h3>
             </div>
             <a href = "{% url 'profile_view' %}"><button> редактировать профиль </button></a> 
-            <button> Выйти</button>
+            <a href=""><button> Выйти</button></a>
         </div>
         <div class="organisation">
-            <button> Добавить организацию </button>
+            <a href= "{% url 'organisation_view' %}"><button> Добавить организацию </button></a>
             <button> Редактировать организацию</button>
         </div>
         <div class="statement">

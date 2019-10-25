@@ -2,7 +2,6 @@
 
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h1>Главная страница</h1>
-    <form method="POST" action="{% url 'container' %}"  class="form-horizontal">
-    </form>
+        <a href = "{% url 'private' pk=user.id%}"><button class="login">Личный кабинет</button> </a>
+        <a href = ""><button class="login">Регистрация</button> </a>
 {% endblock %}

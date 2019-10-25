@@ -36,6 +36,8 @@ def private_area(request, pk):
     }
     return render (request, "userRoom/private_area.html", context)
 
+
+
 def new_profile(request):
     form = Profile_form
     profile = Profile.objects.get(user=request.user)
@@ -46,31 +48,27 @@ def new_profile(request):
     return render(request, 'userRoom/profile.html', context)
 
 def new_organisation(request):
+    profile = Profile.objects.get(user = request.user)
     form = Organisation_form
     organisation = Organisation.objects.all()
     context = {
+        'profile' : profile,
         'form': form,
         'organisation': organisation
     }
     return render(request,'userRoom/organisation.html', context)   
 
 def edit_organisation(request, pk):
-    organisation = Organisation.objects.get(id=pk)
     if request.method == "POST":
-        form = Organisation_form(request.POST, organisation = organisation)
+        organisation = Organisation.objects.filter(profile_organisation_id = pk)
+        form = Organisation_form(request.POST)
         if form.is_valid():
-            organisation.email = form.cleaned_data['email']
-            organisation.contacts = form.cleaned_data['contacts']
-            organisation_name = form.cleaned_data['organisation_name']
-            organisation.industry = form.cleaned_data['organisation_industry']
+            organisation.create('contacts'== form.contacts, 'name' == form.organisation_name, 'industry' == form.industry)
+            form.save()
             organisation.save()
             return redirect('organisation_view')
         else:
             return redirect('organisation_view')
-
-
-
-
 
             #organisation_f = OrganisationForm.save(commit=False)
             #organisation_f.author = request.user
