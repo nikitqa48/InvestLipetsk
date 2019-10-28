@@ -1,0 +1,18 @@
+<nav class="header_slider">
+    <div class="header_container">
+                <div class="left_nav">
+                    <button class="burger"><img src="/static/userRoom/img/Group 1.svg" alt="burger"></button>
+                    <p class="logo"><span class="white_logo">Инвест</span> Липецк</p>
+                </div>  
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'private' pk=user.id %}">
+                            <button class="login">Личный кабинет</button>
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <button class="login">Регистрация</button>
+                        </a>
+                        
+                    {% endif %}
+                </div>
+</nav>

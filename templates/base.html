@@ -2,13 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head> 
-    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">         
+    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">     
+    <link rel="stylesheet" type="text/css" href='/static/slick-1.8.1/slick/slick.css'> 
+    <link rel="stylesheet" type="text/css" href="/static/slick-1.8.1/slick/slick-theme.css"/>   
 </head>
 <body>
-    {% include "userRoom/header.html" %}
 <div class="content">
     {% block content %}
     {% endblock %}
 </div>
+
+      <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>
+      <script type="text/javascript">
+         $('.fade').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear'
+});
+      </script>
 </body>
 </html>
