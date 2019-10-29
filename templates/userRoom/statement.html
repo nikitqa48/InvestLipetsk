@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+    <p>Пожалуйста, заполните поля:</p>
+    <form method="POST" action="{% url 'statement' pk=profile.id %}"  class="form-horizontal" >
+        {{ form }}
+        {% csrf_token %}
+        <input type="submit" value="Создать" />
+    </form>
+{% endblock %}

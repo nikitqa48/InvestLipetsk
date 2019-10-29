@@ -35,13 +35,13 @@ class Organisation(models.Model):
 
 class Statement(models.Model):
     statement_user = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    project_name = models.CharField("Наименование проекта", max_length=30)
-    description = models.TextField("Описание проекта")
-    industry = models.CharField('Вид деятельности', max_length=30)
+    project_name = models.CharField("Наименование проекта", max_length=30, null = True, blank = True)
+    description = models.TextField("Описание проекта", null = True, blank= True)
+    industry = models.CharField('Вид деятельности', max_length=30, null = True, blank = True)
     data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)
-    cost = models.CharField("Стоимость проекта", max_length=40)
-    square = models.CharField("Площадь земельного участка", max_length=40)
-    work = models.CharField("Колличество рабочих", max_length=5)
+    cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
+    square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
+    work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
     company = models.ForeignKey(Organisation, on_delete=models.CASCADE)
 
     class Meta:

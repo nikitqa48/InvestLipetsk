@@ -10,7 +10,7 @@
             <h3>{{ profile.user.name }}</h3>{{ profile.email }}<h3>{{ profile.phone }}</h3>
             </div>
             <a href = "{% url 'profile_view' %}"><button> редактировать профиль </button></a> 
-            <a href=""><button> Выйти</button></a>
+            <a href="{% url 'logout' %}"><button> Выйти</button></a>
         </div>
         <div class="organisation">
             <h2>Ваша организация</h2>
@@ -19,7 +19,8 @@
             <button> Редактировать организацию</button>
         </div>
         <div class="statement">
-            <button>Добавить заявку</button>
+            <a href="{% url 'statement_view' %}">
+            <button>Добавить заявку</button></a>
             <div class="status">
                 <h3>Статус заявки</h3>
             </div>

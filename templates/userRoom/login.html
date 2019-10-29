@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Логин</h1>
     <p>Пожалуйста, заполните поля:</p>
-    <form action="" method="post">
+    <form action="{% url 'login'%}" method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Log-in"></p>
