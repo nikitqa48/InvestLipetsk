@@ -25,8 +25,12 @@ def head_page(request):
                                 #ЛИЧНЫЙ КАБИНЕТ
 def private_area(request, pk):
     profile = Profile.objects.get(user_id=pk)
+    organisations = Organisation.objects.filter(profile_organisation=profile.id)
+    statements = Statement.objects.filter(statement_user_id = pk)
     context = {
         'profile':profile,
+        'organisations': organisations,
+        'statements':statements
     }
     return render (request, "userRoom/private_area.html", context)
 
@@ -99,6 +103,7 @@ def new_statement(request):
 def edit_statement(request, pk):
     if request.method == "POST":
         form = Statement_form(request.POST)
+        organisation = Organisation.objects.get(profile_organisation_id=pk)
         if form.is_valid():
             statement = Statement.objects.create(statement_user_id=pk,
                                                 project_name= form.cleaned_data['project_name'],
@@ -107,10 +112,10 @@ def edit_statement(request, pk):
                                                 cost = form.cleaned_data['cost'],
                                                 square = form.cleaned_data['square'],
                                                 work = form.cleaned_data['work'],
-                                                company = pk
+                                                company = organisation
                                                 )
             statement.save()
-            return redirect('contain')
+            return redirect('private', pk = request.user.id)
 
 
 

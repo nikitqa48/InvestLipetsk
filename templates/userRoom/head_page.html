@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="slider">{% include "userRoom/headerslide.html" %}
+{% include "userRoom/headerslide.html" %}
 <div class="fade">        
             <div class="slide">
                 <div class="slide1">
@@ -120,7 +120,6 @@
             </div>
             
       </div>
-    </div>
    <div class="questions">
        <div class="artamonov_container">
            <div class="left_artamonov">
@@ -235,7 +234,7 @@
         <p class="lipetsk">в Липецкой области</p>
         </div>
         <div class="items">
-            <div class="item">
+            <div class="item1">
                 <p class="number_item">01</p>
                 <p class="status">
                     Подача заявки
@@ -244,7 +243,7 @@
                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
             </div>
-            <div class="item">
+            <div class="item1">
                     <p class="number_item">02</p>
                     <p class="status">
                         Рассмотрение заявки
@@ -253,7 +252,7 @@
                             consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>
-                <div class="item">
+                <div class="item1">
                         <p class="number_item">03</p>
                         <p class="status">
                             Сопровождение
@@ -262,7 +261,7 @@
                                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </div>
-                    <div class="item">
+                    <div class="item1">
                             <p class="number_item">04</p>
                             <p class="status">
                                 Реализация проекта
@@ -276,7 +275,89 @@
             <button class="big_invest">
                 Стать инвестором
             </button>
+            <button class="question">
+                ?
+            </button>
         </div>
     </div>
+   </div>
+   <div class="history">
+    <div class="slider">
+            <div class="slidebut">
+                    <a class="prev" onclick="minusSlide()">&#10094;</a>
+                    <a class="next" onclick="plusSlide()">&#10095;</a>
+                </div>
+
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 1</div>
+        </div>
+    
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 2</div>
+            
+        </div>
+    
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 3</div>
+        </div>
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 4</div>
+        </div>
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 5</div>
+        </div>
+        <div class="item">
+                <div class="slider-dots">
+                        <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                        <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                        <span class="slider-dots_item" onclick="currentSlide(6)"></span>   
+                    </div>
+            <div class="slideText">История 6</div>
+        </div>
+    </div>
+    
    </div>
 {% endblock %}

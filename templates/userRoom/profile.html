@@ -6,6 +6,6 @@
     <form method="POST" action="{% url 'profile' pk=profile.id %}"  class="form-horizontal" >
         {{ form }}
         {% csrf_token %}
-        <input type="submit" value="Создать" />
+        <input class = "submit" type="submit" value="Создать" />
     </form>
 {% endblock %}

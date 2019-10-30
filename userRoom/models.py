@@ -10,6 +10,7 @@ class Profile(models.Model):
     email = models.CharField("Почта", blank=True, null=True, max_length=50)
     phone = models.CharField("Телефон", blank=True, null=False, max_length=30)
 
+
     class Meta:
         verbose_name = "Профиль"
         verbose_name_plural = "Профили"
@@ -43,6 +44,8 @@ class Statement(models.Model):
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
     company = models.ForeignKey(Organisation, on_delete=models.CASCADE)
+    ORDER_STATUS = ((0, 'Рассмотрение'), (1, 'Сопровождение'), (2, 'Реализация'), (3, 'Завершено'))
+    status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False)
 
     class Meta:
         verbose_name = "Заявка"

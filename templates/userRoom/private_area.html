@@ -7,23 +7,40 @@
             <h2>Профиль</h2>
             <div class="information"></div>
 
-            <h3>{{ profile.user.name }}</h3>{{ profile.email }}<h3>{{ profile.phone }}</h3>
+            <h3>{{ profile.user }}
+                {{ profile.phone }}</h3>
             </div>
             <a href = "{% url 'profile_view' %}"><button> редактировать профиль </button></a> 
             <a href="{% url 'logout' %}"><button> Выйти</button></a>
         </div>
         <div class="organisation">
-            <h2>Ваша организация</h2>
-            <h4>{{organisation}}</h4>
+            <h2>Ваши организации</h2>
+            {% for organisation in organisations %}
+        <h4>{{organisation}}</h4>
+            {% endfor %}
             <a href= "{% url 'organisation_view' %}"><button> Добавить организацию </button></a>
             <button> Редактировать организацию</button>
         </div>
         <div class="statement">
-            <a href="{% url 'statement_view' %}">
-            <button>Добавить заявку</button></a>
+                <a href="{% url 'statement_view' %}">
+                        <button>Добавить заявку</button></a>
+            {% for statement in statements %}
+            <h4>{{statement.project_name}}</h4>
+            
+            
             <div class="status">
                 <h3>Статус заявки</h3>
+                {% if statement.status == 0 %}
+                <p>рассмотрение<p>
+                {% elif statement.status == 1%}
+                    <p>Сопровождение <p>
+                {% elif statement.status == 2%} 
+                    <p>Реализация <p>
+                {% elif statement.status == 3%} 
+                            <p>Завершено <p>                
+                    {% endif %}
             </div>
+            {% endfor %}
         </div>
         
     </div>
