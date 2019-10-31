@@ -21,7 +21,7 @@ class Organisation_form(forms.ModelForm):
 class Statement_form(forms.ModelForm):
     class Meta:
         model = Statement
-        fields = ["project_name", "industry", "cost", "square", "work", "company", "description"]
+        fields = ["project_name", "industry", "cost", "square", "work", "description"]
 
 
 class LoginForm(forms.Form):

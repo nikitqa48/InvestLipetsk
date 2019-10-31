@@ -22,11 +22,15 @@
             <button> Редактировать организацию</button>
         </div>
         <div class="statement">
-                <a href="{% url 'statement_view' %}">
-                        <button>Добавить заявку</button></a>
+            <a href="{% url 'statement_view' %}">
+                <button>Добавить заявку</button></a>
             {% for statement in statements %}
-            <h4>{{statement.project_name}}</h4>
-            
+            <h4>{{statement}}</h4>
+            <p>id заявки = {{statement.id}}</p>
+            <a href="{% url 'snap' pk=statement.id %}">
+            <button>Привязать заявку к пользователю
+            </button>
+        </a>
             
             <div class="status">
                 <h3>Статус заявки</h3>

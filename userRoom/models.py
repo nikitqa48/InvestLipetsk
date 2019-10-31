@@ -20,10 +20,10 @@ class Profile(models.Model):
 
 
 class Organisation(models.Model):
-    profile_organisation = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
-    organisation_name = models.CharField("Имя организации", max_length=20, blank=True,null= True)
-    contacts = models.CharField("Контакты организации", max_length=40, blank=True, null = True)
-    industry = models.CharField("Вид деятельности", max_length=30, blank=True, null=True)
+    profile_organisation = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False,default=1)
+    organisation_name = models.CharField("Имя организации", max_length=20, blank=True,null= True,default=1)
+    contacts = models.CharField("Контакты организации", max_length=40, blank=True, null = True,default=1)
+    industry = models.CharField("Вид деятельности", max_length=30, blank=True, null=True,default=1)
 
     class Meta:
         verbose_name = "Организация"
@@ -35,7 +35,6 @@ class Organisation(models.Model):
 
 
 class Statement(models.Model):
-    statement_user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     project_name = models.CharField("Наименование проекта", max_length=30, null = True, blank = True)
     description = models.TextField("Описание проекта", null = True, blank= True)
     industry = models.CharField('Вид деятельности', max_length=30, null = True, blank = True)
@@ -43,10 +42,8 @@ class Statement(models.Model):
     cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
-    company = models.ForeignKey(Organisation, on_delete=models.CASCADE)
-    ORDER_STATUS = ((0, 'Рассмотрение'), (1, 'Сопровождение'), (2, 'Реализация'), (3, 'Завершено'))
-    status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False)
-
+    ORDER_STATUS = ((0, 'Неактивна'), (1, 'Рассмотрение'), (2, 'Реализация'), (3, 'Завершено'))
+    status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False, default=0)
     class Meta:
         verbose_name = "Заявка"
         verbose_name_plural = "Заявки"
@@ -57,6 +54,17 @@ class Statement(models.Model):
 
     def __str__(self):
         return self.project_name
+
+class Manager(models.Model):
+    manager = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
+    zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
+    class Meta:
+        verbose_name = 'Куратор'
+        verbose_name_plural = 'Кураторов'
+
+    def __str__(self):
+        return self.manager.user.username
+
 
 
 @receiver(post_save, sender=User)

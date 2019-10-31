@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Statement, Organisation
+from .models import Profile, Statement, Organisation, Manager
 from django.contrib.auth import authenticate, login, logout
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm
 from django.http import HttpResponseRedirect, HttpResponse
@@ -17,16 +17,16 @@ def organisation_post(request):
 
 
 
-                                #Главная страница
+                                                    #Главная страница
 def head_page(request):
     return render(request,'userRoom/head_page.html') 
 
 
-                                #ЛИЧНЫЙ КАБИНЕТ
+                                                    #ЛИЧНЫЙ КАБИНЕТ
 def private_area(request, pk):
     profile = Profile.objects.get(user_id=pk)
     organisations = Organisation.objects.filter(profile_organisation=profile.id)
-    statements = Statement.objects.filter(statement_user_id = pk)
+    statements = Statement.objects.all()
     context = {
         'profile':profile,
         'organisations': organisations,
@@ -35,7 +35,7 @@ def private_area(request, pk):
     return render (request, "userRoom/private_area.html", context)
 
 
-                                #НОВЫЙ ПРОФИЛЬ
+                                                    #НОВЫЙ ПРОФИЛЬ
 
 def new_profile(request):
     form = Profile_form
@@ -47,7 +47,7 @@ def new_profile(request):
     return render(request, 'userRoom/profile.html', context)
 
 
-                                #РЕДАКТИРОВАТЬ ПРОФИЛЬ
+                                                    #РЕДАКТИРОВАТЬ ПРОФИЛЬ
 
 def edit_profile(request, pk):
     profile = Profile.objects.get(id=pk)
@@ -62,7 +62,7 @@ def edit_profile(request, pk):
 
 
 
-                                    #ОРГАНИЗАЦИЯ
+                                                    #ОРГАНИЗАЦИЯ
 def new_organisation(request):
     profile = Profile.objects.get(user = request.user)
     form = Organisation_form
@@ -88,39 +88,46 @@ def edit_organisation(request, pk):
 
                                   
 
-                                  #ЗАЯВКА
+                                                    #ЗАЯВКА
 def new_statement(request):
-    profile = Profile.objects.get(user = request.user)
     form = Statement_form
     statement = Statement.objects.all()
     context = {
         'form' : form,
-        'profile' : profile,
         'statement' : statement
     }
     return render(request, 'userRoom/statement.html', context)
 
-def edit_statement(request, pk):
+def edit_statement(request):
     if request.method == "POST":
         form = Statement_form(request.POST)
-        organisation = Organisation.objects.get(profile_organisation_id=pk)
         if form.is_valid():
-            statement = Statement.objects.create(statement_user_id=pk,
+            statement = Statement.objects.create(
                                                 project_name= form.cleaned_data['project_name'],
                                                 description = form.cleaned_data['description'],
                                                 industry = form.cleaned_data['industry'],
                                                 cost = form.cleaned_data['cost'],
                                                 square = form.cleaned_data['square'],
                                                 work = form.cleaned_data['work'],
-                                                company = organisation
                                                 )
             statement.save()
-            return redirect('private', pk = request.user.id)
+            return redirect('container')
+
+                                            #ПРИВЯЗКА ЗАЯВКИ К МОДЕРАТОРУ
+def snap(request,pk):
+    if request.method == 'GET':
+        profile = Profile.objects.get(user = request.user)
+        statement = Statement.objects.get(id= pk)
+        statement.status == 2
+        statement.save()
+        manager = Manager.objects.create(manager = profile,
+                                        zayavka = statement
+                                        )
+        manager.save()
+        return redirect('private', pk = request.user.id)
 
 
-
-
-                                 #РЕГИСТРАЦИЯ
+                                                #РЕГИСТРАЦИЯ
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
@@ -133,7 +140,7 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'userRoom/registration.html', {'user_form': user_form})
 
-                                #АВТОРИЗАЦИЯ
+                                                #АВТОРИЗАЦИЯ
 
 def user_login(request):
     if request.method == 'POST':
@@ -154,7 +161,7 @@ def user_login(request):
     return render(request, 'userRoom/login.html', {'form': form})
 
 
-                    #LOGOUT
+                                                #LOGOUT
 def logout_view(request):
     logout(request)
     return redirect ('container')
