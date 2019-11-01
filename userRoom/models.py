@@ -42,7 +42,7 @@ class Statement(models.Model):
     cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
-    ORDER_STATUS = ((0, 'Неактивна'), (1, 'Рассмотрение'), (2, 'Реализация'), (3, 'Завершено'))
+    ORDER_STATUS = ((0, 'неактивна'),(1, 'В сопровождении') ,(2, 'Реализация'), (3, 'Завершено'))
     status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False, default=0)
     class Meta:
         verbose_name = "Заявка"
@@ -58,9 +58,10 @@ class Statement(models.Model):
 class Manager(models.Model):
     manager = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
     zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
+    data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)
     class Meta:
         verbose_name = 'Куратор'
-        verbose_name_plural = 'Кураторов'
+        verbose_name_plural = 'Кураторы'
 
     def __str__(self):
         return self.manager.user.username

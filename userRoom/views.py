@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
+from django.utils import timezone
 
                    
 def statement_state(request):
@@ -118,12 +119,20 @@ def snap(request,pk):
     if request.method == 'GET':
         profile = Profile.objects.get(user = request.user)
         statement = Statement.objects.get(id= pk)
-        statement.status == 2
-        statement.save()
+        statement.status == 2 
+        managers = Manager.objects.all()
+        statements = Statement.objects.all()      
         manager = Manager.objects.create(manager = profile,
-                                        zayavka = statement
+                                        zayavka = statement,   
                                         )
+        for manage in managers:
+            manager_id = manage.manager.user.id
+        
+        for state in statements:
+            state_id = statements.id
+        
         manager.save()
+        statement.save()
         return redirect('private', pk = request.user.id)
 
 
