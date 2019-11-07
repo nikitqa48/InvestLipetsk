@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 {% include "userRoom/headerslide.html" %}
-        <div class="infrastruktura_container">
-            <div class="inside"> 
+        <div class="infrastruktura_container" id="head">
+            <div class="inside" id="pref"> 
                 <div class="preferenc">
                     <h3 class="nalog">Налоговые льготы <br>и Преференции</h3>
                     <div class="pref_border"> </div>
@@ -56,14 +56,127 @@
                </table>
 
             </div>
+            <div class="inside1" id = "log"> 
+                <div class="preferenc" >
+                    <h3 class="nalog">Выгодная<br>логистика</h3>
+                    <div class="pref_border"> </div>
+                    <p class="pref_text">в случае вступления в ОЭЗ РУ ТРТ <br>«ЗАДОНЩИНА»</p>
+                </div>
+               <table class="preferense_table">
+                   <tr>
+                       <td class="pref_td">
+                           Расстояние до Москвы
+                       </td>
+                       <td><p class="procent">450 км</p>
+                      
+                           
+                       </td>
+                   </tr>
+                   <tr class="no_name">
+                       <td>
+
+                       </td>
+                       <td>
+                           
+                       </td>
+                       
+                   </tr>
+                   <tr class="height">
+                       <td>
+                           Трассы федерального значения
+                       </td>
+                       <td>  <p class="procent">3</p></td>
+                   </tr>
+                   <tr class="height">
+                        <td>
+                           Наличие Международного аэропорта
+                        </td>
+                        <td class="td_flex1"><p class="procent">100 км</p></td>
+                    </tr>
+               </table>
+
+            </div>
+            <div class="inside2" id = "kadr"> 
+                <div class="preferenc">
+                    <h3 class="nalog">Профессиональные  <br>кадры</h3>
+                </div>
+               <table class="preferense_table">
+                   <tr class="no_name">
+ 
+                       <td><p class="procent">810 тыс.</p>
+                      
+                           
+                       </td>
+                       <td class="flex_td"><p class="years">экономически активного населения</p></td>
+                   </tr>
+
+                   <tr class="height">
+                       <td>  <p class="procent">25</p></td>
+                       <td class="td_flex"> <p class="years">Высших учебных заведений</p></td>
+                   </tr>
+                   <tr class="height">
+                    <td>  <p class="procent">80 тыс.</p></td>
+                    <td class="td_flex"> <p class="years">учащихся ежегодно</p></td>
+                </tr>
+               </table>
+
+            </div>
+            <div class="inside2" id = "teamate"> 
+                <div class="preferenc">
+                    <h3 class="nalog">Эффективная  <br>Команда</h3>
+                </div>
+               <table class="preferense_table">
+                   <tr class="no_name">
+ 
+                       <td><p class="procent">24/7</p>
+                      
+                           
+                       </td>
+                       <td class="flex_td"><p class="years">Сопровождение инвесторов</p></td>
+                   </tr>
+
+                   <tr class="height">
+                       
+                       <td class="td_flex"> <p class="years">Опыт реализации крупных  проектов</p></td>
+                   </tr>
+                   <tr class="height">
+                    <td class="td_flex"> <p class="years">лучшая организация по привлечению инвестиций</p></td>
+                </tr>
+               </table>
+
+            </div>  
+            <div class="inside3" id = "infros"> 
+                <div class="preferenc">
+                    <h3 class="nalog">Инфраструктура <br>Липецкой области</h3>
+                </div>
+               <table class="preferense_table">
+                   <tr class="no_name">
+ 
+                       <td><p class="procent">6</p>
+                      
+                           
+                       </td>
+                       <td class="flex_td"><p class="years">Генерирующих электростанций</p></td>
+                   </tr>
+
+                   <tr class="height">
+                        <td><p class="procent">100%</p>
+                       <td class="td_flex"> <p class="years">Уровень электрофикации</p></td>
+                   </tr>
+                   <tr class="height">
+                    <td class="td_flex"> <p class="years">лучшая организация по привлечению инвестиций</p></td>
+                </tr>
+               </table>
+
+            </div>       
         </div>
 <div class="buttons_slider">
         <ul class="but">
-            <li class="but_li">Инфраструктура</li>
-            <li class="but_li">Кадры</li>
-            <li class="but_li">Преференции</li>
-            <li class="but_li">Команды</li>
-            <li class="but_li">Логистика</li>
+            <li class="but_li" id="1">Инфраструктура</li>
+            <li class="but_li" id="2">Кадры</li>
+            <li class="but_li" id="3">Преференции</li>
+            <li class="but_li" id="4">Команда</li>
+            <li class="but_li" id="5">Логистика</li>
         </ul>
 
     </div>
@@ -74,7 +187,9 @@
                     <div class="slide_container">
                         <div class="left_slide">
                             <div class = "prev_verh">
+                                    <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
                                 <p class="preverh">Культура и спорт</p>
+                                
                             </div>
                             <div class= "slidertext">
                             <img class="slide_image" src="/static/userRoom/img/list.png">
@@ -87,7 +202,8 @@
                         </div>
                         <div class="right_slide">
                                 <div class = "prev_verh_right">
-                                        <p class="preverh">Строительство </p>
+                                    <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                        <p class="preverh1">Строительство </p>
                                     </div>
                             <div class="right_container">
                             <h3 class="investtext">
@@ -109,6 +225,7 @@
                 <div class="slide_container">
                     <div class="left_slide">
                             <div class = "prev_verh">
+                                    <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
                                     <p class="preverh">Обратывабщая отрасль</p>
                                 </div>
                         <div class= "slidertext">
@@ -122,7 +239,8 @@
                     </div>
                     <div class="right_slide">
                             <div class = "prev_verh_right">
-                                    <p class="preverh">Энергетика </p>
+                                    <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                    <p class="preverh1">Энергетика </p>
                                 </div>
                         <div class="right_container">
                         <h3 class="investtext">
@@ -144,6 +262,7 @@
                 <div class="slide_container">
                     <div class="left_slide">
                             <div class = "prev_verh">
+                                    <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
                                     <p class="preverh">Строительство</p>
                                 </div>
                         <div class= "slidertext">
@@ -157,7 +276,8 @@
                     </div>
                     <div class="right_slide">
                             <div class = "prev_verh_right">
-                                    <p class="preverh">Культура и спорт </p>
+                                    <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                    <p class="preverh1">Культура и спорт </p>
                                 </div>
                         <div class="right_container">
                         <h3 class="investtext">
@@ -179,6 +299,7 @@
                 <div class="slide_container">
                     <div class="left_slide">
                             <div class = "prev_verh">
+                                    <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
                                     <p class="preverh">Энергетика</p>
                                 </div>
                         <div class= "slidertext">
@@ -192,7 +313,8 @@
                     </div>
                     <div class="right_slide">
                             <div class = "prev_verh_right">
-                                    <p class="preverh">Обрабатывающая</p>
+                                    <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                    <p class="preverh1">Обрабатыващая отрасль</p>
                                 </div>
                         <div class="right_container">
                         <h3 class="investtext">

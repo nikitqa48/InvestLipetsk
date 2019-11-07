@@ -69,12 +69,8 @@
 
 .slick-prev
 {
-    background-image: url('/static/userRoom/img/leftarrow.svg');
-    background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;
+    border: 1px solid red;
     width:15%;
-    
     z-index: 9999;
     left: 2%;
 }
@@ -97,11 +93,8 @@
 
 .slick-next
 {
+    border: 1px solid red;
     width:15%;
-    background-size: contain;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-image: url('/static/userRoom/img/Arrowright.svg');
     right: 2.5%;
 }
 [dir='rtl'] .slick-next
