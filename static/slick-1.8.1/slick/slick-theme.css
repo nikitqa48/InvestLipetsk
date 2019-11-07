@@ -22,8 +22,9 @@
     line-height: 0;
     position: absolute;
     top: 10%;
+    width:250px;
     display: block;
-    height: 2vh;
+    height: 1.5vh;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -58,7 +59,8 @@
 .slick-prev:before,
 .slick-next:before
 {
-    font-size: 3vw;
+    font-size: 2vw;
+    height:1vh;
     line-height: 1;
     opacity: .75;
     -webkit-font-smoothing: antialiased;
@@ -69,11 +71,12 @@
 {
     background-image: url('/static/userRoom/img/leftarrow.svg');
     background-size: contain;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
-    width:2.3vw;
+    width:15%;
+    
     z-index: 9999;
-    left: 2.5%;
+    left: 2%;
 }
 [dir='rtl'] .slick-prev
 {
@@ -84,7 +87,7 @@
 {
  
     
-    content: '';
+    content: '→';
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -94,9 +97,9 @@
 
 .slick-next
 {
-    width:2.3vw;
+    width:15%;
     background-size: contain;
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     background-image: url('/static/userRoom/img/Arrowright.svg');
     right: 2.5%;

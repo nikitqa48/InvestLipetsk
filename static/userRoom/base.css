@@ -413,3 +413,119 @@ width:25%;
     font-size: 1.25vw;
     color:white;
 }
+.prev_verh{
+    position: absolute;
+    left:7%;
+    width:20%;
+    top:6.5%;
+    color:white;
+}
+.prev_verh_right{
+    position: absolute;
+    width:20%;
+    color:white;
+    width:20%;
+    right:-4%;
+    top:6.5%;
+}
+.buttons_slider{
+    z-index: 9999;
+    background: black;
+    opacity: 0.8;
+    width:50%;
+    left:25%;
+    right: auto;
+    position: absolute;
+    bottom: 0;
+    color:white;
+}
+.but{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+.but li{
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+.infrastruktura_container{
+    position: absolute;
+    min-height:80%;
+    background: black;
+    min-width: 50vw;
+    z-index: 99929;
+    top:10%;
+    left:25%;
+    color:white;
+    opacity: 0.8;
+}
+.inside{
+    width:90%;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height:100%;
+}
+.pref_border{
+    border-bottom:1px solid white;
+    width:50%;
+}
+.nalog{
+    color:white;
+    font-size: 2.5vw;
+    
+}
+.preferense_table{
+    border-collapse: collapse;
+}
+.preferense_table p{
+    padding: 0;
+    margin: 0;
+}
+
+.years{
+    font-size: 0.97vw;
+    padding: 0;
+    margin: 0;
+}
+.preferense_table td{
+
+}
+.no_name{
+    border-bottom: 1px solid white;
+}
+.procent{
+    font-size: 1.66vw;
+}
+.flex_td{
+    width:60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.height{
+    text-align: left;
+    border-bottom: 1px solid white;
+    height: 8vh;
+}
+
+.td_flex{
+    height: 8vh;
+    width:60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.td_flex1{
+    align-self: center;
+    align-items: center;
+    display: flex;
+    width:70%;
+    justify-content: space-between;
+}
+.td_flex2{
+    border:1px solid red;
+    display: flex;
+    width:50%;
+}
