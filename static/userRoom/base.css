@@ -244,6 +244,7 @@ body{
     text-align: right;
 }
 .map{
+    padding-bottom: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -544,7 +545,9 @@ width:25%;
     padding: 0;
     margin: 0;
 }
-
+.data_inside{
+    width:33%;
+}
 .no_name{
     border-bottom: 1px solid white;
 }
