@@ -467,6 +467,7 @@ width:25%;
     color:white;
 }
 .but{
+    font-size: 1vw;
     display: flex;
     list-style: none;
     justify-content: space-around;
@@ -531,6 +532,7 @@ width:25%;
 }
 .preferense_table{
     border-collapse: collapse;
+    width:100%;
 }
 .preferense_table p{
     padding: 0;
@@ -542,9 +544,7 @@ width:25%;
     padding: 0;
     margin: 0;
 }
-.preferense_table td{
 
-}
 .no_name{
     border-bottom: 1px solid white;
 }
@@ -571,11 +571,7 @@ width:25%;
     align-items: center;
 }
 .td_flex1{
-    align-self: center;
-    align-items: center;
-    display: flex;
-    width:70%;
-    justify-content: space-between;
+
 }
 .td_flex2{
 
