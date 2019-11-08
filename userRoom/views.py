@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Statement, Organisation, Manager
+from .models import Profile, Statement, Organisation, Manager, News
 from django.contrib.auth import authenticate, login, logout
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm
 from django.http import HttpResponseRedirect, HttpResponse
@@ -20,7 +20,11 @@ def organisation_post(request):
 
                                                     #Главная страница
 def head_page(request):
-    return render(request,'userRoom/head_page.html') 
+    news = News.objects.all()
+    context = {
+        'news': news
+    }
+    return render(request,'userRoom/head_page.html', context) 
 
 
                                                     #ЛИЧНЫЙ КАБИНЕТ
@@ -174,4 +178,9 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect ('container')
+
+
+                                                #Новости
+
+
 

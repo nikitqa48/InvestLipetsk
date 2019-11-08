@@ -1,6 +1,9 @@
+
 {% extends "base.html" %}
 {% block content %}
 {% include "userRoom/headerslide.html" %}
+<div id="full_page">
+    <section class="block1">
         <div class="infrastruktura_container" id="head">
             <button class="close" id="close">Закрыть</button>
             <div class="inside" id="pref"> 
@@ -183,7 +186,7 @@
                         <div class="left_slide">
                             <div class = "prev_verh">
                                     <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
-                                <p class="preverh">Культура и спорт</p>
+                                <p class="preverh">Туризм</p>
                                 
                             </div>
                             <div class= "slidertext">
@@ -310,7 +313,7 @@
                     <div class="right_slide">
                             <div class = "prev_verh_right">
                                     <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
-                                    <p class="preverh1">Обрабатыващая отрасль</p>
+                                    <p class="preverh1">Промышленность</p>
                                 </div>
                         <div class="right_container">
                         <h3 class="investtext">
@@ -333,7 +336,7 @@
                         <div class="left_slide">
                                 <div class = "prev_verh">
                                         <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
-                                        <p class="preverh">Энергетика</p>
+                                        <p class="preverh">Культура и спорт</p>
                                     </div>
                             <div class= "slidertext">
                             <img class="slide_image" src="/static/userRoom/img/list.png">
@@ -347,7 +350,7 @@
                         <div class="right_slide">
                                 <div class = "prev_verh_right">
                                         <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
-                                        <p class="preverh1">Обрабатыващая отрасль</p>
+                                        <p class="preverh1">Туризм</p>
                                     </div>
                             <div class="right_container">
                             <h3 class="investtext">
@@ -364,8 +367,46 @@
                 </div>
             </div>
                 </div> 
-            
+                <div class="slide">
+                        <div class="slide4">
+                            <div class="slide_container">
+                                <div class="left_slide">
+                                        <div class = "prev_verh">
+                                                <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
+                                                <p class="preverh">Энергетика</p>
+                                            </div>
+                                    <div class= "slidertext">
+                                    <img class="slide_image" src="/static/userRoom/img/list.png">
+                                    <p class="slide_text">В каждом районе Липецкой области есть уникальные исторические, природные, архитектурные объекты, которые имеют рекреационную и эстетическую привлекательность, а многие из них приобретают научное и культурное значение </p>
+                                    </div>
+                                    <div class= "slidertext">
+                                            <img class="slide_image" src="/static/userRoom/img/list.png">
+                                            <p class="slide_text">В ЦФО расположено около двух третьих разведанных запасов железных руд России </p>
+                                            </div>
+                                </div>
+                                <div class="right_slide">
+                                        <div class = "prev_verh_right">
+                                                <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                                <p class="preverh1">Обрабатыващая отрасль</p>
+                                            </div>
+                                    <div class="right_container">
+                                    <h3 class="investtext">
+                                        Инвестируй в
+                                    </h3>
+                                    <h2 class="invest">
+                                        Туризм
+                                    </h2>
+                                    <button class="more">
+                                        Подробнее об отрасли
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>         
       </div>
+      </section>
+    <section class="block2">
    <div class="questions">
        <div class="artamonov_container">
            <div class="left_artamonov">
@@ -386,6 +427,8 @@
            </div>
        </div>
    </div>  
+</section>
+<section class="block3">
    <div class="map">
     <div class="left_map">
     </div>
@@ -473,6 +516,8 @@
             </div>
     </div>
    </div>
+</section>
+<section class="block4">
    <div class="investation">
     <div class="investation_container">
         <div class="flex">
@@ -527,6 +572,8 @@
         </div>
     </div>
    </div>
+</section>
+<section class="block5">
    <div class="history"> 
  
     <div class="shade">  
@@ -610,4 +657,29 @@
     </div>
   </div>
    </div>
+</section> 
+<section class="block6">
+<div class="news">
+    <div class="news_container">
+        <h2 class="news_head">Новости</h2>
+    <div class="itms">
+            {% for new in news %}
+        <div class="itm">
+            <div class="itm_img"><img src= {{new.image.url}}></div>
+            
+        
+        <div class="itm_but">
+
+            <p class="itm_data">{{new.news_data}}</p>
+            <p class="itm_header"><b>{{new.news_header}}</b></p>
+            <p class="itm_text">{{new.news_text}}
+            </p>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+</div>
+</section>
+</div>
 {% endblock %}

@@ -1,3 +1,4 @@
+
 $('.fade').slick({
     dots: true,
     infinite: true,
@@ -29,6 +30,19 @@ $('.fade').slick({
   var preferense = document.getElementById('pref')
   var infros = document.getElementById('infros')
   var close = document.getElementById('close')
+
+
+
+  if (head.classList.contains('none')){
+    alert(2)
+  }
+    var tog = function(){
+      if(head.classList.contains('toggle')){
+        let slider = document.getElementsByClassName('slide_container')
+        slider.classList.add('none')
+      }
+
+    }
  
 close.addEventListener('click', function(){
   head.classList.remove('toggle')
@@ -52,6 +66,7 @@ close.addEventListener('click', function(){
     teamate.classList.add('none')
     infros.classList.remove('toggle')
     infros.classList.add('none')
+    tog()
   })
   logic.addEventListener('click', function(){
     head.classList.add('toggle')
@@ -71,6 +86,7 @@ close.addEventListener('click', function(){
     log.classList.add('toggle')
     infros.classList.remove('toggle')
     infros.classList.add('none')
+    tog()
 
 })
 team.addEventListener('click', function(){
@@ -88,6 +104,7 @@ team.addEventListener('click', function(){
     log.classList.remove('toggle')
     infros.classList.remove('toggle')
     infros.classList.add('none')
+    tog()
 })
 cadr.addEventListener('click', function(){
     head.classList.add('toggle')
@@ -102,6 +119,7 @@ cadr.addEventListener('click', function(){
     log.classList.remove('toggle')
     infros.classList.remove('toggle')
     infros.classList.add('none')
+    tog()
 })
 var left = document.getElementsByClassName('left_slide')
 inf.addEventListener('click', function(){
@@ -121,7 +139,5 @@ inf.addEventListener('click', function(){
     teamate.classList.add('none')
     infros.classList.remove('none')
     infros.classList.add('toggle')
-    left.classList.add('none')
+    tog()
   })
-
-  

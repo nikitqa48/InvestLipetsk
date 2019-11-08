@@ -67,6 +67,18 @@ class Manager(models.Model):
         return self.manager.user.username
 
 
+class News (models.Model):
+    image = models.ImageField(upload_to='static/userRoom/img', height_field=None, width_field=None, max_length=100)
+    news_data = models.DateTimeField(default=timezone.now, blank=False, null = True)
+    news_header = models.CharField("Заголовок новости", max_length=40, null = True, blank = True)
+    news_text = models.TextField('Текст новости', blank=True, null=True)
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+
+    def __str__(self):
+        return self.news_header
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

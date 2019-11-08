@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Organisation, Statement, Manager
+from .models import Profile, Organisation, Statement, Manager, News
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -17,3 +17,6 @@ class Statement(admin.ModelAdmin):
 class Statement(admin.ModelAdmin):
     list_display = ['manager', 'zayavka','data_send']
 
+@admin.register(News)
+class newsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'image', 'news_data', 'news_header', 'news_text']
