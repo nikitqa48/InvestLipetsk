@@ -2,6 +2,7 @@
 {% block content %}
 {% include "userRoom/headerslide.html" %}
         <div class="infrastruktura_container" id="head">
+            <button class="close" id="close">Закрыть</button>
             <div class="inside" id="pref"> 
                 <div class="preferenc">
                     <h3 class="nalog">Налоговые льготы <br>и Преференции</h3>
@@ -294,6 +295,7 @@
             </div>
         </div>
         </div>
+        
         <div class="slide">
             <div class="slide4">
                 <div class="slide_container">
@@ -331,26 +333,56 @@
             </div>
         </div>
             </div>
+            <div class="slide">
+                <div class="slide5">
+                    <div class="slide_container">
+                        <div class="left_slide">
+                                <div class = "prev_verh">
+                                        <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
+                                        <p class="preverh">Энергетика</p>
+                                    </div>
+                            <div class= "slidertext">
+                            <img class="slide_image" src="/static/userRoom/img/list.png">
+                            <p class="slide_text">Существенную роль в общероссийском сырьевом балансе играют запасы железных руд, мела, гипса, доломитов </p>
+                            </div>
+                            <div class= "slidertext">
+                                    <img class="slide_image" src="/static/userRoom/img/list.png">
+                                    <p class="slide_text">В ЦФО расположено около двух третьих разведанных запасов железных руд России </p>
+                                    </div>
+                        </div>
+                        <div class="right_slide">
+                                <div class = "prev_verh_right">
+                                        <img class="arrow" src="/static/userRoom/img/Arrowright.svg"> 
+                                        <p class="preverh1">Обрабатыващая отрасль</p>
+                                    </div>
+                            <div class="right_container">
+                            <h3 class="investtext">
+                                Инвестируй в
+                            </h3>
+                            <h2 class="invest">
+                               Промышленную отрасль
+                            </h2>
+                            <button class="more">
+                                Подробнее об отрасли
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div> 
             
       </div>
    <div class="questions">
        <div class="artamonov_container">
            <div class="left_artamonov">
-            <h2 class="region">Глава региона<br><span class="ready">готов ответить</span><br>на ваши вопросы</h2>
+            <h2 class="region">Завтрак<br><span class="ready">с губернатором</span></h2>
             <span class="artamonov_border"></span>
-            <p class="artamonov_text">Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Arcu ac tortor dignissim convallis aenean. 
-            Arcu ac tortor dignissim convallis aenean. Vivamus at augue eget arcu.</p>
+            <p class="artamonov_text">при наличии инвест проекта от 1 млрд рублей и бизнес проекта </p>
             
             <button class="more">
-                Обратиться к руководству
+                Забронировать место
                 </button>
-                <div id="error" class="modalbackground">
-                    <div class="modalwindow">
-                        <h3>Ошибка!</h3>
-                        <p>Проверьте введенные данные</p>
-                        <a href=" ">Закрыть</a>
-                    </div>
-                </div>
+
            </div>
            <div class="right_artamonov">
                 <p class="artamonov_text2">Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Arcu ac tortor dignissim convallis aenean. 
@@ -381,7 +413,7 @@
             </div>
             <div class="data_inside">
                     <p class="p_region">
-                        <span class="number">1150.2</span>
+                        <span class="number">1150</span>
                         тыс. чел
                     </p>
                     <p class="territory">
@@ -401,7 +433,7 @@
                 </div>
                 <div class="data_inside">
                         <p class="p_region">
-                            <span class="number">539.1</span>
+                            <span class="number">539</span>
                             млрд руб
                         </p>
                         <p class="territory">
@@ -413,7 +445,7 @@
                 <div class="data1">
                         <div class="data_inside">
                         <p class="p_region">
-                            <span class="number">128.5</span>
+                            <span class="number">128</span>
                             млрд руб
                         </p>
                         <p class="territory">
@@ -423,7 +455,7 @@
                     </div>
                     <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">112.1</span>
+                                <span class="number">112</span>
                                 тыс.руб
                             </p>
                             <p class="territory">
@@ -501,10 +533,17 @@
         </div>
     </div>
    </div>
-   <div class="history">
-    <div class="shade">        
+   <div class="history"> 
+ 
+    <div class="shade">  
+
         <div class="slide">
+                <ul class="arrows">
+                        <li class="prev"><img src="/static/userRoom/img/back.svg"></li>
+                        <li class="next">Далее<img src="/static/userRoom/img/neeext.png"></li>
+                    </ul>  
             <div class="slide01">
+                <div class="sucess_container">
                 <div class="sucess">
                     <h2 class="suc">Истории успеха</h2>
                     <p class="lipetsk">В Липецкой области</p>
@@ -515,9 +554,11 @@
                 </div>
                 <p class="indesit_text">Факт присутствия нашей корпорации в Липецке укрепился с годами.</p>
         </div>
+    </div>
             </div>
     <div class="slide">
         <div class="slide02">
+                <div class="sucess_container">
             <div class="sucess">
                 <h2 class="suc">Истории успеха</h2>
                 <p class="lipetsk">В Липецкой области</p>
@@ -527,10 +568,17 @@
                 <h2>ООО «ЙОКОХАМА Р.П.З.» <br>производство автомобильных шин</h2>
             </div>
             <p class="indesit_text">Факт присутствия нашей корпорации в Липецке укрепился с годами.</p>
+            
     </div>
+    <ul class="arrows">
+            <li class="prev"><img src="/static/userRoom/img/back.svg"></li>
+            <li class="next">Далее<img src="/static/userRoom/img/neeext.png"></li>
+        </ul> 
+        </div> 
     </div>
     <div class="slide">
         <div class="slide03">
+            <div class="sucess_container">
             <div class="sucess">
                 <h2 class="suc">Истории успеха</h2>
                 <p class="lipetsk">В Липецкой области</p>
@@ -541,9 +589,15 @@
             </div>
             <p class="indesit_text">С 2011 года мы находимся в Чаплыгине Липецкой области и не жалеем об этом.</p>
     </div>
+    <ul class="arrows">
+            <li class="prev"><img src="/static/userRoom/img/back.svg"></li>
+            <li class="next">Далее<img src="/static/userRoom/img/neeext.png"></li>
+        </ul>  
+        </div>
     </div>
     <div class="slide">
         <div class="slide04">
+                <div class="sucess_container">
             <div class="sucess">
                 <h2 class="suc">Истории успеха</h2>
                 <p class="lipetsk">В Липецкой области</p>
@@ -554,8 +608,12 @@
             </div>
             <p class="indesit_text">Каждый год нам нужно минимум 100 000 тонн сахарной свеклы, которую обеспечивает Липецкая область.</p>
     </div>
-        </div>
-        
+    <ul class="arrows">
+            <li class="prev"><img src="/static/userRoom/img/back.svg"></li>
+            <li class="next">Далее<img src="/static/userRoom/img/neeext.png"></li>
+        </ul>  
+        </div>  
+    </div>
   </div>
    </div>
 {% endblock %}

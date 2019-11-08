@@ -69,7 +69,7 @@
 
 .slick-prev
 {
-    border: 1px solid red;
+
     width:15%;
     z-index: 9999;
     left: 2%;
@@ -93,7 +93,6 @@
 
 .slick-next
 {
-    border: 1px solid red;
     width:15%;
     right: 2.5%;
 }
@@ -193,4 +192,8 @@
     width:2.3vw;
     height:0.1vw;
     opacity: .75;
+}
+.close{
+    position: absolute;
+    right:0%;
 }
