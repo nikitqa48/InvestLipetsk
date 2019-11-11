@@ -120,6 +120,7 @@ cadr.addEventListener('click', function(){
     infros.classList.remove('toggle')
     infros.classList.add('none')
     tog()
+    
 })
 var left = document.getElementsByClassName('left_slide')
 inf.addEventListener('click', function(){
@@ -141,3 +142,14 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
+
+  $.ajax({
+    url: '127.0.0.1:8000/profile',
+    type: 'get', // This is the default though, you don't actually need to always mention it
+    success: function(data) {
+        alert(data);
+    },
+    failure: function(data) { 
+        alert('Got an error dude');
+    }
+}); 

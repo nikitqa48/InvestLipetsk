@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Statement, Organisation, Manager, News
+from .models import Profile, Statement, Organisation, Manager, News, Connection
 from django.contrib.auth import authenticate, login, logout
-from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm
+from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
 from django.utils import timezone
@@ -71,11 +71,9 @@ def edit_profile(request, pk):
 def new_organisation(request):
     profile = Profile.objects.get(user = request.user)
     form = Organisation_form
-    organisation = Organisation.objects.all()
     context = {
         'profile' : profile,
         'form': form,
-        'organisation': organisation
     }
     return render(request,'userRoom/organisation.html', context)   
 
@@ -180,7 +178,35 @@ def logout_view(request):
     return redirect ('container')
 
 
-                                                #Новости
+                                                #Обратная связь
+
+
+
+
+
+
+
+def connect (request):
+    if request.method == 'POST':
+        form = ConnectionForm(request.POST)
+        if form.is_valid():
+            conection = Connection.objects.create(
+                                            phone = form.cleaned_data['phone'],
+                                            email = form.cleaned_data['email'],
+                                            first_name = form.cleaned_data['first_name'],
+                                            second_name = form.cleaned_data['second_name'],
+                                            last_name = form.cleaned_data['last_name'],
+                                            organisation = form.cleaned_data['organisation']
+
+            )
+            conection.save()
+            return redirect ('connect')
+    else:
+        form = ConnectionForm
+        context = {
+            'form': form,
+    }
+    return render(request, 'base.html', {'form': form})
 
 
 

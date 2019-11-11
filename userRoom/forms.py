@@ -3,7 +3,7 @@ from django.db import models
 from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .models import Profile, Statement, Organisation
+from .models import Profile, Statement, Organisation, Connection
 
 
 class Profile_form(forms.ModelForm):
@@ -41,3 +41,8 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Пароли не совпадают')
         return cd['password2']
+
+class ConnectionForm(forms.ModelForm):
+    class Meta:
+        model = Connection
+        fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']

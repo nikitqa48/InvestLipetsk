@@ -80,6 +80,23 @@ class News (models.Model):
         return self.news_header
 
 
+class Connection (models.Model):
+    phone = models.CharField('Телефон',max_length=30,null=False, blank= True)
+    first_name = models.CharField('Имя', max_length=20, null=False, blank=True)
+    second_name = models.CharField('Фамилия', max_length=20, null=False, blank=True)
+    last_name = models.CharField('Отчество', max_length=20, null=True, blank=True)
+    email = models.EmailField('Почта', max_length=40, null=True, blank=True)
+    organisation = models.CharField('Организация', max_length=30, null= True, blank=True)
+    
+    class Meta:
+        verbose_name = 'Связь'
+        verbose_name_plural = 'Связей'
+
+    def __str__(self):
+        return self.first_name
+
+
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
