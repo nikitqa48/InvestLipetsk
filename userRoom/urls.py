@@ -18,5 +18,5 @@ urlpatterns = [
     path('organisation_view/', new_organisation, name='organisation_view'),
     path('organisation_edit/<int:pk>',edit_organisation, name='edit_organisation'),
     path('login/', user_login,name="login"),
-    path('connection', connect, name='connect')
+
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
