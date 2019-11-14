@@ -4,12 +4,12 @@ from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .models import Profile, Statement, Organisation, Connection
-
+# 
 
 class Profile_form(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["email", "phone"]
+        fields = ['second_name',"phone",'passport_serial', 'passport_number']
 
 
 class Organisation_form(forms.ModelForm):
@@ -35,6 +35,7 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name','email')
+        labels = ({'username': 'Логин', 'last_name': 'Отчество (Если есть)'})
 
     def clean_password2(self):
         cd = self.cleaned_data

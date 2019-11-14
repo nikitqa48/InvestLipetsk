@@ -18,7 +18,7 @@ def organisation_post(request):
 
 
 
-                                                    #Главная страница
+                                                     #Главная страница
 def head_page(request):
     news = News.objects.all()
     context = {
@@ -26,10 +26,10 @@ def head_page(request):
     }
     return render(request,'userRoom/head_page.html', context) 
 
-
+ 
                                                     #ЛИЧНЫЙ КАБИНЕТ
-def private_area(request, pk):
-    profile = Profile.objects.get(user_id=pk)
+def private_area(request):
+    profile = Profile.objects.get(user=request.user)
     organisations = Organisation.objects.filter(profile_organisation=profile.id)
     statements = Statement.objects.all()
     context = {
@@ -40,7 +40,7 @@ def private_area(request, pk):
     return render (request, "userRoom/private_area.html", context)
 
 
-                                                    #НОВЫЙ ПРОФИЛЬ
+                                                     #НОВЫЙ ПРОФИЛЬ
 
 def new_profile(request):
     form = Profile_form
@@ -51,7 +51,7 @@ def new_profile(request):
     }
     return render(request, 'userRoom/profile.html', context)
 
-
+ 
                                                     #РЕДАКТИРОВАТЬ ПРОФИЛЬ
 
 def edit_profile(request, pk):
@@ -67,7 +67,7 @@ def edit_profile(request, pk):
 
 
 
-                                                    #ОРГАНИЗАЦИЯ
+                                                      #ОРГАНИЗАЦИЯ
 def new_organisation(request):
     profile = Profile.objects.get(user = request.user)
     form = Organisation_form
@@ -142,14 +142,24 @@ def snap(request,pk):
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            new_user = user_form.save(commit=False)
+        profile_form = Profile_form(request.POST)
+        if user_form.is_valid()and profile_form.is_valid():
+            new_user = user_form.save(commit=False) 
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            return render(request, 'userRoom/register_done.html', {'new_user': new_user})
+            new_profile = Profile.objects.create(
+                                            user=new_user,
+                                            second_name=request.POST.get('second_name'),
+                                            phone=request.POST.get('phone'),
+                                            passport_serial=request.POST.get('passport_serial'),
+                                            passport_number=request.POST.get('passport_number')
+            )
+            new_profile.save()
+            return render(request, 'userRoom/register_done.html',{'new_user': new_user,'new_profile':new_profile})
     else:
         user_form = UserRegistrationForm()
-    return render(request, 'userRoom/registration.html', {'user_form': user_form})
+        profile_form = Profile_form()
+    return render(request, 'userRoom/registration.html',{'profile_form':profile_form, "user_form":user_form})
 
                                                 #АВТОРИЗАЦИЯ
 
@@ -181,11 +191,6 @@ def logout_view(request):
                                                 #Обратная связь
 
 
-
-
-
-
-
 def connect (request):
     if request.method == 'POST':
         form = ConnectionForm(request.POST)
@@ -209,4 +214,8 @@ def connect (request):
     return render(request, 'base.html', {'form': form})
 
 
+                                                # AJAX
 
+# def ajax (request):
+#     if request.method == 'POST':
+        

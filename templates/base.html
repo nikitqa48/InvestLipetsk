@@ -1,26 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head> 
-    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">     
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href='/static/slick-1.8.1/slick/slick.css'> 
+<head>
+    <meta charset="utf-8">   
+    <link rel="stylesheet" type="text/css" href='/static/slick-1.8.1/slick/slick.css'>
     <link rel="stylesheet" type="text/css" href="/static/slick-1.8.1/slick/slick-theme.css"/> 
-    <link rel="stylesheet" type="text/css" href="/static/userRoom/onepage.css"/> 
- 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type='text/javascript' src="/static/onepagescroll/jquery.onepage-scroll.js"></script> 
+    <link href='/static/onepagescroll/onepage-scroll.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<script>    
+          </script>
 </head>
 <body>
-<div class="content">
-    
     {% block content %}
   
     {% endblock %}
-     
-
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="/static/userRoom/jquery.onepage-scroll.min.js"></script> -->
+    <div class="fixed_butt">
+        <form class="form_action" action="" method="POST">
+            <input type="text">
+            <input type="button" id="btn" value="Отправить" />
+        </form>
+    </div>
+<button class="fixed_button">Форма</button>
 <script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="/static/userRoom/js.js"></script>
 </body>

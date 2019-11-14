@@ -1,9 +1,14 @@
 .header{
     align-items: center;
     width:95%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    height:5%;
+    margin: 0 auto;
+}
+.header button{
+    
+    border:none;
 }
 .header_slider{
     width:100%;
@@ -26,7 +31,6 @@
     bottom:0%;
     right:2%;
     background:yellow;
-    z-index: 99999999;
 }
 .logo{
     letter-spacing: 0.05em;
@@ -65,7 +69,7 @@ body{
 .slide2{
     display:flex;
     height:100vh;
-    background-image: url('/static/userRoom/img/build.png');
+    background-image: url('/static/userRoom/img/stroitelstvo.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -282,13 +286,18 @@ body{
     text-align: right;
 }
 .map{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
     height: 100vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url("/static/userRoom/img/lipetsk.png");
+}
+.map_container{
+    padding-top: 4%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .left_map{
@@ -300,7 +309,7 @@ body{
     width:50%;
 }
 .p_region{
-    font-size: 1.25vw;
+    font-size: 0.8vw;
     color: #52A4DF;
 }
 .number{
@@ -310,7 +319,7 @@ body{
 .territory{
     padding: 0;
     margin: 0;
-    font-size: 1.25vw;
+    font-size: 1vw;
     color: #BDBDBD;
 }
 .data1{
@@ -542,7 +551,7 @@ width:25%;
     min-width: 50vw;
     z-index: 99929;
     top:10%;
-    left:25%;
+    left:27%;
     color:white;
     opacity: 0.8;
 }
@@ -663,7 +672,7 @@ width:25%;
 }
 .dots_history li
 {
-    
+    top:10%;
     left:3vw;
     position: relative;
     width:2vw;
@@ -824,6 +833,7 @@ width:25%;
     fill : #52A4DF;
 }
 .part:hover{
+    fill : red;
     opacity: 0;
 }
 .parant{
@@ -870,10 +880,11 @@ width:25%;
     z-index: 4;
 }
 .risk_container{
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15%;
+    justify-content: center;
 }
 .heading{
     line-height: 6.09375vw;
@@ -896,4 +907,231 @@ width:25%;
 }
 .h2_indesit{
     font-size: 3vw;
+
+}
+
+
+html {
+    height: 100%;
+  }
+  body {
+ 
+    padding: 0;
+    position: relative;
+    margin: 0;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .wrapper {
+      height: 100% !important;
+      height: 100%;
+      margin: 0 auto; 
+      overflow: hidden;
+  }
+  
+
+
+
+ 
+
+  
+  .reload.bell {
+    font-size: 12px;
+    padding: 20px;
+    width: 45px;
+    text-align: center;
+    height: 47px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+  }
+  
+
+  
+  .main section .page_container {
+    position: relative;
+    top: 25%;
+    margin: 0 auto 0;
+    max-width: 950px;
+    z-index: 3;
+  }
+  .main section  {
+    overflow: hidden;
+  }
+  
+  .main section > img {
+    position: absolute;
+    max-width: 100%;
+    z-index: 1;
+  }
+  
+
+
+
+
+  .main section.page2 > img {
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    margin-left: -1095px;
+  }
+  .main section.page2 .page_container {
+    margin-top: 240px;
+    overflow: hidden;
+  }
+
+
+
+  .main section.page3 .page_container {
+    overflow: hidden;
+    width: 500px;
+    right: -285px;
+  }
+
+  
+  body.disabled-onepage-scroll .onepage-wrapper  section {
+    min-height: 100%;
+    height: auto;
+  }
+  
+  body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page3 .page_container  {
+    padding: 20px;
+    margin-top: 150px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+    
+  body.disabled-onepage-scroll .main section > img {
+    position: relative;
+    max-width: 80%;
+    bottom: 0;
+  }
+  body.disabled-onepage-scroll code {
+    width: 95%;
+    margin: 0 auto 25px;
+    float: none;
+    overflow: hidden;
+  }
+  
+  body.disabled-onepage-scroll .main section.page3 .page_container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+  }
+aside{
+    display: flex;
+    justify-content: space-between;
+    height:100%;
+    width: 25%;
+}
+.border_aside{
+    border-right: 1px solid white;
+    opacity: .2;
+    height: 100%;
+}
+.container_register{
+    background: linear-gradient( #202F40, #0D0D1C);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.portal{
+    font-size: 2.2vw;
+    margin-top: 30%;
+    color:white;
+}
+.nav{
+    background:#262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    color:white;
+    background:none;
+    cursor: pointer;
+}
+.register2{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+.registrationform p{
+    color:white;
+}
+.registrationform{
+    justify-content: center;
+    text-align: center;
+    font-size: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+}
+.log{
+
+}
+.familiya{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width:50%;
+}
+.familiya input {
+    outline: none;
+    padding-left: 1vw;
+    color:white;
+    min-height:3vh;
+    opacity: .5;
+    width:100%;
+    background:none;
+    border:1px solid white;
+
+}
+.register1{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10%;
+}
+.register1 input{
+    outline: none;
+    padding-left: 1vw;
+    color:white;
+    min-height:3vh;
+    opacity: .5;
+    background:none;
+    border:1px solid white;
+}
+.register_wrap{
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.submit{
+    margin-top: 6%;
+    background: none;
+    color:white;
+    border:1px solid white;
+    cursor: pointer;
+    outline: none;
+    min-height: 3vh;
+    width: 10vw;
+}
+.fixed_button{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.fixed_butt{
+    position: fixed;
+    bottom: 0;
+    right: 5%;
 }

@@ -7,14 +7,15 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    second_name = models.CharField('Фамилия', blank = True, null=True, max_length=50)
+    last_name = models.CharField('Отчество', blank= True, null= True, max_length=50)
     email = models.CharField("Почта", blank=True, null=True, max_length=50)
-    phone = models.CharField("Телефон", blank=True, null=False, max_length=30)
-
-
+    phone = models.CharField("Телефон", blank=True, null=True, max_length=30)
+    passport_serial = models.CharField('Серия паспорта', blank=True , null= True, max_length=100)
+    passport_number = models.CharField('Номер паспорта', blank = True, null = True, max_length=100)
     class Meta:
         verbose_name = "Профиль"
         verbose_name_plural = "Профили"
-
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
 
@@ -97,7 +98,7 @@ class Connection (models.Model):
 
 
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance, id=instance.id)
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance, id=instance.id)

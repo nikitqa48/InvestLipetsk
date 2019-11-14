@@ -7,18 +7,18 @@
 
                     {% if user.is_authenticated %}
                     <div class="login">
-                            <a href="{% url 'register'%}">
-                                <button class="login">Регистрация</button>
-                            </a>
+                       
                             <a href="{% url 'login'%}">
                                     <button class="login">Войти</button>
                                 </a>
                             </div>   
-                        <a href="{% url 'private' pk=user.id %}">
+                        <a href="{% url 'private'  %}">
                             <button class="login">Личный кабинет</button>
                         </a>
                     {% else %}
-  
+                    <a href="{% url 'register'%}">
+                            <button class="login">Регистрация</button>
+                        </a>
                     {% endif %}
                 </div>
 </nav>

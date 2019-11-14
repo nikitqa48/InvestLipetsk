@@ -3,11 +3,33 @@
 {% block title %}Создайте профиль{% endblock %}
 
 {% block content %}
-    <h1>Регистрация</h1>
-    <p>Пожалуйста, заполните форму:</p>
-    <form action="{% url 'register' %}" method="post">
-        {{ user_form.as_p }}
+    <div class="container_register">
+        <div class="nav">
+            {% include "userRoom/header.html" %}
+        </div>
+        <div class="register2">
+    <aside><ul class="registration"><h2 class="portal">Регистрация <br> на портале</h2></ul><div class="border_aside"></div></aside>
+    <form action="{% url 'register' %}" method="post" class="registrationform">
+        <div class="register_wrap">
+        <div class="familiya">
+    <div class="input_1"><p class="username">Логин</p>  {{user_form.username}}</div>
+    <div class="input_1"> <p>Пароль</p>{{user_form.password}}</div>
+    <div class="input_1"><p>Повторите пароль</p>{{user_form.password2}}</div>
+    <div class="input_1"><p class="email">Электронная почта</p>{{user_form.email}}</div>
+    <div class="input_1"><p>Номер телефона</p>{{profile_form.phone}}</div> 
+    </div>
+    <div class="register1">
+            <div class="input_1"><p class="firstname">Имя </p>{{user_form.first_name}}</div> 
+            <div class="input_1"><p>Фамилия</p>{{profile_form.second_name}}</div>
+            <div class="input_1"> <p>Отчество(если есть)</p> {{user_form.last_name}}</div>
+            <div class="serial"><p>Серия паспорта</p>{{profile_form.passport_serial}}</div>
+            <div class="input_1"><p>Номер паспорта </p> {{profile_form.passport_number}}</div>
+           
+        </div>
+        </div>
         {% csrf_token %}
-        <p><input type="submit" value="Создать"></p>
+        <p><input type="submit" value="Регистрация" class="submit"></p>
     </form>
+</div>
+</div>
 {% endblock %}
