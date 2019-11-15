@@ -17,5 +17,5 @@ urlpatterns = [
     path('organisation_view/', new_organisation, name='organisation_view'),
     path('organisation_edit/<int:pk>',edit_organisation, name='edit_organisation'),
     path('login/', user_login,name="login"),
-
+    path('connect', connect, name='connect')
 ]

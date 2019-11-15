@@ -9,7 +9,7 @@ from .models import Profile, Statement, Organisation, Connection
 class Profile_form(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['second_name',"phone",'passport_serial', 'passport_number']
+        fields = ['second_name',"phone"]
 
 
 class Organisation_form(forms.ModelForm):

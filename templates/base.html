@@ -1,4 +1,4 @@
-{% load static %}
+{% load static  connect_form%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +18,16 @@
     {% block content %}
   
     {% endblock %}
-    <div class="fixed_butt">
-        <form class="form_action" action="" method="POST">
-            <input type="text">
-            <input type="button" id="btn" value="Отправить" />
-        </form>
-    </div>
-<button class="fixed_button">Форма</button>
+   <div class="fixed_butt">
+<form action="{% url 'connect' %}" class="submit" method="POST" id="egor">
+    {{var}}
+    
+    {% csrf_token %}
+    <input type="submit" value="Связаться" class="submit" id = 'btn'>
+</form>
+
+</div> 
+<button class="fixed_button">Форма</button> 
 <script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="/static/userRoom/js.js"></script>
 </body>

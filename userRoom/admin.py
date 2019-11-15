@@ -3,7 +3,7 @@ from .models import Profile, Organisation, Statement, Manager, News, Connection
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'email', 'phone', 'id', 'passport_serial', 'passport_number']
+    list_display = ['user', 'email', 'phone', 'id']
 
 @admin.register(Organisation)
 class OrganisationAdmin(admin.ModelAdmin):

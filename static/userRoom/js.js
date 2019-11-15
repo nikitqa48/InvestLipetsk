@@ -6,6 +6,26 @@
       loop: false
     });
       });
+      $(document).ready(function(){
+        $("#egor").submit(function(e){
+     
+               e.preventDefault();
+ 
+               var serializedData = $(this).serialize();
+               $.ajax({
+                   type : 'POST',
+                   url :  $('#egor').attr('action'),
+                   data : serializedData,
+                   success : function(response){
+
+                       $("#egor")[0].reset(); 
+                   },
+                   error : function(response){
+                       console.log(response)
+                   }
+               });
+        })
+     });
 $('.fade').slick({
     dots: true,
     infinite: true,
@@ -14,26 +34,10 @@ $('.fade').slick({
     cssEase: 'linear'
   });
   
-  $("#btn").click(
-		function(){
-			sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');
-			return false; 
-    })
-    function sendAjaxForm(result_form, ajax_form, url) {
-      $.ajax({
-          url: $form.attr('action'), //url страницы (action_ajax_form.php)
-          type:     "POST", //метод отправки
-          dataType: "html", //формат данных
-          data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
-          success: function(response) { //Данные отправлены успешно
-            result = $.parseJSON(response);
-            $('#result_form').html('Имя: '+result.name+'<br>Телефон: '+result.phonenumber);
-        },
-        error: function(response) { // Данные не отправлены
-              $('#result_form').html('Ошибка. Данные не отправлены.');
-        }
-     });
-  }
+
+
+
+
   $('.shade').slick({
     dots: true,
     infinite: true,

@@ -1053,6 +1053,9 @@ aside{
     color:white;
     background:none;
     cursor: pointer;
+    border:1px solid white;
+    padding : 0.3vw 1.3vw;
+    outline: none;
 }
 .register2{
     display: flex;
@@ -1129,9 +1132,17 @@ aside{
     position: fixed;
     bottom: 0;
     right: 0;
-}
-.fixed_butt{
+} 
+ .fixed_butt{
     position: fixed;
-    bottom: 0;
-    right: 5%;
+    bottom:50%;
+    border:1px solid red;
+    right:10%;
+} 
+.close{
+    border:1px solid white;
+    color:white;
+    background: none;
+    cursor: pointer;
+    outline: none;
 }

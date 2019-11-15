@@ -5,6 +5,7 @@ from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,Us
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
 from django.utils import timezone
+from django.http import JsonResponse
 
                    
 def statement_state(request):
@@ -129,7 +130,7 @@ def snap(request,pk):
                                         )
         for manage in managers:
             manager_id = manage.manager.user.id
-        
+    
         for state in statements:
             state_id = statements.id
         
@@ -192,30 +193,42 @@ def logout_view(request):
 
 
 def connect (request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.is_ajax():
         form = ConnectionForm(request.POST)
+        print(request.POST)
         if form.is_valid():
-            conection = Connection.objects.create(
-                                            phone = form.cleaned_data['phone'],
-                                            email = form.cleaned_data['email'],
-                                            first_name = form.cleaned_data['first_name'],
-                                            second_name = form.cleaned_data['second_name'],
-                                            last_name = form.cleaned_data['last_name'],
-                                            organisation = form.cleaned_data['organisation']
-
-            )
-            conection.save()
-            return redirect ('connect')
+            # conection = Connection.objects.create(
+            # phone = form.cleaned_data['phone'],
+            # email = form.cleaned_data['email'],
+            # first_name = form.cleaned_data['first_name'],
+            # second_name = form.cleaned_data['second_name'],
+            # last_name = form.cleaned_data['last_name'],
+            # organisation = form.cleaned_data['organisation']
+            # )
+            # conection.save()
+            form.save()
+            a = 'vasya'
+            return JsonResponse({
+                'response': a 
+            })
     else:
         form = ConnectionForm
-        context = {
-            'form': form,
+    return (request,{'form': form})
+
+
+
+def say_hello(request):
+    return {
+        'say_hello':"Hello",
     }
-    return render(request, 'base.html', {'form': form})
 
 
                                                 # AJAX
 
 # def ajax (request):
 #     if request.method == 'POST':
+#          connect_form = ConnectionForm
+#     else: 
+#          connect_form = ConnectionForm
+#          return render (request, 'userRoom/base.html', {'connect_form': connect_form})   
         

@@ -11,13 +11,15 @@ class Profile(models.Model):
     last_name = models.CharField('Отчество', blank= True, null= True, max_length=50)
     email = models.CharField("Почта", blank=True, null=True, max_length=50)
     phone = models.CharField("Телефон", blank=True, null=True, max_length=30)
-    passport_serial = models.CharField('Серия паспорта', blank=True , null= True, max_length=100)
-    passport_number = models.CharField('Номер паспорта', blank = True, null = True, max_length=100)
+    # passport_serial = models.CharField('Серия паспорта', blank=True , null= True, max_length=100)
+    # passport_number = models.CharField('Номер паспорта', blank = True, null = True, max_length=100)
     class Meta:
         verbose_name = "Профиль"
         verbose_name_plural = "Профили"
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
+
+
 
 
 class Organisation(models.Model):
@@ -33,6 +35,7 @@ class Organisation(models.Model):
 
     def __str__(self):
         return self.organisation_name
+
 
 
 class Statement(models.Model):
@@ -56,6 +59,8 @@ class Statement(models.Model):
     def __str__(self):
         return self.project_name
 
+
+
 class Manager(models.Model):
     manager = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
     zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
@@ -63,9 +68,9 @@ class Manager(models.Model):
     class Meta:
         verbose_name = 'Куратор'
         verbose_name_plural = 'Кураторы'
-
     def __str__(self):
         return self.manager.user.username
+
 
 
 class News (models.Model):
@@ -76,7 +81,6 @@ class News (models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
-
     def __str__(self):
         return self.news_header
 
@@ -88,7 +92,8 @@ class Connection (models.Model):
     last_name = models.CharField('Отчество', max_length=20, null=True, blank=True)
     email = models.EmailField('Почта', max_length=40, null=True, blank=True)
     organisation = models.CharField('Организация', max_length=30, null= True, blank=True)
-    
+
+
     class Meta:
         verbose_name = 'Связь'
         verbose_name_plural = 'Связей'
