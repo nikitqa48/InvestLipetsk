@@ -5,9 +5,10 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-    path('registration', register, name="register"),
+    path('registration/', register, name="register"),
+    path('applications/', view_statement, name="application"),
     path('', head_page, name= 'container'),
-    path('logout', logout_view, name='logout'),
+    path('logout/', logout_view, name='logout'),
     path('private/', private_area, name = 'private'),
     path('profile_view/', new_profile, name='profile_view'),
     path('profile_edit/<int:pk>', edit_profile, name='profile'),

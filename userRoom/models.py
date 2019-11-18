@@ -40,6 +40,7 @@ class Organisation(models.Model):
 
 class Statement(models.Model):
     project_name = models.CharField("Наименование проекта", max_length=30, null = True, blank = True)
+    profiles = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     description = models.TextField("Описание проекта", null = True, blank= True)
     industry = models.CharField('Вид деятельности', max_length=30, null = True, blank = True)
     data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)

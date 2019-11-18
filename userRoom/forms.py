@@ -47,3 +47,11 @@ class ConnectionForm(forms.ModelForm):
     class Meta:
         model = Connection
         fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']
+        widgets={
+                   "phone":forms.TextInput(attrs={'placeholder':'телефон','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "email":forms.TextInput(attrs={'placeholder':'почта','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "first_name":forms.TextInput(attrs={'placeholder':'имя','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "second_name":forms.TextInput(attrs={'placeholder':'фамилия','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "organisation":forms.TextInput(attrs={'placeholder':'Организация','name':'Name','class':'input-class_name'}),
+                   'last_name':forms.TextInput(attrs={'placeholder':'Отчество','name':'Name','class':'input-class_name'})
+            }  

@@ -18,16 +18,24 @@
     {% block content %}
   
     {% endblock %}
-   <div class="fixed_butt">
-<form action="{% url 'connect' %}" class="submit" method="POST" id="egor">
-    {{var}}
-    
+<form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
+    <p>Имя</p>
+    {{var.first_name}}
+    <p>Фамилия</p>
+    {{var.second_name}}
+    <p>Отчество</p>
+    {{var.last_name}}
+    <p class="phone">Телефон</p>
+    {{var.phone}}
+    <p>Почта</p>
+    {{var.email}}
+    <p>Организация</p>
+    {{var.organisation}}
     {% csrf_token %}
     <input type="submit" value="Связаться" class="submit" id = 'btn'>
 </form>
 
-</div> 
-<button class="fixed_button">Форма</button> 
+<button class="fixed_button" id = "toggle">Связаться</button> 
 <script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="/static/userRoom/js.js"></script>
 </body>

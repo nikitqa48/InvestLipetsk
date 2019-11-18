@@ -1,10 +1,67 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
+<div class="container_register">
+        <div class="nav">
+            {% include "userRoom/header.html" %}
+        </div>
+    <div class="random"  action="{% url 'private' %}">
+        <div class="leftbar">
+            <ul class="left_menu">
+                <a href="{% url 'private'  %}"><li><img src ="/static/userRoom/img/cabinet.svg">Мой кабинет</li></a>
+                <a href="{% url 'statement_view' %}"><li><img src ="/static/userRoom/img/zayav.svg">Оставить заявку</li></a>
+                <a href="{%  url 'application' %}"><li><img src ="/static/userRoom/img/mine.svg">Мои заявки</li></a>
+            </ul>
+        </div>
+        <div class="border_aside"></div>
+        <div class="area_wrapp">
+            <div class="div">
+            <a class = "lead" href="{% url 'private'  %}">Личный кабинет</a>
+            <h2 class="state">Оставить заявку</h2>
+        </div>
+        <div class="container">
+            <div class = "statement">
+                    <form method="POST" action="{% url 'statement' %}"  class="form_for_statement" >
+                      <div class="stat_wrapp">
+                        <div class="stat">
+                        <p class="name">Наименование проекта</p>    
+                        {{ form.project_name}}
+                    </div>
+                    <div class="stat">
+                            <p class="name">Вид деятельности</p>    
+                            {{ form.industry}}
+                        </div>
+                            <div class="stat">
+                                <p class="name"> колличество рабочих</p>    
+                                {{ form.work}}
+                            </div>
+                        <div class="stat">
+                                <p class="name"> описание проекта</p>    
+                                {{ form.description}}
+                            </div>
+                            <div class="stat1">
+                                    {% csrf_token %}
+                                    <input type="submit" class="statue" value="Подать заявку" />
+                            </div>
+                      </div>
+                      <div class="stat_wrapp">              
+                          <div class="stat">
+                            <p class="name"> площадь земельного участка</p>    
+                            {{ form.square}}
+                        </div>
+                      <div class="stat">
+                            <p class="name"> стоимость проекта</p>    
+                            {{ form.cost}}
+                      
+                        </div>
+                    </div>
+            
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <p>Пожалуйста, заполните поля:</p>
-    <form method="POST" action="{% url 'statement' %}"  class="form-horizontal" >
-        {{ form }}
-        {% csrf_token %}
-        <input type="submit" value="Создать" />
-    </form>
+
 {% endblock %}

@@ -789,18 +789,19 @@ width:25%;
     flex-wrap: wrap;
 }
 .itm{
-    height: 35vh;
     overflow: hidden;
     margin-top: 3vh;
     margin-left: 2vw;
     border-radius: 5px 5px 0px 0px;
-    min-height: 20%;
     width:20%;
     display: flex;
     flex-direction: column;
 }
-
+.itm_img{
+    height:50%;
+}
 .itm img{
+    height: 100%;
     width:100%;
 }
 .itm_but{
@@ -1133,16 +1134,138 @@ aside{
     bottom: 0;
     right: 0;
 } 
- .fixed_butt{
-    position: fixed;
-    bottom:50%;
-    border:1px solid red;
-    right:10%;
-} 
+
 .close{
     border:1px solid white;
     color:white;
     background: none;
     cursor: pointer;
     outline: none;
+}
+.form_connect{
+    transition: all 1s ease;
+    opacity: 0;
+    position: fixed;
+    left:45%;
+    top:30%;
+    font-size: 0.8vw;
+    width:30%;
+    background: black;
+    min-height: 40%;
+    border:1px solid white;
+    color:white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.form_connect p{
+    margin: 0;
+    padding-top: 1vh;
+}
+.formtoggle{
+    opacity: 1;
+    display: flex;
+}
+.random{
+    color:white;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.leftbar{
+    font-size: 0.8vw;
+    width:15%;
+    height: 100%;
+}
+.left_menu{
+    margin-top: 10%;
+    justify-content: space-between;
+    height: 18%;
+    font-size: 0.8vw;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.left_menu a{
+    text-decoration: none;
+    color:white;
+}
+.left_menu li{
+    align-items: center;
+    display: flex;
+}
+.left_menu li img{
+    padding-right: 6%;
+    height:70%;
+}
+.statement{
+    display: flex;
+    width:100%;
+}
+.statement_form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.area_wrapp{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    height: 100%;
+    width:95%;
+    margin: 0 auto;
+    border:1px solid #495167;
+}
+
+.lead{
+    text-decoration: none;
+    color: #8FBEDF;
+}
+.div{
+    padding-top: 2%;
+    width: 95%;
+    margin: 0 auto;
+}
+.form_for_statement{
+    justify-content: space-around;
+    width:60%;
+    margin: 0 auto;
+    display: flex;
+}
+.form_for_statement input{
+    outline: none;
+    color:white;
+    min-height: 3vh;
+    opacity: .5;
+    background: none;
+    border:1px solid white;
+}
+.form_for_statement textarea {
+    outline: none;
+    color:white;
+    min-height: 3vh;
+    opacity: .5;
+    background: none;
+    border:1px solid white;
+}
+.stat{
+    display: flex;
+    
+    flex-direction: column;
+}
+.stat_wrapp{
+    display: flex;
+    flex-direction: column;
+}
+.statue{
+    width:40%;
+}
+.stat1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

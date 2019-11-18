@@ -32,11 +32,11 @@ def head_page(request):
 def private_area(request):
     profile = Profile.objects.get(user=request.user)
     organisations = Organisation.objects.filter(profile_organisation=profile.id)
-    statements = Statement.objects.all()
+    # statements = Statement.objects.all()
     context = {
         'profile':profile,
         'organisations': organisations,
-        'statements':statements
+        # 'statements':statements
     }
     return render (request, "userRoom/private_area.html", context)
 
@@ -117,6 +117,16 @@ def edit_statement(request):
             statement.save()
             return redirect('container')
 
+
+def view_statement(request):
+    if request.method == 'GET':
+        profile = Profile.objects.get(user=request.user)
+        statements = Statement.objects.filter(profiles=profile)
+        context = {
+            'statements':statements
+        }
+        print(context)
+        return render(request, 'userRoom/catalog.html', context)        
                                             #ПРИВЯЗКА ЗАЯВКИ К МОДЕРАТОРУ
 def snap(request,pk):
     if request.method == 'GET':
