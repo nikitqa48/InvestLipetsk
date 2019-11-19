@@ -39,7 +39,8 @@ class Organisation(models.Model):
 
 
 class Statement(models.Model):
-    project_name = models.CharField("Наименование проекта", max_length=30, null = True, blank = True)
+    """ ЗАЯВКА """
+    project_name = models.CharField("Наименование проекта", max_length=30,default=0)
     profiles = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     description = models.TextField("Описание проекта", null = True, blank= True)
     industry = models.CharField('Вид деятельности', max_length=30, null = True, blank = True)
@@ -47,8 +48,9 @@ class Statement(models.Model):
     cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
-    ORDER_STATUS = ((0, 'неактивна'),(1, 'В сопровождении') ,(2, 'Реализация'), (3, 'Завершено'))
+    ORDER_STATUS = ((0, 'неактивна'),(1, 'В сопровождении'), (3, 'Завершено'))
     status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False, default=0)
+    time = models.DateField('Время исполения заявки', blank = True, null = True )
     class Meta:
         verbose_name = "Заявка"
         verbose_name_plural = "Заявки"
@@ -61,8 +63,9 @@ class Statement(models.Model):
         return self.project_name
 
 
-
+ 
 class Manager(models.Model):
+    """ Привязка заявки к модератору """
     manager = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
     zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
     data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)

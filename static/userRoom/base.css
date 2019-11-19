@@ -1126,7 +1126,7 @@ aside{
     cursor: pointer;
     outline: none;
     min-height: 3vh;
-    width: 10vw;
+    width: 30%;
 }
 .fixed_button{
     display: flex;
@@ -1144,27 +1144,32 @@ aside{
 }
 .form_connect{
     transition: all 1s ease;
-    opacity: 0;
+    opacity: 1;
     position: fixed;
-    left:45%;
+    left:40%;
     top:30%;
     font-size: 0.8vw;
-    width:30%;
-    background: black;
+    width:27%;
+    background: linear-gradient( #202F40, #0D0D1C);
     min-height: 40%;
-    border:1px solid white;
+    border:1px solid rgba(255, 255, 255, 0.158);
     color:white;
     display: none;
-    flex-direction: column;
     align-items: center;
     text-align: center;
+}
+.form_connect input{
+    font-size: 0.8vw;
+}
+.input-class_name{
+    padding-left: 10%;
+    width:100%;
 }
 .form_connect p{
     margin: 0;
     padding-top: 1vh;
 }
 .formtoggle{
-    opacity: 1;
     display: flex;
 }
 .random{
@@ -1197,11 +1202,13 @@ aside{
 }
 .left_menu li img{
     padding-right: 6%;
-    height:70%;
+    height:2.5vh;
 }
 .statement{
+    margin:0 auto;
     display: flex;
-    width:100%;
+    flex-direction: column;
+    width:97%;
 }
 .statement_form{
     width:100%;
@@ -1262,10 +1269,56 @@ aside{
     flex-direction: column;
 }
 .statue{
-    width:40%;
+    width:70%;
 }
 .stat1{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.form_wrapp{
+    justify-content: space-around;
+    display: flex;
+}
+.all{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapp1{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.statement_name{
+    margin-top: 5%;
+    padding-bottom:0.3%;
+}
+.description{
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:80%;
+    border-bottom: 1px solid #3D455B;
+}
+
+.status_state{
+    display: flex;
+}
+.stat{
+    color:#56718A;
+}
+.data_send{
+    display: flex;
+    align-items: center;
+}
+.prob{
+    margin-left: 0.2vw;
+}
+.itms2{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
 }

@@ -9,7 +9,7 @@ from .models import Profile, Statement, Organisation, Connection
 class Profile_form(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['second_name',"phone"]
+        fields = ['second_name',"phone","last_name"]
 
 
 class Organisation_form(forms.ModelForm):
@@ -22,7 +22,13 @@ class Statement_form(forms.ModelForm):
     class Meta:
         model = Statement
         fields = ["project_name", "industry", "cost", "square", "work", "description"]
-
+        widgets={
+                   "project_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
+                   "industry":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
+                   "cost":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
+                   "work":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
+                   "square":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
+            }  
 
 class LoginForm(forms.Form):
     username = forms.CharField()
@@ -48,10 +54,10 @@ class ConnectionForm(forms.ModelForm):
         model = Connection
         fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']
         widgets={
-                   "phone":forms.TextInput(attrs={'placeholder':'телефон','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "email":forms.TextInput(attrs={'placeholder':'почта','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "first_name":forms.TextInput(attrs={'placeholder':'имя','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "second_name":forms.TextInput(attrs={'placeholder':'фамилия','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "organisation":forms.TextInput(attrs={'placeholder':'Организация','name':'Name','class':'input-class_name'}),
-                   'last_name':forms.TextInput(attrs={'placeholder':'Отчество','name':'Name','class':'input-class_name'})
+                   "phone":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "email":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "first_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "second_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "organisation":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'}),
+                   'last_name':forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'})
             }  

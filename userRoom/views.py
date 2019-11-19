@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Statement, Organisation, Manager, News, Connection
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User, Group
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
@@ -21,7 +22,7 @@ def organisation_post(request):
 
                                                      #Главная страница
 def head_page(request):
-    news = News.objects.all()
+    news = News.objects.all().order_by('-id')
     context = {
         'news': news
     }
@@ -30,15 +31,27 @@ def head_page(request):
  
                                                     #ЛИЧНЫЙ КАБИНЕТ
 def private_area(request):
-    profile = Profile.objects.get(user=request.user)
-    organisations = Organisation.objects.filter(profile_organisation=profile.id)
-    # statements = Statement.objects.all()
-    context = {
-        'profile':profile,
-        'organisations': organisations,
-        # 'statements':statements
-    }
-    return render (request, "userRoom/private_area.html", context)
+    user = request.user
+    if user.groups.filter(name='Модератор').exists():
+        profile = Profile.objects.get(user=request.user)
+        organisations = Organisation.objects.filter(profile_organisation=profile.id)
+        context = {
+            'profile':profile,
+            'organisations': organisations,
+        }
+        return render (request, "userRoom/moderator.html", context)
+    else:
+        profile = Profile.objects.get(user=request.user)
+        moderator = Manager.objects.all()
+        moderator.filter(manager = profile)
+        profile = Profile.objects.get(user=request.user)
+        organisations = Organisation.objects.filter(profile_organisation=profile.id)
+        context = {
+            'profile':profile,
+            'organisations': organisations,
+            'moderator': moderator
+        }
+        return render (request, "userRoom/private_area.html", context)
 
 
                                                      #НОВЫЙ ПРОФИЛЬ
@@ -56,8 +69,9 @@ def new_profile(request):
                                                     #РЕДАКТИРОВАТЬ ПРОФИЛЬ
 
 def edit_profile(request, pk):
-    profile = Profile.objects.get(id=pk)
+    """ РЕДАКТИРОВАТЬ ПРОФИЛЬ"""
     if request.method == 'POST':
+        profile = Profile.objects.get(id=pk)
         form = Profile_form(request.POST)
         if form.is_valid():
             profile.user = request.user
@@ -68,8 +82,9 @@ def edit_profile(request, pk):
 
 
 
-                                                      #ОРГАНИЗАЦИЯ
+                                                      
 def new_organisation(request):
+    """ Организация """
     profile = Profile.objects.get(user = request.user)
     form = Organisation_form
     context = {
@@ -105,6 +120,7 @@ def new_statement(request):
 def edit_statement(request):
     if request.method == "POST":
         form = Statement_form(request.POST)
+        profile = Profile.objects.get(user = request.user)
         if form.is_valid():
             statement = Statement.objects.create(
                                                 project_name= form.cleaned_data['project_name'],
@@ -113,22 +129,30 @@ def edit_statement(request):
                                                 cost = form.cleaned_data['cost'],
                                                 square = form.cleaned_data['square'],
                                                 work = form.cleaned_data['work'],
+                                                profiles = profile
                                                 )
             statement.save()
-            return redirect('container')
+            return redirect('private')
 
 
 def view_statement(request):
-    if request.method == 'GET':
+    user = request.user
+    if user.groups.filter(name='Модератор').exists():
+        statement = Statement.objects.all()
+        statement.filter()
+        return render (request, 'userRoom/catalog_moderator.html')
+    elif request.method == 'GET':
         profile = Profile.objects.get(user=request.user)
         statements = Statement.objects.filter(profiles=profile)
         context = {
             'statements':statements
         }
-        print(context)
         return render(request, 'userRoom/catalog.html', context)        
-                                            #ПРИВЯЗКА ЗАЯВКИ К МОДЕРАТОРУ
+
+  
+                                           
 def snap(request,pk):
+    """ ПРИВЯЗКА ЗАЯВКИ К МОДЕРАТОРУ"""
     if request.method == 'GET':
         profile = Profile.objects.get(user = request.user)
         statement = Statement.objects.get(id= pk)
@@ -161,9 +185,7 @@ def register(request):
             new_profile = Profile.objects.create(
                                             user=new_user,
                                             second_name=request.POST.get('second_name'),
-                                            phone=request.POST.get('phone'),
-                                            passport_serial=request.POST.get('passport_serial'),
-                                            passport_number=request.POST.get('passport_number')
+                                            phone=request.POST.get('phone')
             )
             new_profile.save()
             return render(request, 'userRoom/register_done.html',{'new_user': new_user,'new_profile':new_profile})
@@ -207,15 +229,6 @@ def connect (request):
         form = ConnectionForm(request.POST)
         print(request.POST)
         if form.is_valid():
-            # conection = Connection.objects.create(
-            # phone = form.cleaned_data['phone'],
-            # email = form.cleaned_data['email'],
-            # first_name = form.cleaned_data['first_name'],
-            # second_name = form.cleaned_data['second_name'],
-            # last_name = form.cleaned_data['last_name'],
-            # organisation = form.cleaned_data['organisation']
-            # )
-            # conection.save()
             form.save()
             a = 'vasya'
             return JsonResponse({
@@ -227,18 +240,3 @@ def connect (request):
 
 
 
-def say_hello(request):
-    return {
-        'say_hello':"Hello",
-    }
-
-
-                                                # AJAX
-
-# def ajax (request):
-#     if request.method == 'POST':
-#          connect_form = ConnectionForm
-#     else: 
-#          connect_form = ConnectionForm
-#          return render (request, 'userRoom/base.html', {'connect_form': connect_form})   
-        
