@@ -139,7 +139,7 @@ def view_statement(request):
     user = request.user
     if user.groups.filter(name='Модератор').exists():
         statement = Statement.objects.all()
-        statement.filter()
+        statement.filter(status = 0)
         return render (request, 'userRoom/catalog_moderator.html')
     elif request.method == 'GET':
         profile = Profile.objects.get(user=request.user)
