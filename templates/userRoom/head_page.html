@@ -1,6 +1,19 @@
 
-{% extends "base.html" %}
-{% block content %}
+{% load static  connect_form%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">   
+    <link rel="stylesheet" type="text/css" href='/static/slick-1.8.1/slick/slick.css'>
+    <link rel="stylesheet" type="text/css" href="/static/slick-1.8.1/slick/slick-theme.css"/> 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type='text/javascript' src="/static/onepagescroll/jquery.onepage-scroll.js"></script> 
+    <link href='/static/onepagescroll/onepage-scroll.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'userRoom/base.css' %}">  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+<body>
 {% include "userRoom/headerslide.html" %} 
 <div class="wrapper">
         <div class="main">
@@ -677,4 +690,34 @@
       </div>
     </div>
     </div>
-{% endblock %}
+    <form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
+            <div class="all">
+            <h2>Связаться с нами</h2>
+            <div class="form_wrapp">
+            <div class="wrapp1">
+            <p>Имя</p>
+            {{var.first_name}}
+            <p>Фамилия</p>
+            {{var.second_name}}
+            <p>Отчество</p>
+            {{var.last_name}}
+        </div>
+        <div class="wrapp1">
+            <p class="phone">Телефон</p>
+            {{var.phone}}
+            <p>Почта</p>
+            {{var.email}}
+            <p>Организация</p>
+            {{var.organisation}}
+            {% csrf_token %}
+        </div>
+        </div>
+        <input type="submit" value="Связаться" class="submit" id = 'btn'>
+        </div>
+         
+        </form>
+<button class="fixed_button" id = "toggle">Связаться</button> 
+<script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="/static/userRoom/js.js"></script>
+</body>
+</html>

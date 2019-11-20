@@ -7,6 +7,7 @@ from django.conf.urls import include
 urlpatterns = [
     path('registration/', register, name="register"),
     path('applications/', view_statement, name="application"),
+    path('rejected/', rejected_application, name="rejected"),
     path('', head_page, name= 'container'),
     path('logout/', logout_view, name='logout'),
     path('private/', private_area, name = 'private'),
@@ -18,5 +19,6 @@ urlpatterns = [
     path('organisation_view/', new_organisation, name='organisation_view'),
     path('organisation_edit/<int:pk>',edit_organisation, name='edit_organisation'),
     path('login/', user_login,name="login"),
-    path('connect', connect, name='connect')
+    path('connect', connect, name='connect'),
+    path('view_connect', view_connect, name='view_connect')
 ]

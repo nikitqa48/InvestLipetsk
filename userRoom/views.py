@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Statement, Organisation, Manager, News, Connection
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, Group
-from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm
+from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm, Data_form
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
 from django.utils import timezone
@@ -118,6 +118,7 @@ def new_statement(request):
     return render(request, 'userRoom/statement.html', context)
 
 def edit_statement(request):
+    """ СОЗДАТЬ ЗАЯВКУ """
     if request.method == "POST":
         form = Statement_form(request.POST)
         profile = Profile.objects.get(user = request.user)
@@ -136,45 +137,51 @@ def edit_statement(request):
 
 
 def view_statement(request):
+    """ОТРИСОВКА ЗАЯВОК ПРОФИЛЯ И МОДЕРАТОРА"""  
+    if request.method == 'GET':
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            form = Data_form
+            application = Statement.objects.filter(manager__manager=request.user)
+            context = {
+                'application': application,
+                'form': form
+            }
+            return render(request, 'userRoom/catalog_moderator.html',context)
+        else:
+            profile = Profile.objects.get(user=request.user)
+            statements = Statement.objects.filter(profiles=profile)
+            context = {
+            'statements':statements
+            }
+            return render(request, 'userRoom/catalog.html', context)
+        
+    
+
+def rejected_application(request):
+    """ОТРИСОВКА НЕПРИНЯТЫХ ЗАЯВОК"""
     user = request.user
     if user.groups.filter(name='Модератор').exists():
-        statement = Statement.objects.all()
-        statement.filter(status = 0)
-        return render (request, 'userRoom/catalog_moderator.html')
-    elif request.method == 'GET':
-        profile = Profile.objects.get(user=request.user)
-        statements = Statement.objects.filter(profiles=profile)
-        context = {
-            'statements':statements
-        }
-        return render(request, 'userRoom/catalog.html', context)        
+        statements = Statement.objects.filter(status=0).order_by('-id')
+        return render(request, 'userRoom/rejected.html', {'statements': statements})
 
-  
                                            
 def snap(request,pk):
     """ ПРИВЯЗКА ЗАЯВКИ К МОДЕРАТОРУ"""
     if request.method == 'GET':
-        profile = Profile.objects.get(user = request.user)
-        statement = Statement.objects.get(id= pk)
-        statement.status == 2 
-        managers = Manager.objects.all()
-        statements = Statement.objects.all()      
-        manager = Manager.objects.create(manager = profile,
-                                        zayavka = statement,   
-                                        )
-        for manage in managers:
-            manager_id = manage.manager.user.id
-    
-        for state in statements:
-            state_id = statements.id
-        
-        manager.save()
+        statement = Statement.objects.get(id=pk)
+        statement.status = "1"
         statement.save()
-        return redirect('private', pk = request.user.id)
+        manager = Manager.objects.create(manager=request.user,
+                                         zayavka=statement,   
+                                        )
+        manager.save()
+        return redirect('application')
 
 
                                                 #РЕГИСТРАЦИЯ
 def register(request):
+    """РЕГИСТРАЦИЯ"""
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         profile_form = Profile_form(request.POST)
@@ -197,6 +204,7 @@ def register(request):
                                                 #АВТОРИЗАЦИЯ
 
 def user_login(request):
+    """ АВТОРИЗАЦИЯ """
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -224,10 +232,10 @@ def logout_view(request):
                                                 #Обратная связь
 
 
-def connect (request):
+def connect(request):
+    """ФОРМА МОДЕЛИ СВЯЯЗИ"""
     if request.method == 'POST' and request.is_ajax():
         form = ConnectionForm(request.POST)
-        print(request.POST)
         if form.is_valid():
             form.save()
             a = 'vasya'
@@ -237,6 +245,17 @@ def connect (request):
     else:
         form = ConnectionForm
     return (request,{'form': form})
+    
+
+def view_connect(request):
+    """Отрисовака обращений в кабинете модератора"""
+    if request.method == "GET":
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            connections = Connection.objects.all().order_by('-id')
+            return render(request, 'userRoom/connection.html',{'connections':connections})
+        
+    
 
 
 

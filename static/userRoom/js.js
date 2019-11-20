@@ -1,29 +1,30 @@
-
-   $(document).ready(function(){
+$(document).ready(function(){
+  $("#egor").submit(function(e){
+         e.preventDefault();
+         var serializedData = $(this).serialize();
+         $.ajax({
+             type : 'POST',
+             url :  $('#egor').attr('action'),
+             data : serializedData,
+             success : function(response){
+                  alert('В течении 5 минут вам перезвонят')
+                 $("#egor")[0].reset(); 
+             },
+             error : function(response){
+                 console.log(response)
+             }
+         });
+  })
+});
+  
+  $(document).ready(function(){
     $(".main").onepage_scroll({
       sectionContainer: "section",
       responsiveFallback: 600,
       loop: true
     });
       });
-  $(document).ready(function(){
-        $("#egor").submit(function(e){
-               e.preventDefault();
-               var serializedData = $(this).serialize();
-               $.ajax({
-                   type : 'POST',
-                   url :  $('#egor').attr('action'),
-                   data : serializedData,
-                   success : function(response){
-                        alert('В течении 5 минут вам перезвонят')
-                       $("#egor")[0].reset(); 
-                   },
-                   error : function(response){
-                       console.log(response)
-                   }
-               });
-        })
-     });
+
 $('.fade').slick({
     dots: true,
     infinite: true,
@@ -171,3 +172,7 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
+    let div = document.getElementById('EGOR')
+  if (div.val() == "underfind"){
+
+  }

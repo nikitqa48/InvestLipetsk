@@ -19,6 +19,7 @@ class Organisation_form(forms.ModelForm):
 
 
 class Statement_form(forms.ModelForm):
+    """ФОРМА ЗАЯВКИ"""
     class Meta:
         model = Statement
         fields = ["project_name", "industry", "cost", "square", "work", "description"]
@@ -29,6 +30,14 @@ class Statement_form(forms.ModelForm):
                    "work":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
                    "square":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'', 'required':'required'}),
             }  
+class Data_form(forms.ModelForm):
+    """форма даты исполнения заявки"""
+    class Meta:
+        model = Statement
+        fields = ['time']
+        widgets = {
+            'time':forms.TextInput(attrs={'required':'required'})
+        }
 
 class LoginForm(forms.Form):
     username = forms.CharField()

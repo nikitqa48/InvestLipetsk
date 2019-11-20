@@ -48,32 +48,30 @@ class Statement(models.Model):
     cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
-    ORDER_STATUS = ((0, 'неактивна'),(1, 'В сопровождении'), (3, 'Завершено'))
-    status = models.SmallIntegerField(choices=ORDER_STATUS, null=True , blank = False, default=0)
-    time = models.DateField('Время исполения заявки', blank = True, null = True )
-    class Meta:
-        verbose_name = "Заявка"
-        verbose_name_plural = "Заявки"
-
-    def send_statement(self):
-        self.data_send = timezone.now()
-        self.save()
+    ORDER_STATUS = (('0', 'неактивна'),('1', 'В сопровождении'), ('2', 'Завершено'))
+    status = models.CharField('статус', choices=ORDER_STATUS, null=True , blank = True, default='0', max_length=5)
+    time = models.DateField('Время исполения заявки', blank = True, null = True)
 
     def __str__(self):
         return self.project_name
 
 
+    class Meta:
+        verbose_name = "Заявка"
+        verbose_name_plural = "Заявки"
+
+
  
 class Manager(models.Model):
     """ Привязка заявки к модератору """
-    manager = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False)
+    manager = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank = False)
     zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
     data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)
     class Meta:
         verbose_name = 'Куратор'
         verbose_name_plural = 'Кураторы'
     def __str__(self):
-        return self.manager.user.username
+        return self.manager.username
 
 
 
