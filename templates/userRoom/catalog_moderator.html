@@ -44,8 +44,9 @@
                         <span class="stat"> дата подачи:</span></span><span class = "prob">{{applic.data_send}}</span>
                 </div>
                 <div class="data_send">
-                        <span class="stat"> Примерно время исполнения:</span><span class = "prob">{{form.time}}</span>
+                        <span class="stat"> Примерно время исполнения:</span><span class = "prob">{{applic.time}}<form method="POST" action= "{% url 'time' pk=applic.id%}">{{form.time}} {{form.status}}{% csrf_token %}<input type="submit" value="Создать" /></form></span>
                 </div>
+                
                 </div>
                 {% endfor %}
                 </div>

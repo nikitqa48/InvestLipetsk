@@ -34,9 +34,9 @@ class Data_form(forms.ModelForm):
     """форма даты исполнения заявки"""
     class Meta:
         model = Statement
-        fields = ['time']
+        fields = ['time','status']
         widgets = {
-            'time':forms.TextInput(attrs={'required':'required'})
+            'time':forms.TextInput(attrs={'required':'required', 'type':'date'})
         }
 
 class LoginForm(forms.Form):

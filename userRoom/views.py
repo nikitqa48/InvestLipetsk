@@ -155,7 +155,20 @@ def view_statement(request):
             'statements':statements
             }
             return render(request, 'userRoom/catalog.html', context)
-        
+
+def time_completion(request,pk):
+    """ИЗМЕНЕНИЕ ВРЕМЯ ИСПОЛНЕНИЯ ЗАЯВКИ"""
+    if request.method == "POST":
+        profile = Profile.objects.get(user=request.user)
+        form = Data_form(request.POST) 
+        if form.is_valid():
+            statement = Statement.objects.get(id=pk)
+            statement.time = form['time'].value()
+            statement.status = form['status'].value()
+            statement.save()
+            manager = Manager.objects.get(manager=request.user)
+            manager.zayavka = statement
+    return redirect ('application')
     
 
 def rejected_application(request):
@@ -179,7 +192,7 @@ def snap(request,pk):
         return redirect('application')
 
 
-                                                #РЕГИСТРАЦИЯ
+                                                
 def register(request):
     """РЕГИСТРАЦИЯ"""
     if request.method == 'POST':

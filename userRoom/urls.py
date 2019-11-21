@@ -7,6 +7,7 @@ from django.conf.urls import include
 urlpatterns = [
     path('registration/', register, name="register"),
     path('applications/', view_statement, name="application"),
+    path('path/<int:pk>',time_completion, name="time"),
     path('rejected/', rejected_application, name="rejected"),
     path('', head_page, name= 'container'),
     path('logout/', logout_view, name='logout'),

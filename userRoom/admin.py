@@ -11,7 +11,7 @@ class OrganisationAdmin(admin.ModelAdmin):
 
 @admin.register(Statement)
 class Statement(admin.ModelAdmin):
-    list_display = ['project_name', 'description', 'industry', 'cost', 'square', 'work','data_send']
+    list_display = ['project_name', 'description', 'industry', 'cost', 'square', 'work','data_send','id', 'time','status']
 
 @admin.register(Manager)
 class Statement(admin.ModelAdmin):

@@ -48,7 +48,7 @@ class Statement(models.Model):
     cost = models.CharField("Стоимость проекта", max_length=40, null = True, blank = True)
     square = models.CharField("Площадь земельного участка", max_length=40, null = True, blank = True)
     work = models.CharField("Колличество рабочих", max_length=5,null = True, blank = True)
-    ORDER_STATUS = (('0', 'неактивна'),('1', 'В сопровождении'), ('2', 'Завершено'))
+    ORDER_STATUS = (('0', 'В рассмотрении'),('1', 'В сопровождении'), ('2', 'Завершено'))
     status = models.CharField('статус', choices=ORDER_STATUS, null=True , blank = True, default='0', max_length=5)
     time = models.DateField('Время исполения заявки', blank = True, null = True)
 
