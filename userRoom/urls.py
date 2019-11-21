@@ -9,6 +9,7 @@ urlpatterns = [
     path('applications/', view_statement, name="application"),
     path('path/<int:pk>',time_completion, name="time"),
     path('rejected/', rejected_application, name="rejected"),
+    path('delete/<int:pk>',delete, name='delete'),
     path('', head_page, name= 'container'),
     path('logout/', logout_view, name='logout'),
     path('private/', private_area, name = 'private'),

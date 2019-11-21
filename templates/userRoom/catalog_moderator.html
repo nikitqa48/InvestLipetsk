@@ -22,7 +22,7 @@
                         <h2 class="state">Мои заявки</h2>
                     </div>
         <div class="container">
-            <h2>МОДЕРАТОР</h2>
+            <h2> </h2>
             <div class = "statement">
                     {% for applic in application %}
                     <div class="statement_name">
@@ -30,7 +30,7 @@
                </div>
                 <div class="itms2">
                 <div class="description">
-                   
+                  
                     <div class="data_send">
                             {% if applic.status == 0 %}
                         <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В рассмотрении</span> </p>
@@ -55,5 +55,4 @@
         </div>
     </div>
     </div>
-
 {% endblock %}

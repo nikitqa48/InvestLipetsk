@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    """ ПРОФИЛЬ """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     second_name = models.CharField('Фамилия', blank = True, null=True, max_length=50)
     last_name = models.CharField('Отчество', blank= True, null= True, max_length=50)
@@ -23,6 +24,7 @@ class Profile(models.Model):
 
 
 class Organisation(models.Model):
+    """ ОРГАНИЗАЦИЯ """
     profile_organisation = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True, blank = False,default=1)
     organisation_name = models.CharField("Имя организации", max_length=20, blank=True,null= True,default=1)
     contacts = models.CharField("Контакты организации", max_length=40, blank=True, null = True,default=1)
@@ -76,6 +78,7 @@ class Manager(models.Model):
 
 
 class News (models.Model):
+    """НОВОСТИ"""
     image = models.ImageField(upload_to='static/userRoom/img', height_field=None, width_field=None, max_length=100)
     news_data = models.DateTimeField(default=timezone.now, blank=False, null = True)
     news_header = models.CharField("Заголовок новости", max_length=40, null = True, blank = True)
@@ -88,6 +91,7 @@ class News (models.Model):
 
 
 class Connection (models.Model):
+    """ОБРАТНАЯ СВЯЗЬ"""
     phone = models.CharField('Телефон',max_length=30,null=False, blank= True)
     first_name = models.CharField('Имя', max_length=20, null=False, blank=True)
     second_name = models.CharField('Фамилия', max_length=20, null=False, blank=True)
@@ -104,7 +108,29 @@ class Connection (models.Model):
         return self.first_name
 
 
+class Region(models.Model):
+    """МОДЕЛЬ РЕГИОНА"""
+    name = models.CharField('Имя региона', max_length=30, null=True, blank=True)
 
+    class Meta:
+        verbose_name = "Регион"
+        verbose_name_plural = "Регионы"
+    
+    def __str__(self):
+        return self.name
+
+class Info(models.Model):
+    """ИНФОРМАЦИЯ РЕГИОНА"""
+    territory = models.CharField('Территория региона', max_length=30, null=True, blank=True)
+    invest = models.CharField('Инвестиции в капитал', max_length=30, null=True, blank=True)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Информация'
+        verbose_name = 'Информацию'
+
+    def __str__(self):
+        return self.region.name
 # @receiver(post_save, sender=User)
 # def create_user_profile(sender, instance, created, **kwargs):
 #     if created:

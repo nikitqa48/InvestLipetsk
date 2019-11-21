@@ -27,12 +27,12 @@
                 {% for connect in connections %}
                 <div class="statement_name">
                         <p class = status_state><span class="stat">Обратился:</span>{{connect.second_name}} {{connect.first_name}} {{connect.last_name}}</p>
-                        <p class="status_state"></p>
            </div>
             <div class="itms2">
             <div class="description">
                 <div class="data_send">
                     <span class="stat"> Телефон:</span>{{connect.phone}}</span><span class = "prob">{{statement.data_send}} </span>
+                    
                     
             </div>
             <div class="data_send">
@@ -41,6 +41,9 @@
             <div class="data_send">
                     <span class="stat"> Организация:</span><span class = "prob">{{connect.organisation}}</span>
             </div>
+            <div class="data_send">
+                <a href="{% url 'delete' pk=connect.id %}"><button>удалить</button></a>
+        </div>
             </div>
             {% endfor %}
             </div>

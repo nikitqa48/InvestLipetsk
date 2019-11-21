@@ -156,6 +156,8 @@ def view_statement(request):
             }
             return render(request, 'userRoom/catalog.html', context)
 
+
+
 def time_completion(request,pk):
     """ИЗМЕНЕНИЕ ВРЕМЯ ИСПОЛНЕНИЯ ЗАЯВКИ"""
     if request.method == "POST":
@@ -267,8 +269,9 @@ def view_connect(request):
         if user.groups.filter(name='Модератор').exists():
             connections = Connection.objects.all().order_by('-id')
             return render(request, 'userRoom/connection.html',{'connections':connections})
-        
     
-
-
-
+        
+def delete(request,pk):
+    connect = Connection.objects.get(id=pk)
+    connect.delete()
+    return redirect('view_connect')

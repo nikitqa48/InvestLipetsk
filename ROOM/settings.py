@@ -14,8 +14,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 'django.contrib.sites',
     'django.contrib.staticfiles',
-    'userRoom',
+    'userRoom', 
+
 ]
 
 MIDDLEWARE = [
@@ -43,7 +45,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'context_processors.reverse_form.menu'
+                'context_processors.reverse_form.menu',
+
             ],
         },
     },
@@ -89,3 +92,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join ('staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SITE_ID = 1
