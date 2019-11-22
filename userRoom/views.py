@@ -35,21 +35,22 @@ def private_area(request):
     if user.groups.filter(name='Модератор').exists():
         profile = Profile.objects.get(user=request.user)
         organisations = Organisation.objects.filter(profile_organisation=profile.id)
+        moderator = Manager.objects.all()
+        moderator.filter(manager = request.user)
         context = {
             'profile':profile,
             'organisations': organisations,
+            'moderator': moderator
         }
         return render (request, "userRoom/moderator.html", context)
     else:
         profile = Profile.objects.get(user=request.user)
-        moderator = Manager.objects.all()
-        moderator.filter(manager = profile)
         profile = Profile.objects.get(user=request.user)
         organisations = Organisation.objects.filter(profile_organisation=profile.id)
         context = {
             'profile':profile,
             'organisations': organisations,
-            'moderator': moderator
+            
         }
         return render (request, "userRoom/private_area.html", context)
 
@@ -166,9 +167,8 @@ def time_completion(request,pk):
         if form.is_valid():
             statement = Statement.objects.get(id=pk)
             statement.time = form['time'].value()
-            statement.status = form['status'].value()
             statement.save()
-            manager = Manager.objects.get(manager=request.user)
+            manager = Manager.objects.filter(manager=request.user)
             manager.zayavka = statement
     return redirect ('application')
     
@@ -193,6 +193,14 @@ def snap(request,pk):
         manager.save()
         return redirect('application')
 
+def complete(request,pk):
+    """ЗАВЕРШИТЬ ЗАЯВКУ"""
+    if request.method == "POST":
+        statement = Statement.objects.get(id=pk)
+        print(statement.status)
+        statement.status = '2'
+        statement.save()
+    return redirect ('application')
 
                                                 
 def register(request):

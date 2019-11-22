@@ -34,7 +34,7 @@ class Data_form(forms.ModelForm):
     """форма даты исполнения заявки"""
     class Meta:
         model = Statement
-        fields = ['time','status']
+        fields = ['time']
         widgets = {
             'time':forms.TextInput(attrs={'required':'required', 'type':'date'})
         }
@@ -59,14 +59,15 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
 
 class ConnectionForm(forms.ModelForm):
+    """ФОРМА СВЯЗИ НА ВСЕХ СТРАНИЦАХ"""
     class Meta:
         model = Connection
         fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']
         widgets={
-                   "phone":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "email":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "first_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
-                   "second_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name', 'required':'required'}),
+                   "phone":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required'}),
+                   "email":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required'}),
+                   "first_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-name', 'required':'required'}),
+                   "second_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-name', 'required':'required'}),
                    "organisation":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'}),
-                   'last_name':forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'})
+                   'last_name':forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-otch'})
             }  

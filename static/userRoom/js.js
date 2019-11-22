@@ -16,6 +16,7 @@ $(document).ready(function(){
          });
   })
 });
+
   
   $(document).ready(function(){
     $(".main").onepage_scroll({
@@ -63,20 +64,23 @@ $('.fade').slick({
     form.classList.toggle('formtoggle')
   })
 
-  if (head.classList.contains('none')){
-    alert(2)
-  }
     var tog = function(){
       if(head.classList.contains('toggle')){
         let slider = document.getElementsByClassName('slide_container')
-        slider.classList.add('none')
+        for (let i=0; i<=slider.length; i++){
+          slider[i].classList.add('opacity')
+        }
       }
-
+      
     }
  
 close.addEventListener('click', function(){
   head.classList.remove('toggle')
   head.classList.add('none')
+  let slider = document.getElementsByClassName('slide_container')
+  for (let i=0; i<=slider.length; i++){
+    slider[i].classList.remove('opacity')
+  }
 })
 
 
@@ -143,6 +147,8 @@ cadr.addEventListener('click', function(){
     inf.classList.remove('active')
     logic.classList.remove('active')
     team.classList.remove('active')
+    teamate.classList.remove('toggle')
+    teamate.classList.add('none')
     preferense.classList.remove('toggle')
     kadr.classList.add('toggle')
     log.classList.add('none')
@@ -150,7 +156,6 @@ cadr.addEventListener('click', function(){
     infros.classList.remove('toggle')
     infros.classList.add('none')
     tog()
-    
 })
 var left = document.getElementsByClassName('left_slide')
 inf.addEventListener('click', function(){
@@ -172,7 +177,3 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
-    let div = document.getElementById('EGOR')
-  if (div.val() == "underfind"){
-
-  }

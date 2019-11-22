@@ -17,25 +17,38 @@
     {% endblock %}
 <form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
     <div class="all">
-    <h2>Связаться с нами</h2>
+    <h2 class="svyaz">Связаться с нами</h2>
     <div class="form_wrapp">
-    <div class="wrapp1">
-    <p>Имя</p>
-    {{var.first_name}}
-    <p>Фамилия</p>
-    {{var.second_name}}
-    <p>Отчество</p>
-    {{var.last_name}}
+    <div class="wrapp2">
+        <div class="wrapp1">
+                <p>Имя</p>
+                {{var.first_name}}
+        </div>
+        <div class="wrapp1">
+                <p>Фамилия</p>
+                {{var.second_name}}
+        </div>
 </div>
 <div class="wrapp1">
+<p>Отчество</p>
+{{var.last_name}}
+</div>
+<div class="wrapp2">
+    <div class="wrapp1">
     <p class="phone">Телефон</p>
     {{var.phone}}
+</div>
+<div class="wrapp1">
     <p>Почта</p>
     {{var.email}}
-    <p>Организация</p>
-    {{var.organisation}}
-    {% csrf_token %}
 </div>
+
+</div>
+<div class="wrapp1">
+        <p>Организация</p>
+        {{var.organisation}}
+    </div>
+        {% csrf_token %}
 </div>
 <input type="submit" value="Связаться" class="submit" id = 'btn'>
 </div>
