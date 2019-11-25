@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Statement, Organisation, Manager, News, Connection
+from .models import Profile, Statement, Organisation, Manager, News, Connection, Info, Message
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, Group
 from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm, Data_form
@@ -23,14 +23,17 @@ def organisation_post(request):
                                                      #Главная страница
 def head_page(request):
     news = News.objects.all().order_by('-id')
+    information = Info.objects.all()
     context = {
-        'news': news
-    }
+        'news': news,
+        'information':information
+        }
     return render(request,'userRoom/head_page.html', context) 
 
  
                                                     #ЛИЧНЫЙ КАБИНЕТ
 def private_area(request):
+    """Личный кабинет """
     user = request.user
     if user.groups.filter(name='Модератор').exists():
         profile = Profile.objects.get(user=request.user)
@@ -95,6 +98,7 @@ def new_organisation(request):
     return render(request,'userRoom/organisation.html', context)   
 
 def edit_organisation(request, pk):
+    """Редактирование модели организации"""
     if request.method == "POST":
         form = Organisation_form(request.POST)
         if form.is_valid():
@@ -108,8 +112,9 @@ def edit_organisation(request, pk):
 
                                   
 
-                                                    #ЗАЯВКА
+                                                    
 def new_statement(request):
+    """Отрисовывание заявки"""
     form = Statement_form
     statement = Statement.objects.all()
     context = {
@@ -143,15 +148,17 @@ def view_statement(request):
         user = request.user
         if user.groups.filter(name='Модератор').exists():
             form = Data_form
-            application = Statement.objects.filter(manager__manager=request.user)
+            application = Statement.objects.filter(manager__manager=request.user).order_by('-id')
+            managers = Manager.objects.filter(manager=request.user).order_by('-id')
             context = {
                 'application': application,
-                'form': form
+                'form': form,
+                'managers':managers
             }
             return render(request, 'userRoom/catalog_moderator.html',context)
         else:
             profile = Profile.objects.get(user=request.user)
-            statements = Statement.objects.filter(profiles=profile)
+            statements = Statement.objects.filter(profiles=profile).order_by('-id')
             context = {
             'statements':statements
             }
@@ -246,8 +253,9 @@ def user_login(request):
     return render(request, 'userRoom/login.html', {'form': form})
 
 
-                                                #LOGOUT
+                                                
 def logout_view(request):
+    """ Logout"""
     logout(request)
     return redirect ('container')
 
@@ -280,6 +288,8 @@ def view_connect(request):
     
         
 def delete(request,pk):
+    """Удалить обращение"""
     connect = Connection.objects.get(id=pk)
     connect.delete()
     return redirect('view_connect')
+

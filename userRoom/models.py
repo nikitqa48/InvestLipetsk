@@ -42,7 +42,7 @@ class Organisation(models.Model):
 
 class Statement(models.Model):
     """ ЗАЯВКА """
-    project_name = models.CharField("Наименование проекта", max_length=30,default=0)
+    project_name = models.CharField("Наименование проекта", max_length=30)
     profiles = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     description = models.TextField("Описание проекта", null = True, blank= True)
     industry = models.CharField('Вид деятельности', max_length=30, null = True, blank = True)
@@ -53,7 +53,6 @@ class Statement(models.Model):
     ORDER_STATUS = (('0', 'В рассмотрении'),('1', 'В сопровождении'), ('2', 'Завершено'))
     status = models.CharField('статус', choices=ORDER_STATUS, null=True , blank = True, default='0', max_length=5)
     time = models.DateField('Время исполения заявки', blank = True, null = True)
-
     def __str__(self):
         return self.project_name
 
@@ -62,19 +61,16 @@ class Statement(models.Model):
         verbose_name = "Заявка"
         verbose_name_plural = "Заявки"
 
-
- 
 class Manager(models.Model):
     """ Привязка заявки к модератору """
     manager = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank = False)
     zayavka = models.ForeignKey(Statement, on_delete=models.CASCADE, null = True, blank = False)
     data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)
     class Meta:
-        verbose_name = 'Куратор'
-        verbose_name_plural = 'Кураторы'
+        verbose_name = 'Менеджер'
+        verbose_name_plural = 'Менеджеры'
     def __str__(self):
         return self.manager.username
-
 
 
 class News (models.Model):
@@ -101,8 +97,8 @@ class Connection (models.Model):
 
 
     class Meta:
-        verbose_name = 'Связь'
-        verbose_name_plural = 'Связей'
+        verbose_name = 'Обращение'
+        verbose_name_plural = 'Обращения'
 
     def __str__(self):
         return self.first_name
@@ -131,6 +127,23 @@ class Info(models.Model):
 
     def __str__(self):
         return self.region.name
+
+
+class Message(models.Model):
+    """СООБЩЕНИЯ"""
+    message_from = models.ForeignKey(User, on_delete=models.CASCADE)
+    message_to = models.ForeignKey(Manager, on_delete=models.CASCADE)
+    message_status = (('0', "Не прочитано"),('1','прочитано'))
+    status = models.CharField('Статус', choices=message_status, null=True, blank=False, max_length=3, default='0')
+    text = models.TextField("Сообщение", null = True, blank= True)
+    class Meta:
+        verbose_name = "Сообщение"
+        verbose_name_plural = 'Сообщения'
+    def __str__(self):
+        return message_from
+
+
+
 # @receiver(post_save, sender=User)
 # def create_user_profile(sender, instance, created, **kwargs):
 #     if created:

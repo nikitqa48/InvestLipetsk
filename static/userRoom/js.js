@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
   $("#egor").submit(function(e){
          e.preventDefault();
          var serializedData = $(this).serialize();
@@ -17,7 +17,9 @@ $(document).ready(function(){
   })
 });
 
-  
+$('#dankov').click(function(){
+  alert(2)
+})
   $(document).ready(function(){
     $(".main").onepage_scroll({
       sectionContainer: "section",
@@ -82,8 +84,6 @@ close.addEventListener('click', function(){
     slider[i].classList.remove('opacity')
   }
 })
-
-
   pref.addEventListener('click', function(){
     head.classList.add('toggle')
     pref.classList.add('active')

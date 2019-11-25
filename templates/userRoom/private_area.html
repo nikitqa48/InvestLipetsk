@@ -17,7 +17,7 @@
     <div class="area_wrapp">
     <div class="container">
         <div class = "profile">
-            <h2>Профиль</h2>
+            <!-- <h2>Профиль</h2>
             <div class="information"></div>
             <h3>{{ profile.user }}
                 {{ profile.phone }}</h3>
@@ -31,10 +31,10 @@
                     {% endfor %}
                     <a href= "{% url 'organisation_view' %}"><button> Добавить организацию </button></a>
                     <button> Редактировать организацию</button>
-                </div>
+                </div> -->
         </div>
         <div class="statement">
-            <a href="{% url 'statement_view' %}">
+            <!-- <a href="{% url 'statement_view' %}">
                 <button>Добавить заявку</button></a>
             {% for statement in statements %}
             <h4>{{statement}}</h4>
@@ -56,7 +56,7 @@
                             <p>Завершено <p>                
                     {% endif %}
             </div>
-            {% endfor %}
+            {% endfor %} -->
         </div>
     </div>
 </div>

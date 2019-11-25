@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Organisation, Statement, Manager, News, Connection, Region, Info
+from .models import Profile, Organisation, Statement, Manager, News, Connection, Region, Info, Message
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -31,4 +31,8 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
-    list_display = ['territory', 'invest', 'region']
+    list_display = ['territory', 'invest', 'region','id']
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ['message_from', 'message_to', 'status','text', 'id']

@@ -6,6 +6,9 @@
     height:5%;
     margin: 0 auto;
 }
+.header a{
+    text-decoration: none;
+}
 .header button{
     
     border:none;
@@ -220,6 +223,7 @@ body{
     border-bottom: 1px solid black;
 }
 .header_container{
+    height: 5vh;
     width:97%;
     justify-content: space-between;
     align-items: center;
@@ -294,7 +298,7 @@ body{
     background-image: url("/static/userRoom/img/lipetsk.png");
 }
 .map_container{
-    padding-top: 4%;
+    padding-top: 2.8%;
     height: 90%;
     display: flex;
     flex-direction: row;
@@ -657,7 +661,6 @@ width:25%;
 
 }
 .dots_history{
-
     bottom: 50%;
     display: flex;
     flex-direction: column;
@@ -1123,12 +1126,28 @@ aside{
     color:white;
     border:1px solid white;
     cursor: pointer;
+    font-size: 0.8vw;
     outline: none;
     min-height: 3vh;
     width: 30%;
 }
+.sub{
+    cursor: pointer;
+    background: none;
+    justify-content: center;
+    color:white;
+    outline: none;
+    opacity: .5;
+    border-radius: 5px;
+    border:1px solid white;
+}
 .fixed_button{
+    background: none;
+    color:white;
+    outline: none;
+    cursor: pointer;
     display: flex;
+    /* transform: rotate(45deg); */
     position: fixed;
     bottom: 0;
     right: 0;
@@ -1182,7 +1201,6 @@ aside{
 }
 .left_menu{
     margin-top: 10%;
-    justify-content: space-between;
     height: 18vh;
     font-size: 0.8vw;
     list-style: none;
@@ -1190,9 +1208,11 @@ aside{
     flex-direction: column;
 }
 .left_menu a{
+    margin-top:2vh;
     text-decoration: none;
     color:white;
 }
+.left_menu a:nt
 .left_menu li{
     align-items: center;
     display: flex;
@@ -1219,10 +1239,11 @@ aside{
     flex-direction: column;
 }
 .container{
-    min-height: 80vh;
+    min-height: 75vh;
     width:95%;
     margin: 0 auto;
     border:1px solid #495167;
+    margin-bottom: 5vh;
 }
 
 .lead{
@@ -1314,9 +1335,10 @@ aside{
 }
 .description{
     margin-top: 2%;
-    display: flex;
     align-items: center;
+    font-size: 0.8vw;
     justify-content: space-between;
+    display: flex;
     width:80%;
     border-bottom: 1px solid #3D455B;
 }
@@ -1346,4 +1368,34 @@ aside{
     width:88%;
     margin: 0 auto;
     text-align: left;
+}
+.time{
+   background: none;
+   color: white;
+   width:60%;
+   opacity: .5;
+   border:1px solid white;
+   border-radius: 5px;
+}
+.username{
+    text-align: left;
+}
+.input_1 input{
+    width:15vw;
+}
+.registration_button{
+    width:25%;
+    background:none;
+    color:white;
+    align-self: center;
+    border:1px solid white;
+    cursor: pointer;
+    outline: none;
+    height: 3vh;
+    border-radius: 5px;
+    margin-top: 5%;
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

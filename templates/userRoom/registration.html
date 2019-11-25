@@ -13,23 +13,22 @@
         <div class="register_wrap">
         <div class="familiya">
     <div class="input_1"><p class="username">Логин</p>  {{user_form.username}}</div>
-    <div class="input_1"> <p>Пароль</p>{{user_form.password}}</div>
-    <div class="input_1"><p>Повторите пароль</p>{{user_form.password2}}</div>
-    <div class="input_1"><p class="email">Электронная почта</p>{{user_form.email}}</div>
-    
+    <div class="input_1"> <p class="username">Пароль</p>{{user_form.password}}</div>
+    <div class="input_1"><p class="username">Повторите пароль</p>{{user_form.password2}}</div>
+    <div class="input_1"><p class="username">Электронная почта</p>{{user_form.email}}</div>
     </div>
     <div class="register1">
-            <div class="input_1"><p>Номер телефона</p>{{profile_form.phone}}</div> 
-            <div class="input_1"><p class="firstname">Имя </p>{{user_form.first_name}}</div> 
-            <div class="input_1"><p>Фамилия</p>{{user_form.last_name}}</div>
-            <div class="input_1"> <p>Отчество(если есть)</p> {{profile_form.last_name}}</div>
+            <div class="input_1"><p class="username">Номер телефона</p>{{profile_form.phone}}</div> 
+            <div class="input_1"><p class="username">Имя </p>{{user_form.first_name}}</div> 
+            <div class="input_1"><p class="username">Фамилия</p>{{user_form.last_name}}</div>
+            <div class="input_1"><p class="username">Отчество(если есть)</p> {{profile_form.last_name}}</div>
             <!-- <div class="serial"><p>Серия паспорта</p>{{profile_form.passport_serial}}</div>
             <div class="input_1"><p>Номер паспорта </p> {{profile_form.passport_number}}</div> -->
-         
         </div>
         </div>
+
         {% csrf_token %}
-        <p><input type="submit" value="Регистрация" class="submit"></p>
+        <input type="submit" value="Регистрация" class="registration_button">
     </form>
 </div>
 </div>

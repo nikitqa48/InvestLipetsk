@@ -36,7 +36,7 @@ class Data_form(forms.ModelForm):
         model = Statement
         fields = ['time']
         widgets = {
-            'time':forms.TextInput(attrs={'required':'required', 'type':'date'})
+            'time':forms.TextInput(attrs={'required':'required', 'class':'time','type':'date'})
         }
 
 class LoginForm(forms.Form):

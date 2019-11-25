@@ -31,11 +31,11 @@
                 <div class="description">
                    
                     <div class="data_send">
-                            {% if statement.status == 0 %}
+                            {% if statement.status ==   '0' %}
                         <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В рассмотрении</span> </p>
-                            {% elif statement.status == 1 %}
+                            {% elif statement.status == '1' %}
                         <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В сопровождении</span></p>
-                            {% elif statement.status == 2 %}
+                            {% elif statement.status == '2' %}
                         <p class = status_state><span class="stat">Статус заявки:</span><span class = "prob">завершено</span> </p>
                         {% endif%}
                     </div>
