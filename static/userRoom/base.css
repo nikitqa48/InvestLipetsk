@@ -1054,11 +1054,15 @@ aside{
 }
 .login{
     color:white;
-    background:none;
-    cursor: pointer;
     border:1px solid white;
+    background: none;
+    cursor: pointer;
     padding : 0.3vw 1.3vw;
     outline: none;
+}
+.login button{
+    outline: none;
+    border: none;
 }
 .register2{
     display: flex;
@@ -1092,6 +1096,18 @@ aside{
     min-height:3vh;
     opacity: .5;
     width:100%;
+    background:none;
+    border:1px solid white;
+
+}
+.familiya1 input {
+    outline: none;
+    padding-left: 1vw;
+    margin-left: 5%;
+    color:white;
+    min-height:3vh;
+    width:55%;
+    opacity: .5;
     background:none;
     border:1px solid white;
 
@@ -1147,10 +1163,18 @@ aside{
     outline: none;
     cursor: pointer;
     display: flex;
-    /* transform: rotate(45deg); */
+    border: 1px solid white;
+    border-radius: 5px;
+    height:5%;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    width:2.5%;
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 50%;
+    right:0;
 } 
 
 .close{
@@ -1398,4 +1422,10 @@ aside{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.familiya1{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    justify-content: space-between;
 }

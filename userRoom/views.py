@@ -48,12 +48,14 @@ def private_area(request):
         return render (request, "userRoom/moderator.html", context)
     else:
         profile = Profile.objects.get(user=request.user)
-        profile = Profile.objects.get(user=request.user)
         organisations = Organisation.objects.filter(profile_organisation=profile.id)
+        statements = Statement.objects.filter(profiles = profile)
+        count = statements.count()
         context = {
             'profile':profile,
             'organisations': organisations,
-            
+            'statements': statements,
+            'count': count
         }
         return render (request, "userRoom/private_area.html", context)
 

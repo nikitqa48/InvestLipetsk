@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h1>Логин</h1>
-    <p>Пожалуйста, заполните поля:</p>
-    <form action="{% url 'login'%}" method="post">
+<div class="container_register">
+    <div class="nav">
+        {% include "userRoom/header.html" %}
+    </div>
+    <div class="register2">
+<aside><ul class="registration"><h2 class="portal">Авторизируйтесь</h2></ul><div class="border_aside"></div></aside>
+<form action="{% url 'login'%}" method="post" class="registrationform">
+    <div class="register_wrap">
+    <div class="familiya1">
         {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
-    <svg>
-    </svg>
+</div>
+    </div>
+
+    {% csrf_token %}
+    <input type="submit" value="Войти" class="registration_button">
+</form>
+</div></div>
 {% endblock %}

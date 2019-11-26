@@ -15,8 +15,15 @@
     </div>
     <div class="border_aside"></div>
     <div class="area_wrapp">
+            <div class="div">
+                    <a class = "lead" href="{% url 'private'  %}">Личный кабинет</a>
+                    <h2 class="state">Профиль</h2>
+                </div>
     <div class="container">
+            <h2>У вас {{count}} активных заявок</h2>
         <div class = "profile">
+            
+                <a class = "lead" href="{% url 'application' %}">Посмотреть Статус</a>
             <!-- <h2>Профиль</h2>
             <div class="information"></div>
             <h3>{{ profile.user }}

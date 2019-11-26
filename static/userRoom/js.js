@@ -1,3 +1,9 @@
+var aler = function(){
+  button.addEventListener('click', function(){
+    form.classList.toggle('formtoggle')
+    alert(2)
+  })
+}
 $(document).ready(function(){ 
   $("#egor").submit(function(e){
          e.preventDefault();
@@ -7,7 +13,7 @@ $(document).ready(function(){
              url :  $('#egor').attr('action'),
              data : serializedData,
              success : function(response){
-                  alert('В течении 5 минут вам перезвонят')
+                  aler()
                  $("#egor")[0].reset(); 
              },
              error : function(response){
@@ -16,6 +22,7 @@ $(document).ready(function(){
          });
   })
 });
+
 
 $('#dankov').click(function(){
   alert(2)
@@ -73,9 +80,11 @@ $('.fade').slick({
           slider[i].classList.add('opacity')
         }
       }
-      
     }
- 
+
+  
+  
+
 close.addEventListener('click', function(){
   head.classList.remove('toggle')
   head.classList.add('none')
@@ -177,3 +186,5 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
+var a = document.getElementByClassName('part1')
+console.log(a)
