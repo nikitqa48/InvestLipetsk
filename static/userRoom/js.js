@@ -69,6 +69,12 @@ $('.fade').slick({
   var close = document.getElementById('close')
   var form = document.getElementById('egor')
   var button = document.getElementById('toggle')
+  var close_form = document.getElementById('close_form')
+  
+
+
+
+
   button.addEventListener('click', function(){
     form.classList.toggle('formtoggle')
   })
@@ -82,8 +88,6 @@ $('.fade').slick({
       }
     }
 
-  
-  
 
 close.addEventListener('click', function(){
   head.classList.remove('toggle')

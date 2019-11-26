@@ -1060,9 +1060,20 @@ aside{
     padding : 0.3vw 1.3vw;
     outline: none;
 }
+.close img{
+    border:1px solid white;
+    fill: white;
+}
 .login button{
     outline: none;
     border: none;
+}
+.button_form{
+    top:0;
+    right: 5%;
+    cursor: pointer;
+    position: absolute;
+    width:5%;
 }
 .register2{
     display: flex;
@@ -1324,7 +1335,8 @@ aside{
     flex-direction: column;
 }
 .all{
-    width:100%;
+    width:95%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
@@ -1428,4 +1440,11 @@ aside{
     flex-direction: column;
     width:40%;
     justify-content: space-between;
+}
+.left_div{
+   border:1px solid white;
+   width:90%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
 }
