@@ -9,8 +9,11 @@
             <ul class="left_menu">
                     <a href="{% url 'private' %}"><li><img src ="/static/userRoom/img/cabinet.svg">Мой кабинет</li></a>
                     <a href="{% url 'application' %}"><li><img src ="/static/userRoom/img/mine.svg">Мои заявки</li></a>
+                     <a href="{% url 'chat' %}"><li><img src ="/static/userRoom/img/mine.svg">Сообщения</li></a>
                     <a href="{% url 'rejected' %}"><li><img src ="/static/userRoom/img/mine.svg">Непринятые заявки</li></a>
+                    <a href="{% url 'archive' %}"><li><img src ="/static/userRoom/img/mine.svg">Архив заявок</li></a>
                     <a href="{% url 'view_connect' %}"><li><img src ="/static/userRoom/img/mine.svg">Обращения</li></a>
+                    
             </ul>
         </div>
         <div class="border_aside"></div>
@@ -24,6 +27,7 @@
             <h2> </h2>
             <div class = "statement">
                     {% for applic in application %}
+                    {% if applic.status == '1' %}
                     <div class="statement_name">
                             <p class = status_state><span class="stat">Наименование проекта:</span>{{applic.project_name}}
                </div>
@@ -31,11 +35,11 @@
                 <div class="description">
                   
                     <div class="data_send">
-                            {% if applic.status == 0 %}
+                            {% if applic.status == '0' %}
                         <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В рассмотрении</span> </p>
-                            {% elif applic.status == 1 %}
+                            {% elif applic.status == '1' %}
                         <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В сопровождении</span></p>
-                            {% elif applic.status == 2 %}
+                            {% elif applic.status == '2' %}
                         <p class = status_state><span class="stat">Статус заявки:</span><span class = "prob">завершено</span> </p>
                         {% endif%}
                     </div>
@@ -58,6 +62,7 @@
                 
             </div>
                 </div>
+                {% endif%}
                 {% endfor %}
                 </div>
             </div>

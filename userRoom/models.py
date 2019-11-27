@@ -131,16 +131,19 @@ class Info(models.Model):
 
 class Message(models.Model):
     """СООБЩЕНИЯ"""
-    message_from = models.ForeignKey(User, on_delete=models.CASCADE)
-    message_to = models.ForeignKey(Manager, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    moderator = models.ForeignKey(Manager, on_delete=models.CASCADE)
     message_status = (('0', "Не прочитано"),('1','прочитано'))
     status = models.CharField('Статус', choices=message_status, null=True, blank=False, max_length=3, default='0')
     text = models.TextField("Сообщение", null = True, blank= True)
+    data_send = models.DateTimeField(default=timezone.now, blank=False, null = True)
     class Meta:
         verbose_name = "Сообщение"
         verbose_name_plural = 'Сообщения'
-    def __str__(self):
-        return message_from
+
+
+    # def __str__(self):
+    #      return message_from.username
 
 
 

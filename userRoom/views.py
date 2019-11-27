@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Statement, Organisation, Manager, News, Connection, Info, Message
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, Group
-from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm, Data_form
+from .forms import Profile_form, Organisation_form, Statement_form, LoginForm,UserRegistrationForm, ConnectionForm, Data_form, MessageForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView
 from django.utils import timezone
@@ -19,6 +19,33 @@ def organisation_post(request):
     return render(request, "/", {'organsiations': organisations})
 
 
+
+def chat(request):
+    if request.method == "GET":
+        form = MessageForm
+        statement = Statement.objects.all()
+        # manager = Manager.objects.get(manager=request.user)
+        # messages = Message.objects.filter(moderator = manager)
+        context = {
+            'statement':statement,
+            'form':form,
+            # 'messages':messages
+        }
+        return render(request, 'userRoom/chat.html',context)
+
+
+
+
+def send_message(request,pk):
+    if request.method == "POST":
+        statement = Statement.objects.get(id=pk)
+        manager = Manager.objects.get(zayavka=statement)
+        Message.objects.create(
+            user = request.user,
+            moderator = manager
+        )
+        return redirect('chat')
+        
 
                                                      #Главная страница
 def head_page(request):
@@ -168,6 +195,22 @@ def view_statement(request):
 
 
 
+def archive(request):
+    if request.method == 'GET':
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            form = Data_form
+            application = Statement.objects.filter(manager__manager=request.user).order_by('-id')
+            managers = Manager.objects.filter(manager=request.user).order_by('-id')
+            context = {
+                'application': application,
+                'form': form,
+                'managers':managers
+            }
+            return render(request, 'userRoom/archive.html',context)
+        
+
+
 def time_completion(request,pk):
     """ИЗМЕНЕНИЕ ВРЕМЯ ИСПОЛНЕНИЯ ЗАЯВКИ"""
     if request.method == "POST":
@@ -294,4 +337,6 @@ def delete(request,pk):
     connect = Connection.objects.get(id=pk)
     connect.delete()
     return redirect('view_connect')
+
+
 

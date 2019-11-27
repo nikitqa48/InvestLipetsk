@@ -3,7 +3,7 @@ from django.db import models
 from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .models import Profile, Statement, Organisation, Connection
+from .models import Profile, Statement, Organisation, Connection, Message
 # 
 
 class Profile_form(forms.ModelForm):
@@ -71,3 +71,9 @@ class ConnectionForm(forms.ModelForm):
                    "organisation":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'}),
                    'last_name':forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-otch'})
             }  
+
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['text']

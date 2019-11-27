@@ -24,9 +24,7 @@ $(document).ready(function(){
 });
 
 
-$('#dankov').click(function(){
-  alert(2)
-})
+
   $(document).ready(function(){
     $(".main").onepage_scroll({
       sectionContainer: "section",
@@ -73,7 +71,11 @@ $('.fade').slick({
   
 
 
+$('#elec').on('click', function(){
+  alert('213123')
+})
 
+console.log($('#elec'))
 
   button.addEventListener('click', function(){
     form.classList.toggle('formtoggle')

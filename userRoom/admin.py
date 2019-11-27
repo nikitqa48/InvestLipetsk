@@ -35,4 +35,4 @@ class InfoAdmin(admin.ModelAdmin):
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['message_from', 'message_to', 'status','text', 'id']
+    list_display = ['user', 'moderator', 'status','text', 'id']

@@ -20,43 +20,45 @@
                 <div class="area_wrapp">
                         <div class="div">
                         <a class = "lead" href="{% url 'private'  %}">Личный кабинет</a>
-                        <h2 class="state">НЕПРИНЯТЫЕ ЗАЯВКИ</h2>
+                        <h2 class="state">Архив заявок</h2>
                     </div>
         <div class="container">
-            <h2>Непринятые заявки</h2>
+            <h2> </h2>
             <div class = "statement">
-                   {% for statement in statements %}
+                    
+                    {% for applic in application %}
+                    {% if applic.status == '2' %}
                     <div class="statement_name">
-                            <p class = status_state><span class="stat">Наименование проекта:</span>{{statement.project_name}}
+                            <p class = status_state><span class="stat">Наименование проекта:</span>{{applic.project_name}}
                </div>
                 <div class="itms2">
                 <div class="description">
-                   
+                  
                     <div class="data_send">
-                            {% if statement.status == "0" %}
-                        <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В рассмотрении</span> </p>
-                            {% elif statement.status == "1" %}
-                        <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В сопровождении</span></p>
-                            {% elif statement.status == "2" %}
+                            {% if applic.status == '2' %}
                         <p class = status_state><span class="stat">Статус заявки:</span><span class = "prob">завершено</span> </p>
                         {% endif%}
+                        
                     </div>
                     <div class="data_send">
-                        <span class="stat"> дата подачи:</span></span><span class = "prob">{{statement.data_send}}</span>
+                        <span class="stat"> дата подачи:</span></span><span class = "prob">{{applic.data_send}}</span>
                 </div>
-                <div class="data_send">
-                        <span class="stat"> Примерно время исполнения:</span><span class = "prob">{{statement.time}}</span>
+
+
+
+
+            <div class="data_send">
+            <span class="stat">Дата принятия заявки:</span> {{manager.data_send}}
+            </div>
+       
+            
                 </div>
-                <div class="data_send">
-                    <a href="{% url 'snap' pk=statement.id%}"><button>Принять</button></a>
-                </div>
-                </div>
-                {% endfor %} 
+                {% endif%}
+                {% endfor %}
                 </div>
             </div>
             </div>
         </div>
     </div>
     </div>
-
 {% endblock %}

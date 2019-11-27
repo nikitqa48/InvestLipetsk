@@ -1,11 +1,13 @@
 from django.urls import path
 from userRoom.views import *
-
 from django.conf.urls import include
 
 
 urlpatterns = [
     path('registration/', register, name="register"),
+    path('chat/', chat, name='chat'),
+    path('send/<int:pk>', send_message, name='send'),
+    path('archive', archive, name='archive'),
     path('applications/', view_statement, name="application"),
     path('path/<int:pk>',time_completion, name="time"),
     path('rejected/', rejected_application, name="rejected"),
