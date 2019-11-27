@@ -24,10 +24,12 @@ def chat(request):
     if request.method == "GET":
         form = MessageForm
         statement = Statement.objects.all()
+        messages = Message.objects.filter(user=request.user)
         # manager = Manager.objects.get(manager=request.user)
         # messages = Message.objects.filter(moderator = manager)
         context = {
             'statement':statement,
+            'messages':messages,
             'form':form,
             # 'messages':messages
         }
@@ -39,10 +41,12 @@ def chat(request):
 def send_message(request,pk):
     if request.method == "POST":
         statement = Statement.objects.get(id=pk)
+        form = MessageForm(request.POST)
         manager = Manager.objects.get(zayavka=statement)
         Message.objects.create(
             user = request.user,
-            moderator = manager
+            moderator = manager,
+            # text = form.cleaned_data['text']
         )
         return redirect('chat')
         
