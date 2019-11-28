@@ -141,6 +141,8 @@ class Message(models.Model):
         verbose_name = "Сообщение"
         verbose_name_plural = 'Сообщения'
 
+
+
  
     
     

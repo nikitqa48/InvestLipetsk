@@ -22,16 +22,14 @@ $(document).ready(function(){
          });
   })
 });
-
-
-let lev = document.getElementsByClassName('lev')
+let lev_tolstoy = document.getElementById('lev_tolstoy')
 for(let i = 0; i<lev.length; i++){
   lev[i].addEventListener('click', function(){
-    var lev = document.getElementsByClassName('lev')
-    console.log(lev)
+    $(".leva").toggle();
+    console.log(this.id)
+
   })
 }
-
   $(document).ready(function(){
     $(".main").onepage_scroll({
       sectionContainer: "section",

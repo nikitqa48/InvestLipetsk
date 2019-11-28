@@ -1456,6 +1456,16 @@ aside{
     opacity: 1;
     fill : #52A4DF;
 }
-.lev_tolstoy{
-    display: none;
+.lev{
+ display: none;
+}
+
+.message{
+    border:1px solid white;
+    opacity: .5;
+    display: flex;
+    margin-left: 3%;
+    padding-left: 3%;
+    justify-content: flex-start;
+    margin-top: 2%;
 }

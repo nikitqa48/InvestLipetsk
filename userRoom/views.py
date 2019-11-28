@@ -36,18 +36,29 @@ def dialog(request):
 def chat(request):
     """Отрисовка отправки сообщений"""
     if request.method == "GET":
-        form = MessageForm
-        statement = Statement.objects.all()
-        messages = Message.objects.filter(user=request.user)
-        # manager = Manager.objects.get(manager=request.user)
-        # messages = Message.objects.filter(moderator = manager)
-        context = {
-            'statement':statement,
-            'messages':messages,
-            'form':form,
-            # 'messages':messages
-        }
-        return render(request, 'userRoom/chat.html',context)
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            form = MessageForm
+            statement = Statement.objects.all()
+            manager = Manager.objects.filter(manager=request.user)
+            messages = Message.objects.filter(moderator = manager[0])
+            context ={
+                'messages':messages,
+                'form':form,
+                'statement':statement
+            }
+            return render(request, 'userRoom/chat.html',context)
+        else:
+            form = MessageForm
+            statement = Statement.objects.all()
+            messages = Message.objects.filter(user=request.user)
+            # manager = Manager.objects.get(manager=request.user)
+            context = {
+                'statement':statement,
+                'messages':messages,
+                'form':form,
+                }
+            return render(request, 'userRoom/chat.html',context)
 
 
 

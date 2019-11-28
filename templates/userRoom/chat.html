@@ -27,7 +27,11 @@
         <div class="container">
             <h2>Сообщения</h2>
             {% for message in messages%}
-            {{message.text}}
+            <div class="message">
+            {{message.text}}<br>
+            {{name}}
+            <br>
+        </div>
             {% endfor %}
             <div class = "statement"> 
                 <div class="itms2">
