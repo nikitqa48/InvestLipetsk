@@ -24,6 +24,13 @@ $(document).ready(function(){
 });
 
 
+let lev = document.getElementsByClassName('lev')
+for(let i = 0; i<lev.length; i++){
+  lev[i].addEventListener('click', function(){
+    var lev = document.getElementsByClassName('lev')
+    console.log(lev)
+  })
+}
 
   $(document).ready(function(){
     $(".main").onepage_scroll({
@@ -71,12 +78,6 @@ $('.fade').slick({
   
 
 
-$('#elec').on('click', function(){
-  alert('213123')
-})
-
-console.log($('#elec'))
-
   button.addEventListener('click', function(){
     form.classList.toggle('formtoggle')
   })
@@ -90,7 +91,7 @@ console.log($('#elec'))
       }
     }
 
-
+    
 close.addEventListener('click', function(){
   head.classList.remove('toggle')
   head.classList.add('none')
@@ -192,5 +193,3 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
-var a = document.getElementByClassName('part1')
-console.log(a)

@@ -20,7 +20,21 @@ def organisation_post(request):
 
 
 
+def dialog(request):
+    """отрисовка диалога"""
+    if request.method == 'GET':
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            profile = Profile.objects.get(user)
+            statement = Statement.objects.filter(profiles=profile)
+            dialog_moderator = profile
+            dialog_user = statement.profiles
+            message = Message.objects.filter()
+            return render(request, 'userRoom/dialog,html',context )
+        # else:
+
 def chat(request):
+    """Отрисовка отправки сообщений"""
     if request.method == "GET":
         form = MessageForm
         statement = Statement.objects.all()
@@ -39,20 +53,37 @@ def chat(request):
 
 
 def send_message(request,pk):
+    """ОТПРАВКА СООБЩЕНИЙ МЕЖДУ МОДЕРАТОРОМ И ПОЛЬЗОВАТЕЛЕМ"""
     if request.method == "POST":
-        statement = Statement.objects.get(id=pk)
-        form = MessageForm(request.POST)
-        manager = Manager.objects.get(zayavka=statement)
-        Message.objects.create(
-            user = request.user,
-            moderator = manager,
-            # text = form.cleaned_data['text']
-        )
-        return redirect('chat')
-        
+        user = request.user
+        if user.groups.filter(name='Модератор').exists():
+            form = MessageForm(request.POST)
+            statement = Statement.objects.get(id=pk)
+            manager = Manager.objects.get(zayavka=statement)
+            profile = statement.profiles.user
+            if form.is_valid():
+                Message.objects.create(
+                    user = profile,
+                    moderator = manager,
+                    text = form.cleaned_data['text']
+                )
+            return redirect('chat')
+        else:   
+            statement = Statement.objects.get(id=pk)
+            form = MessageForm(request.POST)
+            manager = Manager.objects.get(zayavka=statement)
+            if form.is_valid():
+                Message.objects.create(
+                user = request.user,
+                moderator = manager,
+                text = form.cleaned_data['text']
+                )
+            return redirect('chat')
 
-                                                     #Главная страница
+        
+                                                     
 def head_page(request):
+    """ГЛАВНАЯ СТРАНИЦА"""
     news = News.objects.all().order_by('-id')
     information = Info.objects.all()
     context = {
@@ -62,7 +93,7 @@ def head_page(request):
     return render(request,'userRoom/head_page.html', context) 
 
  
-                                                    #ЛИЧНЫЙ КАБИНЕТ
+                                                    
 def private_area(request):
     """Личный кабинет """
     user = request.user
@@ -200,6 +231,7 @@ def view_statement(request):
 
 
 def archive(request):
+    """АРХИВ ЗАЯВОК"""
     if request.method == 'GET':
         user = request.user
         if user.groups.filter(name='Модератор').exists():
@@ -280,7 +312,7 @@ def register(request):
         profile_form = Profile_form()
     return render(request, 'userRoom/registration.html',{'profile_form':profile_form, "user_form":user_form})
 
-                                                #АВТОРИЗАЦИЯ
+                                               
 
 def user_login(request):
     """ АВТОРИЗАЦИЯ """
@@ -309,7 +341,7 @@ def logout_view(request):
     return redirect ('container')
 
 
-                                                #Обратная связь
+                                                
 
 
 def connect(request):

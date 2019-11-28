@@ -1448,3 +1448,14 @@ aside{
    display: flex;
    justify-content: space-between;
 }
+.lev{
+    opacity: 0;
+    cursor: pointer;
+}
+.lev:hover{
+    opacity: 1;
+    fill : #52A4DF;
+}
+.lev_tolstoy{
+    display: none;
+}

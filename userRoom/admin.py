@@ -36,3 +36,7 @@ class InfoAdmin(admin.ModelAdmin):
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
     list_display = ['user', 'moderator', 'status','text', 'id']
+
+# @admin.register(Dialog)
+# class DialogAdmin(admin.ModelAdmin):
+#     list_display = ['user1', 'moderator']

@@ -141,8 +141,15 @@ class Message(models.Model):
         verbose_name = "Сообщение"
         verbose_name_plural = 'Сообщения'
 
+ 
+    
+    
+    
+    
+    
 
-    # def __str__(self):
+
+# def __str__(self):
     #      return message_from.username
 
 
