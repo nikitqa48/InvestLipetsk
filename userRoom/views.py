@@ -110,11 +110,14 @@ def private_area(request):
     user = request.user
     if user.groups.filter(name='Модератор').exists():
         profile = Profile.objects.get(user=request.user)
+        statement = Statement.objects.filter(status=0)
+        count = statement.count()
         organisations = Organisation.objects.filter(profile_organisation=profile.id)
         moderator = Manager.objects.all()
         moderator.filter(manager = request.user)
         context = {
             'profile':profile,
+            'count':count,
             'organisations': organisations,
             'moderator': moderator
         }

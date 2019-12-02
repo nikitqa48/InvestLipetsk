@@ -117,9 +117,14 @@ class Region(models.Model):
 
 class Info(models.Model):
     """ИНФОРМАЦИЯ РЕГИОНА"""
-    territory = models.CharField('Территория региона', max_length=30, null=True, blank=True)
-    invest = models.CharField('Инвестиции в капитал', max_length=30, null=True, blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    territory = models.CharField('Территория региона(тыс.га)', max_length=30, null=True, blank=True)
+    worker = models.CharField('Численность работников', max_length=30,null=True, blank=True)
+    energy = models.CharField('Электроснабжение(МВт)', max_length=30,null=True, blank=True)
+    termo = models.CharField('Теплоснабжение(Гкал/час)', max_length=30,null=True, blank=True)
+    water = models.CharField('Водоснабжение(тыс.куб м/сут)', max_length=30,null=True, blank=True)
+    waterout = models.CharField('Водоотведение(тыс. куб м/сут)', max_length=30,null=True, blank=True)
+    gas = models.CharField('Газоснабжение(тыс. куб м/сут)', max_length=30,null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Информация'

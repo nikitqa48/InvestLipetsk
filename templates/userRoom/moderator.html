@@ -2,11 +2,11 @@
 {% block title %}Log-in{% endblock %}
 {% block content %}
 <div class="container_register">
-    <div class="nav">
-        {% include "userRoom/header.html" %}
-    </div>
-<div class="random"  action="{% url 'private' %}">
-    <div class="leftbar">
+        <div class="nav">
+            {% include "userRoom/header.html" %}
+        </div>
+    <div class="random"  action="{% url 'private' %}">
+        <div class="leftbar">
             <ul class="left_menu">
                     <a href="{% url 'private' %}"><li><img src ="/static/userRoom/img/cabinet.svg">Мой кабинет</li></a>
                     <a href="{% url 'application' %}"><li><img src ="/static/userRoom/img/mine.svg">Мои заявки</li></a>
@@ -15,55 +15,50 @@
                     <a href="{% url 'view_connect' %}"><li><img src ="/static/userRoom/img/mine.svg">Обращения</li></a>
                     
             </ul>
-    </div>
-    <div class="border_aside"></div>
-    <div class="area_wrapp">
-    <div class="container">
-        <div class = "profile">
-            <h2>Модератор</h2>
-            <div class="information"></div>
-
-            <h3>{{ profile.user }}
-                {{ profile.phone }}</h3>
-            </div>
-            <a href = "{% url 'profile_view' %}"><button> редактировать профиль </button></a> 
-            <a href="{% url 'logout' %}"><button> Выйти</button></a>
-            <div class="organisation">
-                    <h2>Ваши организации</h2>
-                    {% for organisation in organisations %}
-                <h4>{{organisation}}</h4>
-                    {% endfor %}
-                    <a href= "{% url 'organisation_view' %}"><button> Добавить организацию </button></a>
-                    <button> Редактировать организацию</button>
+        </div>
+        <div class="border_aside"></div>
+        <div class="area_wrapp">
+                <div class="area_wrapp">
+                        <div class="div">
+                        <a class = "lead" href="{% url 'application'  %}">Мои заявки</a>
+                        <h2 class="state">{{profile.user.username}}</h2>
+                    </div>
+        <div class="container">
+            <h2>у вас {{count}} непринятых заявок </h2>
+            <div class = "statement">
+                   {% for statement in statements %}
+                    <div class="statement_name">
+                            <p class = status_state><span class="stat">Наименование проекта:</span>{{statement.project_name}}
+               </div>
+                <div class="itms2">
+                <div class="description">
+                   
+                    <div class="data_send">
+                            {% if statement.status == "0" %}
+                        <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В рассмотрении</span> </p>
+                            {% elif statement.status == "1" %}
+                        <p class = status_state><span class="stat">Статус заявки:</span> <span class = "prob">В сопровождении</span></p>
+                            {% elif statement.status == "2" %}
+                        <p class = status_state><span class="stat">Статус заявки:</span><span class = "prob">завершено</span> </p>
+                        {% endif%}
+                    </div>
+                    <div class="data_send">
+                        <span class="stat"> дата подачи:</span></span><span class = "prob">{{statement.data_send}}</span>
                 </div>
-        </div>
-        <div class="statement">
-            <a href="{% url 'statement_view' %}">
-                <button>Добавить заявку</button></a>
-            {% for statement in statements %}
-            <h4>{{statement}}</h4>
-            <p>id заявки = {{statement.id}}</p>
-            <a href="{% url 'snap' pk=statement.id %}">
-            <button>Привязать заявку к пользователю
-            </button>
-        </a>
-            
-            <div class="status">
-                <h3>Статус заявки</h3>
-                {% if statement.status == 0 %}
-                <p>рассмотрение<p>
-                {% elif statement.status == 1%}
-                    <p>Сопровождение <p>
-                {% elif statement.status == 2%} 
-                    <p>Реализация <p>
-                {% elif statement.status == 3%} 
-                            <p>Завершено <p>                
-                    {% endif %}
+                <div class="data_send">
+                        <span class="stat"> Примерно время исполнения:</span><span class = "prob">{{statement.time}}</span>
+                </div>
+                <div class="data_send">
+                    <a href="{% url 'snap' pk=statement.id%}"><button>Принять</button></a>
+                </div>
+                </div>
+                {% endfor %} 
+                </div>
             </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
+
 
 {% endblock %}

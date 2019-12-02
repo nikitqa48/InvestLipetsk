@@ -1,9 +1,9 @@
 var aler = function(){
   button.addEventListener('click', function(){
     form.classList.toggle('formtoggle')
-    alert(2)
   })
 }
+
 $(document).ready(function(){ 
   $("#egor").submit(function(e){
          e.preventDefault();
@@ -22,14 +22,7 @@ $(document).ready(function(){
          });
   })
 });
-let lev_tolstoy = document.getElementById('lev_tolstoy')
-for(let i = 0; i<lev.length; i++){
-  lev[i].addEventListener('click', function(){
-    $(".leva").toggle();
-    console.log(this.id)
 
-  })
-}
   $(document).ready(function(){
     $(".main").onepage_scroll({
       sectionContainer: "section",
@@ -73,8 +66,6 @@ $('.fade').slick({
   var form = document.getElementById('egor')
   var button = document.getElementById('toggle')
   var close_form = document.getElementById('close_form')
-  
-
 
   button.addEventListener('click', function(){
     form.classList.toggle('formtoggle')
@@ -89,7 +80,6 @@ $('.fade').slick({
       }
     }
 
-    
 close.addEventListener('click', function(){
   head.classList.remove('toggle')
   head.classList.add('none')
@@ -98,6 +88,7 @@ close.addEventListener('click', function(){
     slider[i].classList.remove('opacity')
   }
 })
+
   pref.addEventListener('click', function(){
     head.classList.add('toggle')
     pref.classList.add('active')
@@ -116,6 +107,7 @@ close.addEventListener('click', function(){
     infros.classList.add('none')
     tog()
   })
+
   logic.addEventListener('click', function(){
     head.classList.add('toggle')
     pref.classList.remove('active')
@@ -135,8 +127,8 @@ close.addEventListener('click', function(){
     infros.classList.remove('toggle')
     infros.classList.add('none')
     tog()
-
 })
+
 team.addEventListener('click', function(){
     head.classList.add('toggle')
     pref.classList.remove('active')
@@ -154,6 +146,7 @@ team.addEventListener('click', function(){
     infros.classList.add('none')
     tog()
 })
+
 cadr.addEventListener('click', function(){
     head.classList.add('toggle')
     pref.classList.remove('active')
@@ -171,6 +164,7 @@ cadr.addEventListener('click', function(){
     infros.classList.add('none')
     tog()
 })
+
 var left = document.getElementsByClassName('left_slide')
 inf.addEventListener('click', function(){
     head.classList.add('toggle')
@@ -191,3 +185,449 @@ inf.addEventListener('click', function(){
     infros.classList.add('toggle')
     tog()
   })
+
+
+
+
+
+
+
+
+
+
+
+
+  for(let i = 0; i<lev.length; i++){
+    lev[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(500);
+      $('.right_map').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.usman').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.dobrinka').hide()
+      $('.gryasi').hide()
+      $('.krasnoe').hide()
+      $('.hlevnoe').hide()
+      $('.stanovoe').hide()
+      $('.volovo').hide()
+      $('.elec').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.zadonsk').hide()
+      $('.terbuny').hide()
+    })
+  }
+  for(let i = 0; i<dankov.length; i++){
+    dankov[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.lev').hide()
+      $('.hlevnoe').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.right_map').hide()
+      $('.dobroe').hide()
+      $('.dobrinka').hide()
+      $('.lipetsk').hide()
+      $('.usman').hide()
+      $('.volovo').hide()
+      $('.krasnoe').hide()
+      $('.gryasi').hide()
+      $('.stanovoe').hide()
+      $('.dolgorukogo').hide()
+      $('.elec').hide()
+      $('.ismalkovo').hide()
+      $('.zadonsk').hide()
+      $('.terbuny').hide()
+    })
+  }
+  for(let i = 0; i<chaplygin.length; i++){
+    chaplygin[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.dobrinka').hide()
+      $('.hlevnoe').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.volovo').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.usman').hide()
+      $('.gryasi').hide()
+      $('.zadonsk').hide()
+      $('.dolgorukogo').hide()
+      $('.ismalkovo').hide()
+      $('.terbuny').hide()
+    })
+  }
+  for(let i = 0; i<lebedyan.length; i++){
+    lebedyan[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.dobroe').hide()
+      $('.hlevnoe').hide()
+      $('.dobrinka').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.dolgorukogo').hide()
+      $('.volovo').hide()
+      $('.stanovoe').hide()
+      $('.usman').hide()
+      $('.gryasi').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.terbuny').hide()
+    })
+  }
+  for(let i = 0; i<dobroe.length; i++){
+    dobroe[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dolgorukogo').hide()
+      $('.lipetsk').hide()
+      $('.hlevnoe').hide()
+      $('.dobrinka').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.usman').hide()
+      $('.gryasi').hide()
+      $('.ismalkovo').hide()
+      $('.zadonsk').hide()
+      $('.volovo').hide()
+      $('.terbuny').hide()
+    })
+  }
+  for(let i = 0; i<lipetsk.length; i++){
+    lipetsk[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.gryasi').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.usman').hide()
+      $('.dobroe').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.dobrinka').hide()
+      $('.elec').hide()
+      $('.hlevnoe').hide()
+      $('.dolgorukogo').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+    })
+  }
+  for(let i = 0; i<krasnoe.length; i++){
+    krasnoe[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.gryasi').hide()
+      $('.lipetsk').hide()
+      $('.usman').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.dolgorukogo').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dobrinka').hide()
+      $('.hlevnoe').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+    })
+  }
+  for(let i = 0; i<stanovoe.length; i++){
+    stanovoe[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.usman').hide()
+      $('.gryasi').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.dolgorukogo').hide()
+      $('.dobrinka').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.hlevnoe').hide()
+      $('.ismalkovo').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+    })
+  }
+  for(let i = 0; i<elec.length; i++){
+    elec[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.usman').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.zadonsk').hide()
+      $('.dobrinka').hide()
+      $('.hlevnoe').hide()
+      $('.dolgorukogo').hide()
+      $('.ismalkovo').hide()
+      $('.terbuny').hide()
+      $('.gryasi').hide()
+      $('.volovo').hide()
+    })
+  }
+  
+  for(let i = 0; i<zadonsk.length; i++){
+    zadonsk[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.usman').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.gryasi').hide()
+      $('.ismalkovo').hide()
+      $('.hlevnoe').hide()
+      $('.dolgorukogo').hide()
+      $('.dobrinka').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+    })
+  }
+
+  for(let i = 0; i<ismalkovo.length; i++){
+    ismalkovo[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.usman').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.gryasi').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.hlevnoe').hide()
+      $('.volovo').hide()
+      $('.dobrinka').hide()
+    })
+  }
+  for(let i = 0; i<dolgorukogo.length; i++){
+    dolgorukogo[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.gryasi').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dobrinka').hide()
+      $('.usman').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+      $('.hlevnoe').hide()
+    })
+  }
+  for(let i = 0; i<terbuny.length; i++){
+    terbuny[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.dobrinka').hide()
+      $('.volovo').hide()
+      $('.usman').hide()
+      $('.hlevnoe').hide()
+      $('.gryasi').hide()
+    })
+  }
+  for(let i = 0; i<volovo.length; i++){
+    volovo[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.usman').hide()
+      $('.hlevnoe').hide()
+      $('.gryasi').hide()
+      $('.dobrinka').hide()
+    })
+  }
+  for(let i = 0; i<hlevnoe.length; i++){
+    hlevnoe[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.dobrinka').hide()
+      $('.volovo').hide()
+      $('.usman').hide()
+      $('.gryasi').hide()
+    })
+  }
+  for(let i = 0; i<gryasi.length; i++){
+    gryasi[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+      $('.hlevnoe').hide()
+      $('.usman').hide()
+      $('.dobrinka').hide()
+    })
+  }
+  for(let i = 0; i<usman.length; i++){
+    usman[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+      $('.hlevnoe').hide()
+      $('.gryasi').hide()
+      $('.dobrinka').hide()
+    })
+  }
+  for(let i = 0; i<dobrinka.length; i++){
+    dobrinka[i].addEventListener('click', function(){
+      var name = '.'+this.id
+      $(name).show(350);
+      $('.right_map').hide()
+      $('.lev').hide()
+      $('.dankov').hide()
+      $('.chaplygin').hide()
+      $('.lebedyan').hide()
+      $('.dobroe').hide()
+      $('.lipetsk').hide()
+      $('.krasnoe').hide()
+      $('.stanovoe').hide()
+      $('.elec').hide()
+      $('.zadonsk').hide()
+      $('.ismalkovo').hide()
+      $('.dolgorukogo').hide()
+      $('.terbuny').hide()
+      $('.volovo').hide()
+      $('.hlevnoe').hide()
+      $('.gryasi').hide()
+      $('.usman').hide()
+    })
+  }

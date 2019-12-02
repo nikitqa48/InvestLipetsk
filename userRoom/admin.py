@@ -31,7 +31,7 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
-    list_display = ['territory', 'invest', 'region','id']
+    list_display = ['region','territory','id','worker','energy','termo','water','waterout','gas']
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):

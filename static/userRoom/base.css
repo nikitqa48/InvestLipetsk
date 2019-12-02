@@ -829,6 +829,8 @@ width:25%;
     opacity: .5;
     width:100%;
     position: absolute;
+    outline: none;
+    z-index: 100;
 }
 
 .part{
@@ -1448,16 +1450,10 @@ aside{
    display: flex;
    justify-content: space-between;
 }
-.lev{
-    opacity: 0;
-    cursor: pointer;
-}
-.lev:hover{
-    opacity: 1;
-    fill : #52A4DF;
-}
-.lev{
+
+.lev,.dankov,.dankov,.chaplygin,.lebedyan,.dobroe,.lipetsk,.krasnoe,.stanovoe,.elec,.zadonsk,.ismalkovo,.dolgorukogo,.terbuny,.volovo,.hlevnoe,.gryasi,.usman,.dobrinka{
  display: none;
+ width: 40%;
 }
 
 .message{
