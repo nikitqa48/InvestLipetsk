@@ -270,10 +270,11 @@ body{
 .artamonov_text{
     line-height: 140%;
     width:45%;
+    text-align: center;
+    opacity: .5;
 }
 .artamonov_border{
     opacity: .5;
-    padding-top: 3%;
     width: 70%;
     border-bottom: 1px solid #FFFFFF;
 }
@@ -282,6 +283,8 @@ body{
 
 }
 .artamonov_border2{
+    padding-bottom: 5%;
+    text-align: center;
     align-self: flex-end;
     width:60%;
     border-bottom: 1px solid #FFFFFF;

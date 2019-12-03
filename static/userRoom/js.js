@@ -607,7 +607,7 @@ inf.addEventListener('click', function(){
       $('.dobrinka').hide()
     })
   }
-  for(let i = 0; i<dobrinka.length; i++){
+  for(let i = 0; i<usman.length; i++){
     dobrinka[i].addEventListener('click', function(){
       var name = '.'+this.id
       $(name).show(350);

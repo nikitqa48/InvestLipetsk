@@ -23,7 +23,7 @@
                         <div class="risk_container">
                                 <h2 class="heading">Липецкая область</h2>
                                 <div class="white_heading"></div>
-                                <p class="risk_p">Минимальный риск инвестиций <br>за 10 лет</p>
+                                <p class="risk_p">Минимальный риск инвестирования В РФ <br>за 15 лет - RAEX rating agency</p>
                                 
                             </div>
                 </div>
@@ -416,7 +416,7 @@
                  {% if user.is_authenticated %}
                  <a href="{% url 'private'  %}">
                  <button class="more">
-                     Связаться
+                     Обратиться к руководству
                      </button>
                  </a>
                  {% else %}
@@ -429,8 +429,8 @@
     
                 </div>
                 <div class="right_artamonov">
-                     <p class="artamonov_text2"></p>
-                             <span class="artamonov_border2"></span>
+                     <p class="artamonov_text2"> </p>
+                             <span class="artamonov_border2">«Развиваем Липецкую область вместе»</span>
                              <p class="artamonov_name">Артамонов И.Г <br>Губернатор <br>Липецкой области</p>
                 </div>
             </div>
@@ -1435,54 +1435,57 @@
                                 </div>
                     </div>
             </div>
+            {% endif%}
+                {% endfor%}
             <div class="ismalkovo" >
-                    {% endif%}
-                    {% endfor%}
                 <div class="data_region">
                     <div class="invest_wrapper">
                     <h2 class="invest">
-                        Измалково  
+            
+                        {% for inform in information%}
+                        {% if inform.region.name == 'Измалково'%}
+                                {{inform.region.name}}
                     </h2>
                     <span class="border_invest"></span>
                 </div>
+                    
                     <div class="data1">
                         <div class="data_inside">
                         <p class="p_region">
-                            <span class="number">24</span>
-                            тыс.км<sup>2</sup>
+                            <span class="number">{{inform.territory}}</span>
+                            тыс. га
                         </p>
                         <p class="territory">
-                            Территория липецкой области
+                            Площадь территории
                         </p>
                     </div>
                     <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">1150</span>
-                                тыс. чел
+                                <span class="number">{{inform.termo}}</span>
+                                Гкал/час
                             </p>
                             <p class="territory">
-                                    население региона
+                                   Теплоснабжение
                             </p>
                         </div>
                     </div>
                     <div class="data1">
                             <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">11</span>
-                                особых
+                                <span class="number">{{inform.energy}}</span>
+                                МВт
                             </p>
                             <p class="territory">
-                                экономических зон
+                                электроснабжение
                             </p>
                         </div>
                         <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">539</span>
-                                    млрд руб
+                                    <span class="number">{{inform.waterout}}</span>
+                                    тыс.куб м/сут
                                 </p>
                                 <p class="territory">
-                                        валовый регональный
-                            продукт 
+                                    Водоотведение
                                 </p>
                             </div>
                         </div>  
@@ -1490,39 +1493,47 @@
                         <div class="data1">
                                 <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">128</span>
-                                    млрд руб
+                                    <span class="number">{{inform.water}}</span>
+                                    тыс. куб м/сут
                                 </p>
                                 <p class="territory">
-                                        объем инвестиций
-                                        в основной капитал
+                                        Водоснабжение
                                 </p>
                             </div>
                             <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">112</span>
-                                        тыс.руб
+                                        <span class="number">{{inform.gas}}</span>
+                                        тыс. куб м/сут
                                     </p>
                                     <p class="territory">
-                                            объем инвестиций
-                    <br>на душу населения
+                                        Газоснабжение
                                     </p>
                                 </div>
                             </div>  
                             <div class="data1">
                                     <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">5 590</span>
-                                        млн. дол
+                                        <span class="number">70</span>
+                                        км
                                     </p>
                                     <p class="territory">
-                                            объем инвестиций
-                        на душу населения
+                             расстояние до трассы федерального значения М-4 "Дон"
                                     </p>
                                 </div>
-                                </div>  
+                                <div class="data_inside">
+                                    <p class="p_region">
+                                        <span class="number">23</span>
+                                        км
+                                    </p>
+                                    <p class="territory">
+                             расстояние до трассы федерального значения М-6 "Каспий"
+                                    </p>
+                                </div>
+                                </div>
                     </div>
             </div>
+            {% endif%}
+            {% endfor%}
             <div class="dolgorukogo" >
                 <div class="data_region">
                     <div class="invest_wrapper">
@@ -1613,48 +1624,50 @@
                 <div class="data_region">
                     <div class="invest_wrapper">
                     <h2 class="invest">
-                        Тербуны
+                        {% for inform in information%}
+                        {% if inform.region.name == 'Тербуны'%}
+                                {{inform.region.name}}
                     </h2>
                     <span class="border_invest"></span>
                 </div>
+                    
                     <div class="data1">
                         <div class="data_inside">
                         <p class="p_region">
-                            <span class="number">24</span>
-                            тыс.км<sup>2</sup>
+                            <span class="number">{{inform.territory}}</span>
+                            тыс. га
                         </p>
                         <p class="territory">
-                            Территория липецкой области
+                            Площадь территории
                         </p>
                     </div>
                     <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">1150</span>
-                                тыс. чел
+                                <span class="number">{{inform.termo}}</span>
+                                Гкал/час
                             </p>
                             <p class="territory">
-                                    население региона
+                                   Теплоснабжение
                             </p>
                         </div>
                     </div>
                     <div class="data1">
                             <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">11</span>
-                                особых
+                                <span class="number">{{inform.energy}}</span>
+                                МВт
                             </p>
                             <p class="territory">
-                                экономических зон
+                                электроснабжение
                             </p>
                         </div>
                         <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">539</span>
-                                    млрд руб
+                                    <span class="number">{{inform.waterout}}</span>
+                                    тыс.куб м/сут
                                 </p>
                                 <p class="territory">
-                                        валовый регональный
-                            продукт 
+                                    Водоотведение
                                 </p>
                             </div>
                         </div>  
@@ -1662,39 +1675,47 @@
                         <div class="data1">
                                 <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">128</span>
-                                    млрд руб
+                                    <span class="number">{{inform.water}}</span>
+                                    тыс. куб м/сут
                                 </p>
                                 <p class="territory">
-                                        объем инвестиций
-                                        в основной капитал
+                                        Водоснабжение
                                 </p>
                             </div>
                             <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">112</span>
-                                        тыс.руб
+                                        <span class="number">{{inform.gas}}</span>
+                                        тыс. куб м/сут
                                     </p>
                                     <p class="territory">
-                                            объем инвестиций
-                    <br>на душу населения
+                                        Газоснабжение
                                     </p>
                                 </div>
                             </div>  
                             <div class="data1">
                                     <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">5 590</span>
-                                        млн. дол
+                                        <span class="number">60</span>
+                                        км
                                     </p>
                                     <p class="territory">
-                                            объем инвестиций
-                        на душу населения
+                             расстояние до трассы федерального значения М-4 "Дон"
                                     </p>
                                 </div>
-                                </div>  
+                                <div class="data_inside">
+                                    <p class="p_region">
+                                        <span class="number">1,5</span>
+                                        км
+                                    </p>
+                                    <p class="territory">
+                             расстояние до трассы областного значения Липецк-Тербуны
+                                    </p>
+                                </div>
+                                </div>
                     </div>
             </div>
+            {% endif%}
+            {% endfor%}
             <div class="volovo" >
                 <div class="data_region">
                     <div class="invest_wrapper">
@@ -1785,48 +1806,50 @@
                 <div class="data_region">
                     <div class="invest_wrapper">
                     <h2 class="invest">
-                        Хлевное
+                        {% for inform in information%}
+                        {% if inform.region.name == 'Хлевное'%}
+                                {{inform.region.name}}
                     </h2>
                     <span class="border_invest"></span>
                 </div>
+                    
                     <div class="data1">
                         <div class="data_inside">
                         <p class="p_region">
-                            <span class="number">24</span>
-                            тыс.км<sup>2</sup>
+                            <span class="number">{{inform.territory}}</span>
+                            тыс. га
                         </p>
                         <p class="territory">
-                            Территория липецкой области
+                            Площадь территории
                         </p>
                     </div>
                     <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">1150</span>
-                                тыс. чел
+                                <span class="number">{{inform.termo}}</span>
+                                Гкал/час
                             </p>
                             <p class="territory">
-                                    население региона
+                                   Теплоснабжение
                             </p>
                         </div>
                     </div>
                     <div class="data1">
                             <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">11</span>
-                                особых
+                                <span class="number">{{inform.energy}}</span>
+                                МВт
                             </p>
                             <p class="territory">
-                                экономических зон
+                                электроснабжение
                             </p>
                         </div>
                         <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">539</span>
-                                    млрд руб
+                                    <span class="number">{{inform.waterout}}</span>
+                                    тыс.куб м/сут
                                 </p>
                                 <p class="territory">
-                                        валовый регональный
-                            продукт 
+                                    Водоотведение
                                 </p>
                             </div>
                         </div>  
@@ -1834,39 +1857,29 @@
                         <div class="data1">
                                 <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">128</span>
-                                    млрд руб
+                                    <span class="number">{{inform.water}}</span>
+                                    тыс. куб м/сут
                                 </p>
                                 <p class="territory">
-                                        объем инвестиций
-                                        в основной капитал
+                                        Водоснабжение
                                 </p>
                             </div>
                             <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">112</span>
-                                        тыс.руб
+                                        <span class="number">{{inform.gas}}</span>
+                                        тыс. куб м/сут
                                     </p>
                                     <p class="territory">
-                                            объем инвестиций
-                    <br>на душу населения
+                                        Газоснабжение
                                     </p>
                                 </div>
                             </div>  
                             <div class="data1">
-                                    <div class="data_inside">
-                                    <p class="p_region">
-                                        <span class="number">5 590</span>
-                                        млн. дол
-                                    </p>
-                                    <p class="territory">
-                                            объем инвестиций
-                        на душу населения
-                                    </p>
                                 </div>
-                                </div>  
                     </div>
             </div>
+            {% endif%}
+            {% endfor%}
             <div class="gryasi" >
                 <div class="data_region">
                     <div class="invest_wrapper">

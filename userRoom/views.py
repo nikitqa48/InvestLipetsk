@@ -364,7 +364,7 @@ def connect(request):
         form = ConnectionForm(request.POST)
         if form.is_valid():
             form.save()
-            a = 'vasya'
+            a = 'sucess'
             return JsonResponse({
                 'response': a 
             })
