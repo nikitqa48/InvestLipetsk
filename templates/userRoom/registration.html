@@ -22,13 +22,15 @@
             <div class="input_1"><p class="username">Имя </p>{{user_form.first_name}}</div> 
             <div class="input_1"><p class="username">Фамилия</p>{{user_form.last_name}}</div>
             <div class="input_1"><p class="username">Отчество(если есть)</p> {{profile_form.last_name}}</div>
-            <!-- <div class="serial"><p>Серия паспорта</p>{{profile_form.passport_serial}}</div>
-            <div class="input_1"><p>Номер паспорта </p> {{profile_form.passport_number}}</div> -->
+            
+             <!-- <div class="input_1"><p>Номер паспорта </p> {{profile_form.passport_number}}</div>  -->
         </div>
         </div>
-
+        <div class="serial">{{user_form.captcha}}</div>
+        {{user_form.captcha.errors}}
         {% csrf_token %}
         <input type="submit" value="Регистрация" class="registration_button">
+        
     </form>
 </div>
 </div>

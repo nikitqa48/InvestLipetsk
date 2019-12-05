@@ -6,5 +6,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('userRoom.urls')),
+    path('captcha/', include('captcha.urls'))
     # path('profile/', include('userRoom.urls')),
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

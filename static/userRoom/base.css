@@ -1152,7 +1152,7 @@ aside{
 }
 .submit{
     margin-top: 6%;
-    margin-right: 18%;
+    margin-right: 2%;
     align-self: flex-end;
     background: none;
     color:white;
@@ -1220,7 +1220,6 @@ aside{
     font-size: 0.8vw;
 }
 .input-class_name{
-    width:85%;
 }
 .form_connect p{
     margin: 0;
@@ -1280,7 +1279,7 @@ aside{
 }
 .container{
     min-height: 75vh;
-    width:95%;
+    width:94%;
     margin: 0 auto;
     border:1px solid #495167;
     margin-bottom: 5vh;
@@ -1346,29 +1345,38 @@ aside{
     flex-direction: column;
 }
 .wrapp1{
-    width:88%;
-    margin:0 auto;
     text-align: left;
+    align-self: flex-end;
     display: flex;
     flex-direction: column;
 }
+.trio{
+    width:95%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column; 
+}
 .wrapp2{
     display: flex;
-    width:88%;
     padding-top: 5%;
-    margin:0 auto;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: nowrap;
 }
+.wrapp3{
+    margin-top: 3%;
+    display:flex;
+    align-self: flex-start;
+    flex-direction: column;
+    text-align: left;
+}
 .input-first{
-    width:70%;
 }
 .input-name{
-    width:70%;
+    
 }
 .input-otch{
-    width:35%;
+    width:97%;
 }
 .statement_name{
     margin-top: 5%;
@@ -1406,7 +1414,7 @@ aside{
     opacity:0;
 }
 .svyaz{
-    width:88%;
+    width:95%;
     margin: 0 auto;
     text-align: left;
 }
@@ -1417,6 +1425,12 @@ aside{
    opacity: .5;
    border:1px solid white;
    border-radius: 5px;
+}
+.org{
+    display: flex;
+    align-self: flex-end;
+    text-align: center;
+    flex-direction: column;
 }
 .username{
     text-align: left;
@@ -1467,4 +1481,41 @@ aside{
     padding-left: 3%;
     justify-content: flex-start;
     margin-top: 2%;
+}
+.serial input{
+    margin-top: 1%;
+    border:1px solid white;
+    background: none;
+    opacity: .5;
+    outline: none;
+    padding-left: 1vw;
+    min-height: 3vh;
+    color: white;
+}
+.serial{
+    margin-top: 3%;
+    display: flex;
+    color: white;
+    width:100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.errorlist li{
+    color: #8FBEDF;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.capcha{
+    align-self: center;
+    display: flex;
+    margin-right: 2%;
+    flex-direction: column;
+    width:40%;
+}
+.wrap_flex{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }

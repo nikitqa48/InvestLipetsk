@@ -2310,7 +2310,7 @@
     <form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
         <div class="all">
         <h2 class="svyaz">Связаться с нами</h2>
-        <div class="form_wrapp">
+        <div class="trio">
         <div class="wrapp2">
             <div class="wrapp1">
                     <p>Имя</p>
@@ -2321,13 +2321,15 @@
                     {{var.second_name}}
             </div>
     </div>
-    <div class="wrapp1">
-    <p>Отчество</p>
+    <div class="wrapp3">
+    <label class="otch" for="id_last_name">Отчество</label>
     {{var.last_name}}
     </div>
+</div>
+<div class="trio">
     <div class="wrapp2">
         <div class="wrapp1">
-        <p class="phone">Телефон</p>
+        <label class="phone" for="id_phone">Телефон</label>
         {{var.phone}}
     </div>
     <div class="wrapp1">
@@ -2336,12 +2338,18 @@
     </div>
     
     </div>
-    <div class="wrapp1">
+    <div class="org">
             <p>Организация</p>
             {{var.organisation}}
         </div>
-            {% csrf_token %}
     </div>
+        <div class="capcha">
+                <p>Введите символы</p>
+                {{var.captcha}}
+                {{var.captcha.errors}}
+            </div>
+            {% csrf_token %}
+  
     <input type="submit" value="Связаться" class="submit" id = 'btn'>
     </div>
      

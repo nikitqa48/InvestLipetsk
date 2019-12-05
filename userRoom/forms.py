@@ -4,8 +4,7 @@ from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .models import Profile, Statement, Organisation, Connection, Message
-# 
-
+from captcha.fields import CaptchaField
 class Profile_form(forms.ModelForm):
     class Meta:
         model = Profile
@@ -20,7 +19,7 @@ class Organisation_form(forms.ModelForm):
 
 class Statement_form(forms.ModelForm):
     """ФОРМА ЗАЯВКИ"""
-    class Meta:
+    class Meta:   
         model = Statement
         fields = ["project_name", "industry", "cost", "square", "work", "description"]
         widgets={
@@ -44,8 +43,10 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class UserRegistrationForm(forms.ModelForm):
+    captcha = CaptchaField()
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput)
+    
 
     class Meta:
         model = User
@@ -60,6 +61,7 @@ class UserRegistrationForm(forms.ModelForm):
 
 class ConnectionForm(forms.ModelForm):
     """ФОРМА СВЯЗИ НА ВСЕХ СТРАНИЦАХ"""
+    captcha = CaptchaField()
     class Meta:
         model = Connection
         fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']
@@ -77,3 +79,4 @@ class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
         fields = ['text']
+

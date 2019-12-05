@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
     'django.contrib.staticfiles',
     'userRoom', 
+    'captcha'
 
 ]
 
@@ -93,3 +94,9 @@ STATIC_ROOT = os.path.join ('staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SITE_ID = 1
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+CAPTCHA_IMAGE_SIZE = (150, 50)
+CAPTCHA_FONT_SIZE = (28)
+CAPTCHA_BACKGROUND_COLOR = '#cccccc'
+CAPTCHA_FOREGROUND_COLOR = '#001100'
+CAPTCHA_LENGTH = 6
