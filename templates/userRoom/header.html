@@ -4,9 +4,14 @@
 <a href="{% url 'container' %}"><p class="logo"><span class="white_logo">Инвест</span> Липецк</p></a>
 </div>  
     {% if user.is_authenticated %}
+    <div class="logout">
         <a href="{% url 'private' %}">
             <button class="login">Личный кабинет</button>
         </a>
+        <a href="{% url 'logout'  %}">
+            <button class="login">Выйти</button>
+        </a> 
+    </div>
     {% else %}
         <a href="{% url 'register'%}">
             <button class="login">Регистрация</button>

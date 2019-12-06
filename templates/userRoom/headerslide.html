@@ -6,10 +6,12 @@
                 </div>  
 
                     {% if user.is_authenticated %}
-
+                <div class="logout">
                         <a href="{% url 'private'  %}">
                             <button class="login">Личный кабинет</button>
                         </a> 
+                  
+                    </div>
                     {% else %}
                     <div class="logout">
                     <a href="{% url 'register'%}">

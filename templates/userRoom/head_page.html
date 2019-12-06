@@ -187,16 +187,16 @@
                          <table class="preferense_table">
                              <tr class="no_name">
            
-                                 <td><p class="procent">6</p>
+                                 <td><p class="procent">Электроэнергия</p>
                                 
                                      
                                  </td>
-                                 <td class="flex_td"><p class="years">Генерирующих электростанций</p></td>
+                                 <td class="flex_td"></td>
                              </tr>
           
                              <tr class="height">
-                                  <td><p class="procent">100%</p>
-                                 <td class="td_flex"> <p class="years">Уровень электрофикации</p></td>
+                                  <td><p class="procent">Газоснабжение</p>
+                                 <td class="td_flex"> </td>
                              </tr>
                          </table>
           
@@ -1623,96 +1623,78 @@
             <div class="terbuny" >
                 <div class="data_region">
                     <div class="invest_wrapper">
-                    <h2 class="invest">
-                        {% for inform in information%}
-                        {% if inform.region.name == 'Тербуны'%}
-                                {{inform.region.name}}
-                    </h2>
-                    <span class="border_invest"></span>
-                </div>
-                    
-                    <div class="data1">
-                        <div class="data_inside">
-                        <p class="p_region">
-                            <span class="number">{{inform.territory}}</span>
-                            тыс. га
-                        </p>
-                        <p class="territory">
-                            Площадь территории
-                        </p>
+                        <h2 class="invest">
+                            {% for inform in information%}
+                            {% if inform.region.name == 'Тербуны'%}
+                                    {{inform.region.name}}
+                        </h2>
+                        <span class="border_invest"></span>
                     </div>
-                    <div class="data_inside">
-                            <p class="p_region">
-                                <span class="number">{{inform.termo}}</span>
-                                Гкал/час
-                            </p>
-                            <p class="territory">
-                                   Теплоснабжение
-                            </p>
-                        </div>
-                    </div>
-                    <div class="data1">
+                        
+                        <div class="data1">
                             <div class="data_inside">
                             <p class="p_region">
-                                <span class="number">{{inform.energy}}</span>
-                                МВт
+                                <span class="number">{{inform.territory}}</span>
+                                тыс. га
                             </p>
                             <p class="territory">
-                                электроснабжение
+                                Площадь территории
                             </p>
                         </div>
                         <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">{{inform.waterout}}</span>
-                                    тыс.куб м/сут
+                                    <span class="number">{{inform.termo}}</span>
+                                    Гкал/час
                                 </p>
                                 <p class="territory">
-                                    Водоотведение
+                                       Теплоснабжение
                                 </p>
                             </div>
-                        </div>  
-                   <div class="invest_border"></div>
+                        </div>
                         <div class="data1">
                                 <div class="data_inside">
                                 <p class="p_region">
-                                    <span class="number">{{inform.water}}</span>
-                                    тыс. куб м/сут
+                                    <span class="number">{{inform.energy}}</span>
+                                    МВт
                                 </p>
                                 <p class="territory">
-                                        Водоснабжение
+                                    электроснабжение
                                 </p>
                             </div>
                             <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">{{inform.gas}}</span>
-                                        тыс. куб м/сут
+                                        <span class="number">{{inform.waterout}}</span>
+                                        тыс.куб м/сут
                                     </p>
                                     <p class="territory">
-                                        Газоснабжение
+                                        Водоотведение
                                     </p>
                                 </div>
                             </div>  
+                       <div class="invest_border"></div>
                             <div class="data1">
                                     <div class="data_inside">
                                     <p class="p_region">
-                                        <span class="number">60</span>
-                                        км
+                                        <span class="number">{{inform.water}}</span>
+                                        тыс. куб м/сут
                                     </p>
                                     <p class="territory">
-                             расстояние до трассы федерального значения М-4 "Дон"
+                                            Водоснабжение
                                     </p>
                                 </div>
                                 <div class="data_inside">
-                                    <p class="p_region">
-                                        <span class="number">1,5</span>
-                                        км
-                                    </p>
-                                    <p class="territory">
-                             расстояние до трассы областного значения Липецк-Тербуны
-                                    </p>
-                                </div>
-                                </div>
-                    </div>
+                                        <p class="p_region">
+                                            <span class="number">{{inform.gas}}</span>
+                                            тыс. куб м/сут
+                                        </p>
+                                        <p class="territory">
+                                            Газоснабжение
+                                        </p>
+                                    </div>
+                                </div>  
+                                <div class="data1">
+                                    </div>
+                        </div>
             </div>
             {% endif%}
             {% endfor%}
