@@ -36,7 +36,22 @@ $('.fade').slick({
     infinite: true,
     speed: 200,
     fade: true,
-    cssEase: 'linear'
+    lazyLoad: 'progressive',
+    cssEase: 'ease-out'
+  });
+  $('.itms').slick({
+    dots: false,
+    infinite: true,
+    speed: 200,
+    slidesToShow: 3,
+    autoplay:true,
+    autoplaySpeed: 4500,
+    pauseOnFocus:   false,
+    pauseOnHover:   false,
+    slidesToShow:3,
+    slidesToScroll: 1,
+    fade: false,
+    cssEase: 'linear',
   });
 
   $('.shade').slick({
@@ -48,7 +63,7 @@ $('.fade').slick({
     prevArrow: $('.prev'),
     nextArrow: $('.next'),
     fade: true,
-    cssEase: 'linear'
+    cssEase: 'ease-out'
   });
 
   var inf = document.getElementById('1')
