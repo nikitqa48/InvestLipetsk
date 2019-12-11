@@ -2324,12 +2324,15 @@
             <p>Организация</p>
             {{var.organisation}}
         </div>
-    </div>
+    </div><p>Введите символы</p>
         <div class="capcha">
-                <p>Введите символы</p>
+                
+
                 {{var.captcha}}
                 {{var.captcha.errors}}
+                <button id='refresh' class="refresh"><img src="/static/userRoom/img/refresh.svg"></button>
             </div>
+
             {% csrf_token %}
   
     <input type="submit" value="Связаться" class="submit" id = 'btn'>

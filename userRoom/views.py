@@ -364,9 +364,10 @@ def connect(request):
         form = ConnectionForm(request.POST)
         if form.is_valid():
             form.save()
+            print(form)
             a = 'sucess'
             return JsonResponse({
-                'response': a 
+                'response': a
             })
     else:
         form = ConnectionForm

@@ -66,8 +66,8 @@ class ConnectionForm(forms.ModelForm):
         model = Connection
         fields = ['phone', 'first_name', 'second_name', 'organisation', 'email', 'last_name']
         widgets={
-                   "phone":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required'}),
-                   "email":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required'}),
+                   "phone":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required', 'type':'tel'}),
+                   "email":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-first', 'required':'required', 'type':'email'}),
                    "first_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-name', 'required':'required'}),
                    "second_name":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-name', 'required':'required'}),
                    "organisation":forms.TextInput(attrs={'placeholder':'','name':'Name','class':'input-class_name'}),

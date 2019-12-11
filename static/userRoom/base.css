@@ -645,8 +645,23 @@ width:25%;
     justify-content: space-between;
     align-items: center;
 }
-.td_flex1{
+.refresh{
+    align-self: center;
+    position: absolute;
+    right:-20%;
+    bottom: 0;
+    cursor: pointer;
+    background: white;
+    border:none;
+    outline: none;
+    width:20%;
+    display: flex;
+}
 
+.refresh img{
+    fill: white;
+    height:3vh;
+    width: 100%;
 }
 .td_flex2{
 
@@ -1511,6 +1526,7 @@ aside{
 }
 .capcha{
     align-self: center;
+    position: relative;
     display: flex;
     margin-right: 2%;
     flex-direction: column;

@@ -1,8 +1,3 @@
-var aler = function(){
-  button.addEventListener('click', function(){
-    form.classList.toggle('formtoggle')
-  })
-}
 
 $(document).ready(function(){ 
   $("#egor").submit(function(e){
@@ -13,14 +8,27 @@ $(document).ready(function(){
              url :  $('#egor').attr('action'),
              data : serializedData,
              success : function(response){
-                  aler()
                  $("#egor")[0].reset(); 
+                 $('#egor').hide()
+                 $('#toggle').hide()
+                 alert('В течении 5 минут вам перезвонят')
              },
              error : function(response){
                  console.log(response)
+                 alert('неверно введены символы')
              }
          });
   })
+  $('#refresh').click(function(){
+    var $form = $(this).parents('form');
+    var url = location.protocol + "//" + window.location.hostname + ":"
+              + location.port + "/captcha/refresh/";
+    $.getJSON(url, {}, function(json) {
+        $form.find('input[name="captcha_0"]').val(json.key);
+        $form.find('img.captcha').attr('src', json.image_url);
+    });
+    return false;
+});
 });
 
   $(document).ready(function(){
