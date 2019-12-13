@@ -561,38 +561,14 @@ width:25%;
     color:white;
     opacity: 0.8;
 }
-.inside{
+.inside, .pref, .kadr, .log, .teamate, .infros{
     display: none;
     width:90%;
+    flex-direction: column;
+    margin: 0 auto;
+    height:100%;
+}
 
-    flex-direction: column;
-    margin: 0 auto;
-    height:100%;
-}
-.inside1{
-    display: none;
-    width:90%;
-
-    flex-direction: column;
-    margin: 0 auto;
-    height:100%;
-}
-.inside2{
-    width:90%;
- 
-    flex-direction: column;
-    margin: 0 auto;
-    height:100%;
-    display: none;
-}
-.inside3{
-        width:90%;
- 
-    flex-direction: column;
-    margin: 0 auto;
-    height:100%;
-    display: none;
-}
 .pref_border{
     border-bottom:1px solid white;
     width:50%;
@@ -709,7 +685,6 @@ width:25%;
     height: 2.3vh;
     padding: 5px;
     cursor: pointer;
-
     color: transparent;
     border: 0;
     outline: none;
