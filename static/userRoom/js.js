@@ -87,7 +87,7 @@ var close_form = document.getElementById('close_form')
 button.addEventListener('click', function () {
   form.classList.toggle('formtoggle')
 })
-let showBlock = function() {
+let showBlock = function () {
   $('.log').hide()
   $('.kadr').hide()
   $('.teamate').hide()
@@ -101,15 +101,25 @@ let showBlock = function() {
   $(cadr).removeClass('active')
   $(inf).removeClass('active')
 }
-let hideBlock = function() {
+let hideBlock = function () {
   if (head.classList.contains('toggle')) {
     let slider = document.getElementsByClassName('slide_container')
     for (let i = 0; i <= slider.length; i++) {
       $(slider[i]).hide()
+      $('#industry').hide()
     }
   }
 }
 
+
+$('#back').click(function(){
+  $('#industry').hide()
+  $('#slide').show()
+})
+$('.more').click(function(){
+  $('#slide').hide()
+  $('#industry').show(100)
+})
 close.addEventListener('click', function () {
   $(logic).removeClass('active')
   $(pref).removeClass('active')
@@ -118,14 +128,22 @@ close.addEventListener('click', function () {
   $(inf).removeClass('active')
   head.classList.remove('toggle')
   head.classList.add('none')
+  $(document).mouseup(function (e){
+    var div = $("#head")
+     if(!div.is(e.target) && div.has(e.target).length === 0){
+      div.classList.remove('toggle')
+      div.classList.add('none')
+      alert(2)
+     }
+     })
   let slider = document.getElementsByClassName('slide_container')
   for (let i = 0; i <= slider.length; i++) {
     $(slider[i]).show(150)
   }
 })
 let blocks = [pref, logic, team, cadr, inf]
-for (let i=0; i<=blocks.length-1; i++){
-  blocks[i].addEventListener('click', function(){
+for (let i = 0; i <= blocks.length - 1; i++) {
+  blocks[i].addEventListener('click', function () {
     head.classList.add('toggle')
     showBlock()
     hideBlock()
@@ -159,8 +177,8 @@ let showRegion = function () {
 }
 let regions = [lev, dankov, chaplygin, lebedyan, dobroe, lipetsk, krasnoe, stanovoe, elec, zadonsk, ismalkovo, dolgorukogo, terbuny, volovo, hlevnoe, gryasi, usman, dobrinka]
 
-for (let i = 0; i <= regions.length-1; i++) {
-  regions[i].addEventListener('click', function() {
+for (let i = 0; i <= regions.length - 1; i++) {
+  regions[i].addEventListener('click', function () {
     hideRegion()
     showRegion()
   })

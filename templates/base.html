@@ -16,52 +16,51 @@
   
     {% endblock %}
     <form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
-            <div class="all">
-            <h2 class="svyaz">Связаться с нами</h2>
-            <div class="trio">
-            <div class="wrapp2">
-                <div class="wrapp1">
-                        <p>Имя</p>
-                        {{var.first_name}}
-                </div>
-                <div class="wrapp1">
-                        <p>Фамилия</p>
-                        {{var.second_name}}
-                </div>
-        </div>
-        <div class="wrapp3">
-        <label class="otch" for="id_last_name">Отчество</label>
-        {{var.last_name}}
-        </div>
-    </div>
-    <div class="trio">
+        <div class="all">
+        <h2 class="svyaz">Связаться с нами</h2>
+        <div class="trio">
         <div class="wrapp2">
             <div class="wrapp1">
-            <label class="phone" for="id_phone">Телефон</label>
-            {{var.phone}}
-        </div>
-        <div class="wrapp1">
-            <p>Почта</p>
-            {{var.email}}
-        </div>
-        
-        </div>
-        <div class="org">
-                <p>Организация</p>
-                {{var.organisation}}
+                    <p>Имя</p>
+                    {{var.first_name}}
             </div>
+            <div class="wrapp1">
+                    <p>Фамилия</p>
+                    {{var.second_name}}
+            </div>
+    </div>
+    <div class="wrapp3">
+    <label class="otch" for="id_last_name">Отчество</label>
+    {{var.last_name}}
+    </div>
+</div>
+<div class="trio">
+    <div class="wrapp2">
+        <div class="wrapp1">
+        <label class="phone" for="id_phone">Телефон</label>
+        {{var.phone}}
+    </div>
+    <div class="wrapp1">
+        <p>Почта</p>
+        {{var.email}}
+    </div>
+    </div>
+    <div class="org">
+            <p>Организация</p>
+            {{var.organisation}}
         </div>
-            <div class="capcha">
-                    <p>Введите символы</p>
-                    {{var.captcha}}
-                    {{var.captcha.errors}}
-                </div>
-                {% csrf_token %}
-      
-        <input type="submit" value="Связаться" class="submit" id = 'btn'>
-        </div>
-         
-        </form>
+    </div><p>Введите символы</p>
+        <div class="capcha">
+                {{var.captcha}}
+                {{var.captcha.errors}}
+                <button id='refresh' class="refresh"><img src="/static/userRoom/img/refresh.svg"></button>
+            </div>
+
+            {% csrf_token %}
+  
+    <input type="submit" value="Связаться" class="submit" id = 'btn'>
+    </div>
+    </form>
 
 <button class="fixed_button" id = "toggle">?</button> 
 <script type="text/javascript" src="/static/slick-1.8.1/slick/slick.min.js"></script>

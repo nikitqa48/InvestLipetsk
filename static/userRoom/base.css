@@ -63,6 +63,7 @@ body{
 
 .slide1{
     display:flex;
+
     background-image: url("/static/userRoom/img/obrabotka.png");
     height:100vh;
     background-position: center center;
@@ -110,14 +111,222 @@ body{
     background-size: cover;
 }
 .slide_container{
-    display:flex;
+    display:none;
     transition: .5s ease-in-out;
     flex-direction: row;
     justify-content: center;
     width:90%;  
     margin: 0 auto;
+}
+.slider_wrapper{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+}
+.slider_wrappertour{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+}
+.slider_wrapperindustry{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width:95%;
+    margin-top: 3%;
+}
+.first_industry1{ 
+    margin-top: 5%;
+}
+.first_industry2{
+    margin-top: 14%;
+    padding-bottom: 2%;
+}
 
+.left_slidewrappercenter{
+   border-right: 1px solid white;
+    width: 60%;
+    padding-bottom: 0.6%;
+    display: flex;
+    height:100%;
+    flex-direction: column;
+}
+.left_slidewrappercenter:last-child{
+    border:none;
+}
+.center{
+    width:80%;
+    margin:0 auto;
+}
+.left_slidewrappercenter h2{
+    font-size: 1.4vw;
+    margin:0;
+}
+.industry_wrpapper{
+    align-self: center;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.back{
+    margin-left:4%;
+    margin-top: 5%;
+    border:1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.8vw;
+    height:4vh;
+    width:15%;
+    opacity: .5;
+    background: none;
+    color:white;
+}
+.left_slidewrapper{
+    border-right: 1px solid white;
+    width: 50%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.industry_wrapper{
+    border:1px solid red;
+}
+/* .slide_container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.5;
+    z-index: 1;
+} */
+.right_slidewrapper{
+    display: flex;
+    width:40%;
+    flex-direction: column;
+}
+.left_slidewrapper h2 {
+    font-size: 1.8vw;
+    margin:0;
+    
+} 
+.right_slidewrapper h2{
+    font-size: 1.5vw;
+    margin:0;
+}
+.inform_industry{
+    display: flex;
+    margin-top: 5%;
+    flex-direction: row;
+    height:100%;
+}
+.inform_industry1{
+    display: flex;
+    margin-top: 15%;
+    flex-direction: row;
+    height:100%;
+}
+.inform_industryright{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.inform_industryright1{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.left_industry{
+    display:flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.first_industry{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.right_industry{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:50%;
+}
+.right_industry1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width:50%;
+}
+.index_number{
+    margin-top: 5%;
+    margin-bottom: 7%;
+    display:flex;
+    flex-direction: column;
+}
+.procent_number{
+    margin-top: 0;
+    margin-bottom: 0%;
+    color:white;
+    font-size: 1.8vw;
+}
+.procent_number2{
+    color:white;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 1.8vw;
+}
+.procent_number1{
+    color:white;
+    margin:0;
+    font-size: 1.8vw;
+}
+.procent_text{
+    margin-top: 0%;
+    padding-bottom: 5%;
+    color:white;
+    opacity: .5;
+    margin-bottom: 0%;
+    font-size: 0.8vw;
+    max-width:60%;
+}
+.procent_text2{
+    margin-top: 0%;
+    color:white;
+    opacity: .5;
+    margin-bottom: 0%;
+    font-size: 0.8vw;
+}
+.procent_text1{
+    margin-top: 3vh;
+    margin-bottom: 0;
+    color:white;
+    opacity: .5;
+    font-size: 0.8vw;
+}
+.procent_textnone{
+    color: white;
+    font-size: 0.8vw;
+    opacity:.5;
+    margin-bottom: 0;
+}
+.index_row{
+    width:60%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row ;
 }
 .slide_text{
     color:white;
