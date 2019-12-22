@@ -87,12 +87,15 @@ var close_form = document.getElementById('close_form')
 button.addEventListener('click', function () {
   form.classList.toggle('formtoggle')
 })
+
 let showBlock = function () {
   $('.log').hide()
   $('.kadr').hide()
   $('.teamate').hide()
   $('.infros').hide()
+  $('.industry_wrpapper').hide()
   $('.pref').hide()
+  $('.but').hide()
   let variable = '.' + event.target.id
   $(variable).show(250)
   $(logic).removeClass('active')
@@ -101,6 +104,7 @@ let showBlock = function () {
   $(cadr).removeClass('active')
   $(inf).removeClass('active')
 }
+
 let hideBlock = function () {
   if (head.classList.contains('toggle')) {
     let slider = document.getElementsByClassName('slide_container')
@@ -112,22 +116,24 @@ let hideBlock = function () {
 }
 
 
-$('#back').click(function(){
-  $('#industry').hide()
-  $('#slide').show()
+$('.back').click(function(){
+  $('.industry_wrpapper').hide()
+  $('.slide_container').show()
 })
 $('.more').click(function(){
-  $('#slide').hide()
-  $('#industry').show(100)
+  $('.slide_container').hide()
+  $('.industry_wrpapper').show(100)
 })
 close.addEventListener('click', function () {
-  $(logic).removeClass('active')
-  $(pref).removeClass('active')
-  $(team).removeClass('active')
-  $(cadr).removeClass('active')
-  $(inf).removeClass('active')
+  $('.inf').removeClass('active')
+  $('.kad').removeClass('active')
+  $('.pre').removeClass('active')
+  $('.tea').removeClass('active')
+  $('.logistic').removeClass('active')
   head.classList.remove('toggle')
   head.classList.add('none')
+  $('.industry_wrpapper').hide()
+  $('.but').show()
   $(document).mouseup(function (e){
     var div = $("#head")
      if(!div.is(e.target) && div.has(e.target).length === 0){
@@ -141,15 +147,19 @@ close.addEventListener('click', function () {
     $(slider[i]).show(150)
   }
 })
-let blocks = [pref, logic, team, cadr, inf]
+
+let blocks = [$('.inf'), $('.kad'),$('.pre'),$('.tea'),$('.logistic')]
+console.log(blocks)
 for (let i = 0; i <= blocks.length - 1; i++) {
-  blocks[i].addEventListener('click', function () {
+  blocks[i].click(function () {
     head.classList.add('toggle')
     showBlock()
     hideBlock()
     $(this).addClass('active')
+    console.log(e.target)
   })
 }
+let topBlock = []
 let hideRegion = function () {
   $('.right_map').hide()
   $('.dankov').hide()

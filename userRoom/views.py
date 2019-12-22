@@ -60,7 +60,8 @@ def chat(request):
                 }
             return render(request, 'userRoom/chat.html',context)
 
-
+def news(request):
+    return render(request, 'userRoom/news.html')
 
 
 def send_message(request,pk):

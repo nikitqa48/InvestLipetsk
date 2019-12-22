@@ -38,8 +38,15 @@
                   <div class="wrapper_structure">
                   <div class="infrastruktura_container" id="head">
                       <button class="close" id="close">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill = "white" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill = "white" width="2vw" height="2.5vh" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
                       </button>
+                      <ul class="but2">
+                        <li class="inf" id="infros">Инфраструктура</li>
+                        <li class="kad" id="kadr">Кадры</li>
+                        <li class="pre" id="pref">Преференции</li>
+                        <li class="tea" id="teamate">Команда</li>
+                        <li class="logistic" id="log">Логистика</li>
+                    </ul>
                       <div class="pref" id="3"> 
                           <div class="preferenc">
                               <h3 class="nalog">Налоговые льготы <br>и Преференции</h3>
@@ -204,13 +211,12 @@
                   </div>
           <div class="buttons_slider">
                   <ul class="but">
-                      <li class="but_li" id="infros">Инфраструктура</li>
-                      <li class="but_li" id="kadr">Кадры</li>
-                      <li class="but_li" id="pref">Преференции</li>
-                      <li class="but_li" id="teamate">Команда</li>
-                      <li class="but_li" id="log">Логистика</li>
+                      <li class="inf" id="infros">Инфраструктура</li>
+                      <li class="kad" id="kadr">Кадры</li>
+                      <li class="pre" id="pref">Преференции</li>
+                      <li class="tea" id="teamate">Команда</li>
+                      <li class="logistic" id="log">Логистика</li>
                   </ul>
-          
               </div>
           <div class="fade">        
                       <div class="slide">
@@ -319,7 +325,7 @@
                                     </div>
                             </div>
                         </div>
-                        <button class="back" id='back'>Назад к списку</button>
+                        <button class="back" id='back'>Назад</button>
                         </div>
                       </div>
                           </div>
@@ -400,7 +406,7 @@
                   </div>
                       <div class="slide">
                           <div class="slide5">
-                              <div class="slide_container">
+                              <div class="slide_container" id='slide'>
                                   <div class="left_slide">
                                           <div class = "prev_verh">
                                                   <img class = "arrow" src="/static/userRoom/img/leftarrow.svg">
@@ -523,7 +529,7 @@
                             </div>
                             </div>
                     </div>
-                    <button class="back" id='back'>Назад к списку</button>
+                    <button class="back" id='back'>Назад</button>
                     </div>
                       </div>
                           </div> 
@@ -628,7 +634,7 @@
                                             </div>
                                     </div>
                                 </div>
-                                <button class="back" id='back'>Назад к списку</button>
+                                <button class="back" id='back'>Назад</button>
                                 </div>
                               </div>
                                   </div>         
@@ -2520,47 +2526,50 @@
     <form action="{% url 'connect' %}" class="form_connect" method="POST" id="egor">
         <div class="all">
         <h2 class="svyaz">Связаться с нами</h2>
-        <div class="trio">
         <div class="wrapp2">
             <div class="wrapp1">
                     <p>Имя</p>
                     {{var.first_name}}
             </div>
-            <div class="wrapp1">
-                    <p>Фамилия</p>
-                    {{var.second_name}}
-            </div>
-    </div>
-    <div class="wrapp3">
-    <label class="otch" for="id_last_name">Отчество</label>
-    {{var.last_name}}
-    </div>
-</div>
-<div class="trio">
-    <div class="wrapp2">
-        <div class="wrapp1">
+                <div class="wrapp1">
         <label class="phone" for="id_phone">Телефон</label>
         {{var.phone}}
+    </div>
+
+    </div>
+    <div class="wrapp2">
+        <div class="wrapp1">
+            <p>Фамилия</p>
+            {{var.second_name}}
     </div>
     <div class="wrapp1">
         <p>Почта</p>
         {{var.email}}
     </div>
     </div>
-    <div class="org">
-            <p>Организация</p>
-            {{var.organisation}}
-        </div>
-    </div><p>Введите символы</p>
+    <div class="wrapp2">
+        <div class="wrapp1">
+    <label class="otch" for="id_last_name">Отчество</label>
+
+    {{var.last_name}}
+    </div>
+    <div class="wrapp1">
+        <p>Организация</p>
+        {{var.organisation}}
+    </div> 
+    </div>
+  <div class="wrapp2">
+      <div class="wrapp1">
         <div class="capcha">
                 {{var.captcha}}
                 {{var.captcha.errors}}
                 <button id='refresh' class="refresh"><img src="/static/userRoom/img/refresh.svg"></button>
             </div>
-
+        </div>
             {% csrf_token %}
   
     <input type="submit" value="Связаться" class="submit" id = 'btn'>
+</div>
     </div>
     </form>
 <button class="fixed_button" id = "toggle">?</button> 
