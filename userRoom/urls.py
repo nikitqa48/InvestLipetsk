@@ -4,7 +4,7 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-    path('news/', news, name='news'),
+    path('news/<int:pk>', news, name='news'),
     path('registration/', register, name="register"),
     path('chat/', chat, name='chat'),
     path('send/<int:pk>', send_message, name='send'),

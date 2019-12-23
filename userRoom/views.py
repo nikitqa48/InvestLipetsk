@@ -19,7 +19,6 @@ def organisation_post(request):
     return render(request, "/", {'organsiations': organisations})
 
 
-
 def dialog(request):
     """отрисовка диалога"""
     if request.method == 'GET':
@@ -60,8 +59,14 @@ def chat(request):
                 }
             return render(request, 'userRoom/chat.html',context)
 
-def news(request):
-    return render(request, 'userRoom/news.html')
+def news(request,pk):
+    news = News.objects.get(id=pk)
+    last_four = News.objects.order_by('-id')[0:4]
+    context = {
+        'news':news,
+        'last_four':last_four
+    }
+    return render(request, 'userRoom/news.html', context)
 
 
 def send_message(request,pk):

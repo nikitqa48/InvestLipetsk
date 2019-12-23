@@ -29,7 +29,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 .example{
-   
     position: fixed;
     bottom:0%;
     right:2%;
@@ -586,8 +585,24 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 width:25%;
-
-
+}
+.item_data{
+    padding-bottom: 2%;
+   font-size: 0.6vw;
+   margin: 0;
+   color:#8A8A8A;
+}
+.item_header{
+    padding-bottom: 2%;
+    margin: 0;
+}
+.item_text{
+    margin:0;
+    font-size: 0.7vw;
+}
+.news_headtext{
+    color:#5C7BA5;
+    font-size: 2vw;
 }
 .item1:nth-child(2){
     border-left:0.5px solid #52A4DF;
@@ -808,9 +823,22 @@ width:25%;
     border-collapse: collapse;
     width:100%;
 }
-.preferense_table p{
+.logistic_table{
+    border-collapse: collapse;
+    width:50%;
+}
+.preferenc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.preferense_table p, .logistic_table p{
     padding: 0;
     margin: 0;
+}
+.td_flex21{
+    border:1px solid red;
+
 }
 
 .years{
@@ -825,6 +853,16 @@ width:25%;
 .no_name{
     border-bottom: 1px solid white;
 }
+.kadastr{
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    
+}
+.kadastr p{
+    margin-left: 3%;
+
+}
 .procent{
     font-size: 1.66vw;
 }
@@ -836,6 +874,14 @@ width:25%;
 }
 .height{
     text-align: left;
+    border-bottom: 1px solid white;
+    height: 8vh;
+}
+.height2{
+    text-align: left;
+
+    border:1px solid red;
+    width:100%;
     border-bottom: 1px solid white;
     height: 8vh;
 }
@@ -1564,7 +1610,7 @@ aside{
     flex-direction: column;
 }
 .news_header{
-    background: black;
+    background: #262626;
 }
 .wrapp1{
     width: 40%;
@@ -1754,4 +1800,40 @@ aside{
     display: flex;
     flex-direction: column;
     text-align: left;
+}
+.wrappperr{
+    display: flex;
+    flex-direction: row;
+}
+.news_image{
+    width:95%;
+   
+    height:55vh;
+}
+.news_image img{
+    height:100%;
+    width:100%;
+}
+.right_news{
+    width:100%;
+}
+.news_textwrapp{
+    margin-top: 2%;
+    width:95%;
+}
+.news_item{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+}
+.item_header{
+    color:#292929;
+    line-height: 130%;
+    font-weight: 600;
+}
+.podrobnee{
+    border-radius: 5px;
+    border: 1px solid #5C7BA5;
+    background:none;
+    cursor: pointer;
 }

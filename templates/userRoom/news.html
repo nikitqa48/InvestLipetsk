@@ -4,7 +4,27 @@
 {% include "userRoom/header.html" %}
 </div>
 <div class="news_container">
-    <h2 class="news_headtext">dasdasd</h2>
-    <div class="news_image"><img></div>
+    
+    <h2 class="news_headtext">{{news.news_header}}</h2>
+    <div class="wrappperr">
+        <div class = "text_wrapp">
+    <div class="news_image"><img src={{news.image.url}}></div>
+    <div class="news_textwrapp">{{news.news_text}}</div>
+</div>
+    <div class="right_news">
+        {% for news in last_four%}
+        
+        <div class="news_item">
+            <p class="item_data"> {{news.news_data}}</p>
+            <a href="{% url 'news' pk=news.id %}">
+            <p class="item_header">{{news.news_header}}</p>
+        </a>
+            <p class="item_text">{{news.news_text|truncatewords:10}} </p>
+    </div>
+    
+        {%  endfor %}
+    </div>
+</div>
+
 </div>
 {% endblock %}
