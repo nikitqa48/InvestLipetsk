@@ -109,7 +109,7 @@ body{
     background-position: center center;
     background-size: cover;
 }
-.slide_container{
+.slide_container, .slide_container1{
     display:flex;
     transition: .5s ease-in-out;
     flex-direction: row;
@@ -884,6 +884,12 @@ width:25%;
     width:100%;
     border-bottom: 1px solid white;
     height: 8vh;
+}
+.svgclose{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
 }
 
 .td_flex{

@@ -114,7 +114,9 @@ let hideBlock = function () {
     }
   }
 }
-
+$('#closebutton').click(function(){
+  form.classList.toggle('formtoggle')
+})
 
 $('.back').click(function(){
   $('.industry_wrpapper').hide()
